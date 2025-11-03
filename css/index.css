@@ -1,0 +1,389 @@
+/* ===========================
+   SECCIÓN HERO (PRINCIPAL)
+   =========================== */
+
+/* Contenedor principal del hero con gradiente de fondo */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--blanco);
+    padding: var(--espacio-3xl) 0;
+    min-height: 80vh;  /* Ocupa 80% de la altura de la ventana */
+    display: flex;
+    align-items: center;
+}
+
+/* Grid de dos columnas para contenido y visual */
+.hero .contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Dos columnas iguales */
+    gap: var(--espacio-3xl);
+    align-items: center;
+}
+
+/* Contenido textual del hero con animación de entrada */
+.hero-contenido {
+    animation: aparecerIzquierda 0.8s ease-out;
+}
+
+/* Título principal del hero */
+.hero-titulo {
+    font-size: 3.5rem;
+    margin-bottom: var(--espacio-lg);
+    color: var(--blanco);
+    line-height: 1.1;
+}
+
+/* Texto resaltado con gradiente en el título */
+.hero-titulo .resaltado {
+    background: linear-gradient(135deg, #60A5FA, #34D399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Subtítulo descriptivo del hero */
+.hero-subtitulo {
+    font-size: 1.25rem;
+    margin-bottom: var(--espacio-2xl);
+    color: rgba(255, 255, 255, 0.9);  /* Blanco semi-transparente */
+    line-height: 1.6;
+}
+
+/* Contenedor de botones de acción */
+.hero-botones {
+    display: flex;
+    gap: var(--espacio-md);
+}
+
+.hero-botones .btn {
+    min-width: 150px;  /* Ancho mínimo consistente */
+}
+
+/* ===========================
+   VISUAL DEL HERO - DIAGRAMA API
+   =========================== */
+
+/* Contenedor del diagrama visual con animación */
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: aparecerDerecha 0.8s ease-out;
+}
+
+/* Diagrama de comunicación API con efecto glassmorphism */
+.diagrama-api {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-2xl);
+    padding: var(--espacio-2xl);
+    background: rgba(255, 255, 255, 0.1);  /* Fondo semi-transparente */
+    backdrop-filter: blur(10px);  /* Efecto de desenfoque */
+    border-radius: var(--radio-xl);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Cajas individuales del diagrama (cliente/servidor) */
+.caja-diagrama {
+    background: var(--blanco);
+    color: var(--gris-900);
+    padding: var(--espacio-xl) var(--espacio-2xl);
+    border-radius: var(--radio-lg);
+    box-shadow: var(--sombra-xl);
+    font-weight: 700;
+    font-size: 1.125rem;
+    min-width: 120px;
+    text-align: center;
+}
+
+/* Caja de cliente con gradiente azul */
+.caja-diagrama.cliente {
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+    color: var(--blanco);
+}
+
+/* Caja de servidor con gradiente verde */
+.caja-diagrama.servidor {
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: var(--blanco);
+}
+
+/* Contenedor de flechas entre cliente y servidor */
+.flechas-diagrama {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
+}
+
+/* Estilos para las flechas de comunicación */
+.flecha {
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;  /* Evita que el texto se rompa */
+}
+
+/* Flecha de petición (request) animada hacia la derecha */
+.flecha.peticion {
+    color: #60A5FA;
+    animation: deslizarDerecha 2s ease-in-out infinite;
+}
+
+/* Flecha de respuesta (response) animada hacia la izquierda */
+.flecha.respuesta {
+    color: #34D399;
+    animation: deslizarIzquierda 2s ease-in-out infinite;
+}
+
+/* ===========================
+   SECCIÓN DE TEMAS
+   =========================== */
+
+.temas {
+    background-color: var(--gris-50);
+}
+
+/* Grid responsivo para las tarjetas de temas */
+.temas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacio-xl);
+}
+
+/* ===========================
+   SECCIÓN DE VISTA PREVIA DE DEMOS
+   =========================== */
+
+/* Sección oscura con gradiente para las demos */
+.vista-previa-demo {
+    background: linear-gradient(135deg, var(--gris-900) 0%, var(--gris-800) 100%);
+    color: var(--blanco);
+}
+
+.vista-previa-demo .titulo-seccion {
+    color: var(--blanco);
+}
+
+/* Grid de tarjetas de demostración */
+.tarjetas-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--espacio-2xl);
+}
+
+/* Tarjeta individual de demo con efecto glassmorphism */
+.tarjeta-demo {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radio-xl);
+    padding: var(--espacio-2xl);
+    text-align: center;
+    transition: all var(--transicion-base);
+}
+
+/* Efecto hover en tarjetas de demo */
+.tarjeta-demo:hover {
+    transform: translateY(-10px);  /* Elevación pronunciada */
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Imagen/icono grande de la demo */
+.imagen-demo {
+    font-size: 5rem;
+    margin-bottom: var(--espacio-lg);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Título de la tarjeta demo */
+.tarjeta-demo h3 {
+    color: var(--blanco);
+    margin-bottom: var(--espacio-md);
+    font-size: 1.75rem;
+}
+
+/* Descripción de la tarjeta demo */
+.tarjeta-demo p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--espacio-xl);
+    line-height: 1.7;
+}
+
+/* Botón outline adaptado para fondo oscuro */
+.tarjeta-demo .btn-outline {
+    border-color: var(--blanco);
+    color: var(--blanco);
+}
+
+.tarjeta-demo .btn-outline:hover {
+    background-color: var(--blanco);
+    color: var(--gris-900);
+}
+
+/* ===========================
+   ANIMACIONES
+   =========================== */
+
+/* Animación de entrada desde la izquierda */
+@keyframes aparecerIzquierda {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animación de entrada desde la derecha */
+@keyframes aparecerDerecha {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animación de deslizamiento hacia la derecha (petición) */
+@keyframes deslizarDerecha {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+/* Animación de deslizamiento hacia la izquierda (respuesta) */
+@keyframes deslizarIzquierda {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+/* ===========================
+   DISEÑO RESPONSIVO
+   =========================== */
+
+/* Tablets y laptops (hasta 1024px) */
+@media (max-width: 1024px) {
+    /* Hero en una sola columna */
+    .hero .contenedor {
+        grid-template-columns: 1fr;
+        gap: var(--espacio-2xl);
+    }
+    
+    /* Título más pequeño */
+    .hero-titulo {
+        font-size: 2.5rem;
+    }
+    
+    /* Visual primero en móviles */
+    .hero-visual {
+        order: -1;
+    }
+    
+    /* Diagrama en columna vertical */
+    .diagrama-api {
+        flex-direction: column;
+        gap: var(--espacio-lg);
+    }
+    
+    /* Flechas horizontales para layout vertical */
+    .flechas-diagrama {
+        flex-direction: row;
+        gap: var(--espacio-lg);
+    }
+    
+    /* Cambio de animaciones para layout vertical */
+    .flecha.peticion {
+        animation: deslizarAbajo 2s ease-in-out infinite;
+    }
+    
+    .flecha.respuesta {
+        animation: deslizarArriba 2s ease-in-out infinite;
+    }
+}
+
+/* Tablets pequeñas y móviles (hasta 768px) */
+@media (max-width: 768px) {
+    /* Hero sin altura mínima fija */
+    .hero {
+        min-height: auto;
+        padding: var(--espacio-2xl) 0;
+    }
+    
+    /* Tipografía reducida */
+    .hero-titulo {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitulo {
+        font-size: 1rem;
+    }
+    
+    /* Botones en columna */
+    .hero-botones {
+        flex-direction: column;
+    }
+    
+    /* Grids de una sola columna */
+    .temas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tarjetas-demo {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Móviles pequeños (hasta 640px) */
+@media (max-width: 640px) {
+    /* Título aún más pequeño */
+    .hero-titulo {
+        font-size: 1.75rem;
+    }
+    
+    /* Diagrama más compacto */
+    .diagrama-api {
+        padding: var(--espacio-lg);
+    }
+    
+    /* Cajas más pequeñas */
+    .caja-diagrama {
+        min-width: 100px;
+        padding: var(--espacio-md) var(--espacio-lg);
+        font-size: 1rem;
+    }
+}
+
+/* ===========================
+   ANIMACIONES ADICIONALES PARA MÓVIL
+   =========================== */
+
+/* Animación de deslizamiento hacia abajo */
+@keyframes deslizarAbajo {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Animación de deslizamiento hacia arriba */
+@keyframes deslizarArriba {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}

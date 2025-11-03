@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIs - Consumo de APIs Web</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">API</span>
+                <span class="brand-text">Consumo de APIs</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                <li><a href="fundamentos.html" class="nav-link">Fundamentos</a></li>
+                <li><a href="urls-endpoints.html" class="nav-link">URLs & Endpoints</a></li>
+                <li><a href="metodos-http.html" class="nav-link">Métodos HTTP</a></li>
+                <li><a href="codigos-respuesta.html" class="nav-link">Códigos HTTP</a></li>
+                <li><a href="asincronia.html" class="nav-link">Asincronía JS</a></li>
+                <li><a href="manejo-errores.html" class="nav-link">Manejo de Errores</a></li>
+                <li><a href="demos.html" class="nav-link btn-demo">Demos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Consumo de <span class="highlight">APIs</span></h1>
+                <p class="hero-subtitle">Aprende a conectar aplicaciones, consumir servicios externos y dominar la
+                    comunicación entre sistemas</p>
+                <div class="hero-buttons">
+                    <a href="fundamentos.html" class="btn btn-primary">Comenzar</a>
+                    <a href="demos.html" class="btn btn-secondary">Ver Demos</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="api-diagram">
+                    <div class="diagram-box client">
+                        <span>Cliente</span>
+                    </div>
+                    <div class="diagram-arrows">
+                        <div class="arrow request">Request →</div>
+                        <div class="arrow response">← Response</div>
+                    </div>
+                    <div class="diagram-box server">
+                        <span>Servidor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topics Grid -->
+    <section class="topics">
+        <div class="container">
+            <h2 class="section-title">Contenido del Curso</h2>
+            <div class="topics-grid">
+                <article class="card">
+                    <div class="card-icon">📚</div>
+                    <h3 class="card-title">Fundamentos de APIs</h3>
+                    <p class="card-description">Qué son, cómo funcionan, tipos de APIs y sus aplicaciones en el
+                        desarrollo moderno</p>
+                    <a href="fundamentos.html" class="card-link">Explorar →</a>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🔗</div>
+                    <h3 class="card-title">URLs & Endpoints</h3>
+                    <p class="card-description">Estructura de URLs, componentes y diferencias con endpoints</p>
+                    <a href="urls-endpoints.html" class="card-link">Explorar →</a>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🔄</div>
+                    <h3 class="card-title">Métodos HTTP</h3>
+                    <p class="card-description">GET, POST, PUT, DELETE y cuándo usar cada uno</p>
+                    <a href="metodos-http.html" class="card-link">Explorar →</a>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Códigos de Respuesta</h3>
+                    <p class="card-description">Comprende los códigos HTTP 200s, 300s, 400s y 500s</p>
+                    <a href="codigos-respuesta.html" class="card-link">Explorar →</a>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Asincronía en JavaScript</h3>
+                    <p class="card-description">Fetch, Promises, Async/Await y XMLHttpRequest</p>
+                    <a href="asincronia.html" class="card-link">Explorar →</a>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3 class="card-title">Manejo de Errores</h3>
+                    <p class="card-description">Estados de carga, éxito, error y mejores prácticas</p>
+                    <a href="manejo-errores.html" class="card-link">Explorar →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Preview -->
+    <section class="demo-preview">
+        <div class="container">
+            <h2 class="section-title">Ejemplos Prácticos</h2>
+            <div class="demo-cards">
+                <div class="demo-card">
+                    <div class="demo-image">🗺️</div>
+                    <h3>API de Mapas</h3>
+                    <p>Integración con geolocalización para mostrar la ubicación del usuario en tiempo real</p>
+                    <a href="demos.html#mapas" class="btn btn-outline">Ver Demo</a>
+                </div>
+                <div class="demo-card">
+                    <div class="demo-image">🔐</div>
+                    <h3>API de Captcha</h3>
+                    <p>Formulario con validación de reCAPTCHA para proteger contra bots</p>
+                    <a href="demos.html#captcha" class="btn btn-outline">Ver Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Proyecto Académico</h4>
+                    <p>ISW-512 Diseño de Aplicaciones Web<br>Universidad Técnica Nacional<br>2025 - Ciclo III</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="fundamentos.html">Fundamentos</a></li>
+                        <li><a href="metodos-http.html">Métodos HTTP</a></li>
+                        <li><a href="demos.html">Demos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" target="_blank">Documentación</a></li>
+                        <li><a href="#" target="_blank">GitHub</a></li>
+                        <li><a href="#" target="_blank">Referencias</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Grupo de APIs - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

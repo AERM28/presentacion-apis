@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URLs & Endpoints - Consumo de APIs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">API</span>
+                <span class="brand-text">Consumo de APIs</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="fundamentos.html" class="nav-link">Fundamentos</a></li>
+                <li><a href="urls-endpoints.html" class="nav-link active">URLs & Endpoints</a></li>
+                <li><a href="metodos-http.html" class="nav-link">Métodos HTTP</a></li>
+                <li><a href="codigos-respuesta.html" class="nav-link">Códigos HTTP</a></li>
+                <li><a href="asincronia.html" class="nav-link">Asincronía JS</a></li>
+                <li><a href="manejo-errores.html" class="nav-link">Manejo de Errores</a></li>
+                <li><a href="demos.html" class="nav-link btn-demo">Demos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <span>/</span>
+                <span>URLs & Endpoints</span>
+            </div>
+            <h1 class="page-title">URLs & Endpoints</h1>
+            <p class="page-subtitle">Comprende la estructura de las URLs y la diferencia con los endpoints en las APIs</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- What is a URL -->
+            <section class="content-section">
+                <h2 class="section-heading">1. ¿Qué es una URL?</h2>
+                <div class="definition-box">
+                    <div class="definition-icon">🔗</div>
+                    <div class="definition-content">
+                        <p class="definition-text">
+                            <strong>URL</strong> significa <strong>Uniform Resource Locator</strong> (Localizador de Recursos Uniforme). 
+                            Una URL no es más que una dirección que es dada a un recurso único en la Web. En teoría, cada URL válida apunta a un único recurso. 
+                            Dichos recursos pueden ser páginas HTML, documentos CSS, imágenes, etc.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="intro-text">
+                    En la práctica, hay algunas excepciones, siendo la más común una URL apuntando a un recurso que ya no existe o que ha sido movido. 
+                    Como el recurso representado por la URL y la URL en sí son manejadas por el servidor Web, depende del dueño del servidor web 
+                    manejar ese recurso y su URL asociada adecuadamente.
+                </p>
+
+                <div class="highlight-box">
+                    <p>Junto con el Hipertexto y HTTP, las URL son uno de los conceptos claves de la Web. Es el mecanismo usado por los navegadores para obtener cualquier recurso publicado en la web.</p>
+                </div>
+            </section>
+
+            <!-- URL Components -->
+            <section class="content-section">
+                <h2 class="section-heading">2. Componentes de una URL</h2>
+
+                <!-- IMAGE: URL Components Diagram -->
+                <figure class="content-image">
+                    <img src="images/componentes-url.png" alt="Componentes de una URL" class="img-rounded img-shadow">
+                    <figcaption>Estructura completa de una URL</figcaption>
+                </figure>
+
+                <div class="components-grid">
+                    <div class="component-card">
+                        <div class="component-header">
+                            <span class="component-icon">🔐</span>
+                            <h3>Esquema (Scheme)</h3>
+                        </div>
+                        <p><strong>Función:</strong> Indica el protocolo que se usará.</p>
+                        <div class="code-example">
+                            <code>http://</code> - Sin cifrado<br>
+                            <code>https://</code> - Con cifrado SSL
+                        </div>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="component-header">
+                            <span class="component-icon">🌐</span>
+                            <h3>Nombre de Host (Hostname)</h3>
+                        </div>
+                        <p><strong>Función:</strong> Identifica el servidor que aloja el recurso.</p>
+                        <div class="code-example">
+                            <code>www.ejemplo.com</code><br>
+                            <code>api.miservicio.com</code>
+                        </div>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="component-header">
+                            <span class="component-icon">📂</span>
+                            <h3>Ruta (Path)</h3>
+                        </div>
+                        <p><strong>Función:</strong> Especifica el recurso dentro del servidor.</p>
+                        <div class="code-example">
+                            <code>/docs/es/programacion-web</code><br>
+                            <code>/api/v1/users</code>
+                        </div>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="component-header">
+                            <span class="component-icon">❓</span>
+                            <h3>Cadena de Consulta (Query)</h3>
+                        </div>
+                        <p><strong>Función:</strong> Envía información adicional al servidor (datos, parámetros o filtros).</p>
+                        <p><strong>Nota:</strong> Siempre empieza con un signo de interrogación <code>?</code> y va al final de la URL.</p>
+                        <div class="code-example">
+                            <code>?term=bluebird&source=browser-search</code><br>
+                            <code>?page=2&limit=10</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- URL Example -->
+                <div class="url-example">
+                    <h3>Ejemplo Completo de URL</h3>
+                    <div class="url-breakdown">
+                        <div class="url-parts">
+                            <span class="url-part scheme">https://</span>
+                            <span class="url-part hostname">www.ejemplo.com</span>
+                            <span class="url-part path">/api/productos</span>
+                            <span class="url-part query">?categoria=libros&precio=20</span>
+                        </div>
+                        <div class="url-labels">
+                            <span class="url-label">Esquema</span>
+                            <span class="url-label">Hostname</span>
+                            <span class="url-label">Ruta</span>
+                            <span class="url-label">Consulta</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- What is an Endpoint -->
+            <section class="content-section">
+                <h2 class="section-heading">3. ¿Qué es un Endpoint?</h2>
+                <div class="definition-box">
+                    <div class="definition-icon">📍</div>
+                    <div class="definition-content">
+                        <p class="definition-text">
+                            En pocas palabras, un <strong>punto final (endpoint)</strong> es un extremo de un canal de comunicación. 
+                            Cuando una API interactúa con otro sistema, los puntos de contacto de esta comunicación se consideran puntos finales. 
+                            En el caso de las API, un punto final puede incluir la URL de un servidor o servicio.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="intro-text">
+                    Cada endpoint es la ubicación desde la cual las API pueden acceder a los recursos que necesitan para realizar su función.
+                </p>
+
+                <div class="highlight-box">
+                    <h4>¿Cómo funcionan los Endpoints?</h4>
+                    <p>Las API funcionan mediante solicitudes y respuestas. Cuando una API solicita información de una aplicación o servidor web, recibe una respuesta. El <strong>endpoint</strong> es el lugar donde las API envían las solicitudes y donde reside el recurso.</p>
+                </div>
+
+                <!-- IMAGE: Endpoint Diagram -->
+                <figure class="content-image">
+                    <img src="images/endpoint-diagram.png" alt="Diagrama de endpoint en API" class="img-rounded img-shadow">
+                    <figcaption>Endpoint como punto de acceso a los recursos de la API</figcaption>
+                </figure>
+            </section>
+
+            <!-- Differences URL vs Endpoint -->
+            <section class="content-section">
+                <h2 class="section-heading">4. Diferencias entre una URL y un Endpoint</h2>
+
+                <!-- IMAGE: Comparison Table -->
+                <figure class="content-image">
+                    <img src="images/url-vs-endpoint.png" alt="Tabla comparativa URL vs Endpoint" class="img-rounded img-shadow">
+                    <figcaption>Diferencias clave entre URL y Endpoint</figcaption>
+                </figure>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card url-card">
+                        <h3>🔗 URL</h3>
+                        <ul>
+                            <li><strong>Definición:</strong> Dirección completa de un recurso en la web</li>
+                            <li><strong>Alcance:</strong> Concepto general para cualquier recurso web</li>
+                            <li><strong>Uso:</strong> Navegadores, aplicaciones web, cualquier cliente HTTP</li>
+                            <li><strong>Ejemplo:</strong> <code>https://www.ejemplo.com/pagina.html</code></li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-card endpoint-card">
+                        <h3>📍 Endpoint</h3>
+                        <ul>
+                            <li><strong>Definición:</strong> Punto de acceso específico en una API</li>
+                            <li><strong>Alcance:</strong> Específico para APIs y servicios web</li>
+                            <li><strong>Uso:</strong> Comunicación entre aplicaciones (API calls)</li>
+                            <li><strong>Ejemplo:</strong> <code>https://api.ejemplo.com/v1/users</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="key-differences">
+                    <h3>Puntos Clave</h3>
+                    <div class="key-point">
+                        <span class="key-icon">🎯</span>
+                        <div>
+                            <strong>Todos los endpoints son URLs, pero no todas las URLs son endpoints.</strong>
+                            <p>Un endpoint es una URL con un propósito específico: servir como punto de acceso a una API.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span class="key-icon">🔄</span>
+                        <div>
+                            <strong>Los endpoints están diseñados para la comunicación programática.</strong>
+                            <p>Mientras que las URLs pueden apuntar a cualquier recurso, los endpoints están optimizados para el intercambio de datos entre aplicaciones.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span class="key-icon">📦</span>
+                        <div>
+                            <strong>Los endpoints generalmente devuelven datos estructurados.</strong>
+                            <p>Como JSON o XML, en lugar de HTML para visualización humana.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <nav class="page-navigation">
+                <a href="fundamentos.html" class="nav-btn nav-prev">
+                    ← Fundamentos de APIs
+                </a>
+                <a href="metodos-http.html" class="nav-btn nav-next">
+                    Métodos HTTP →
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Proyecto Académico</h4>
+                    <p>ISW-512 Diseño de Aplicaciones Web<br>Universidad Técnica Nacional<br>2025 - Ciclo III</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="fundamentos.html">Fundamentos</a></li>
+                        <li><a href="metodos-http.html">Métodos HTTP</a></li>
+                        <li><a href="demos.html">Demos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" target="_blank">Documentación</a></li>
+                        <li><a href="#" target="_blank">GitHub</a></li>
+                        <li><a href="#" target="_blank">Referencias</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Grupo de APIs - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
