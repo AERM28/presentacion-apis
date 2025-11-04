@@ -1,231 +1,198 @@
 /* ===========================
-   SECCIÓN HERO (PRINCIPAL)
+   HERO SECTION
    =========================== */
-
-/* Contenedor principal del hero con gradiente de fondo */
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: var(--blanco);
-    padding: var(--espacio-3xl) 0;
-    min-height: 80vh;  /* Ocupa 80% de la altura de la ventana */
+    color: var(--white);
+    padding: var(--spacing-3xl) 0;
+    min-height: 80vh;
     display: flex;
     align-items: center;
 }
 
-/* Grid de dos columnas para contenido y visual */
-.hero .contenedor {
+.hero .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;  /* Dos columnas iguales */
-    gap: var(--espacio-3xl);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
     align-items: center;
 }
 
-/* Contenido textual del hero con animación de entrada */
-.hero-contenido {
-    animation: aparecerIzquierda 0.8s ease-out;
+.hero-content {
+    animation: fadeInLeft 0.8s ease-out;
 }
 
-/* Título principal del hero */
-.hero-titulo {
+.hero-title {
     font-size: 3.5rem;
-    margin-bottom: var(--espacio-lg);
-    color: var(--blanco);
+    margin-bottom: var(--spacing-lg);
+    color: var(--white);
     line-height: 1.1;
 }
 
-/* Texto resaltado con gradiente en el título */
-.hero-titulo .resaltado {
+.hero-title .highlight {
     background: linear-gradient(135deg, #60A5FA, #34D399);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-/* Subtítulo descriptivo del hero */
-.hero-subtitulo {
+.hero-subtitle {
     font-size: 1.25rem;
-    margin-bottom: var(--espacio-2xl);
-    color: rgba(255, 255, 255, 0.9);  /* Blanco semi-transparente */
+    margin-bottom: var(--spacing-2xl);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
 }
 
-/* Contenedor de botones de acción */
-.hero-botones {
+.hero-buttons {
     display: flex;
-    gap: var(--espacio-md);
+    gap: var(--spacing-md);
 }
 
-.hero-botones .btn {
-    min-width: 150px;  /* Ancho mínimo consistente */
+.hero-buttons .btn {
+    min-width: 150px;
 }
 
-/* ===========================
-   VISUAL DEL HERO - DIAGRAMA API
-   =========================== */
-
-/* Contenedor del diagrama visual con animación */
+/* Hero Visual - API Diagram */
 .hero-visual {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: aparecerDerecha 0.8s ease-out;
+    animation: fadeInRight 0.8s ease-out;
 }
 
-/* Diagrama de comunicación API con efecto glassmorphism */
-.diagrama-api {
+.api-diagram {
     display: flex;
     align-items: center;
-    gap: var(--espacio-2xl);
-    padding: var(--espacio-2xl);
-    background: rgba(255, 255, 255, 0.1);  /* Fondo semi-transparente */
-    backdrop-filter: blur(10px);  /* Efecto de desenfoque */
-    border-radius: var(--radio-xl);
+    gap: var(--spacing-2xl);
+    padding: var(--spacing-2xl);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Cajas individuales del diagrama (cliente/servidor) */
-.caja-diagrama {
-    background: var(--blanco);
-    color: var(--gris-900);
-    padding: var(--espacio-xl) var(--espacio-2xl);
-    border-radius: var(--radio-lg);
-    box-shadow: var(--sombra-xl);
+.diagram-box {
+    background: var(--white);
+    color: var(--gray-900);
+    padding: var(--spacing-xl) var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
     font-weight: 700;
     font-size: 1.125rem;
     min-width: 120px;
     text-align: center;
 }
 
-/* Caja de cliente con gradiente azul */
-.caja-diagrama.cliente {
+.diagram-box.client {
     background: linear-gradient(135deg, #3B82F6, #2563EB);
-    color: var(--blanco);
+    color: var(--white);
 }
 
-/* Caja de servidor con gradiente verde */
-.caja-diagrama.servidor {
+.diagram-box.server {
     background: linear-gradient(135deg, #10B981, #059669);
-    color: var(--blanco);
+    color: var(--white);
 }
 
-/* Contenedor de flechas entre cliente y servidor */
-.flechas-diagrama {
+.diagram-arrows {
     display: flex;
     flex-direction: column;
-    gap: var(--espacio-md);
+    gap: var(--spacing-md);
 }
 
-/* Estilos para las flechas de comunicación */
-.flecha {
+.arrow {
     font-weight: 600;
     font-size: 1rem;
-    white-space: nowrap;  /* Evita que el texto se rompa */
+    white-space: nowrap;
 }
 
-/* Flecha de petición (request) animada hacia la derecha */
-.flecha.peticion {
+.arrow.request {
     color: #60A5FA;
-    animation: deslizarDerecha 2s ease-in-out infinite;
+    animation: slideRight 2s ease-in-out infinite;
 }
 
-/* Flecha de respuesta (response) animada hacia la izquierda */
-.flecha.respuesta {
+.arrow.response {
     color: #34D399;
-    animation: deslizarIzquierda 2s ease-in-out infinite;
+    animation: slideLeft 2s ease-in-out infinite;
 }
 
 /* ===========================
-   SECCIÓN DE TEMAS
+   TOPICS SECTION
    =========================== */
-
-.temas {
-    background-color: var(--gris-50);
+.topics {
+    background-color: var(--gray-50);
 }
 
-/* Grid responsivo para las tarjetas de temas */
-.temas-grid {
+.topics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--espacio-xl);
+    gap: var(--spacing-xl);
 }
 
 /* ===========================
-   SECCIÓN DE VISTA PREVIA DE DEMOS
+   DEMO PREVIEW SECTION
    =========================== */
-
-/* Sección oscura con gradiente para las demos */
-.vista-previa-demo {
-    background: linear-gradient(135deg, var(--gris-900) 0%, var(--gris-800) 100%);
-    color: var(--blanco);
+.demo-preview {
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+    color: var(--white);
 }
 
-.vista-previa-demo .titulo-seccion {
-    color: var(--blanco);
+.demo-preview .section-title {
+    color: var(--white);
 }
 
-/* Grid de tarjetas de demostración */
-.tarjetas-demo {
+.demo-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: var(--espacio-2xl);
+    gap: var(--spacing-2xl);
 }
 
-/* Tarjeta individual de demo con efecto glassmorphism */
-.tarjeta-demo {
+.demo-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radio-xl);
-    padding: var(--espacio-2xl);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
     text-align: center;
-    transition: all var(--transicion-base);
+    transition: all var(--transition-base);
 }
 
-/* Efecto hover en tarjetas de demo */
-.tarjeta-demo:hover {
-    transform: translateY(-10px);  /* Elevación pronunciada */
+.demo-card:hover {
+    transform: translateY(-10px);
     border-color: rgba(255, 255, 255, 0.3);
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Imagen/icono grande de la demo */
-.imagen-demo {
+.demo-image {
     font-size: 5rem;
-    margin-bottom: var(--espacio-lg);
+    margin-bottom: var(--spacing-lg);
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
 }
 
-/* Título de la tarjeta demo */
-.tarjeta-demo h3 {
-    color: var(--blanco);
-    margin-bottom: var(--espacio-md);
+.demo-card h3 {
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
     font-size: 1.75rem;
 }
 
-/* Descripción de la tarjeta demo */
-.tarjeta-demo p {
+.demo-card p {
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: var(--espacio-xl);
+    margin-bottom: var(--spacing-xl);
     line-height: 1.7;
 }
 
-/* Botón outline adaptado para fondo oscuro */
-.tarjeta-demo .btn-outline {
-    border-color: var(--blanco);
-    color: var(--blanco);
+.demo-card .btn-outline {
+    border-color: var(--white);
+    color: var(--white);
 }
 
-.tarjeta-demo .btn-outline:hover {
-    background-color: var(--blanco);
-    color: var(--gris-900);
+.demo-card .btn-outline:hover {
+    background-color: var(--white);
+    color: var(--gray-900);
 }
 
 /* ===========================
-   ANIMACIONES
+   ANIMATIONS
    =========================== */
-
-/* Animación de entrada desde la izquierda */
-@keyframes aparecerIzquierda {
+@keyframes fadeInLeft {
     from {
         opacity: 0;
         transform: translateX(-30px);
@@ -236,8 +203,7 @@
     }
 }
 
-/* Animación de entrada desde la derecha */
-@keyframes aparecerDerecha {
+@keyframes fadeInRight {
     from {
         opacity: 0;
         transform: translateX(30px);
@@ -248,8 +214,7 @@
     }
 }
 
-/* Animación de deslizamiento hacia la derecha (petición) */
-@keyframes deslizarDerecha {
+@keyframes slideRight {
     0%, 100% {
         transform: translateX(0);
     }
@@ -258,8 +223,7 @@
     }
 }
 
-/* Animación de deslizamiento hacia la izquierda (respuesta) */
-@keyframes deslizarIzquierda {
+@keyframes slideLeft {
     0%, 100% {
         transform: translateX(0);
     }
@@ -269,107 +233,86 @@
 }
 
 /* ===========================
-   DISEÑO RESPONSIVO
+   RESPONSIVE DESIGN
    =========================== */
-
-/* Tablets y laptops (hasta 1024px) */
 @media (max-width: 1024px) {
-    /* Hero en una sola columna */
-    .hero .contenedor {
+    .hero .container {
         grid-template-columns: 1fr;
-        gap: var(--espacio-2xl);
+        gap: var(--spacing-2xl);
     }
     
-    /* Título más pequeño */
-    .hero-titulo {
+    .hero-title {
         font-size: 2.5rem;
     }
     
-    /* Visual primero en móviles */
     .hero-visual {
         order: -1;
     }
     
-    /* Diagrama en columna vertical */
-    .diagrama-api {
+    .api-diagram {
         flex-direction: column;
-        gap: var(--espacio-lg);
+        gap: var(--spacing-lg);
     }
     
-    /* Flechas horizontales para layout vertical */
-    .flechas-diagrama {
+    .diagram-arrows {
         flex-direction: row;
-        gap: var(--espacio-lg);
+        gap: var(--spacing-lg);
     }
     
-    /* Cambio de animaciones para layout vertical */
-    .flecha.peticion {
-        animation: deslizarAbajo 2s ease-in-out infinite;
+    .arrow.request {
+        animation: slideDown 2s ease-in-out infinite;
     }
     
-    .flecha.respuesta {
-        animation: deslizarArriba 2s ease-in-out infinite;
+    .arrow.response {
+        animation: slideUp 2s ease-in-out infinite;
     }
 }
 
-/* Tablets pequeñas y móviles (hasta 768px) */
 @media (max-width: 768px) {
-    /* Hero sin altura mínima fija */
     .hero {
         min-height: auto;
-        padding: var(--espacio-2xl) 0;
+        padding: var(--spacing-2xl) 0;
     }
     
-    /* Tipografía reducida */
-    .hero-titulo {
+    .hero-title {
         font-size: 2rem;
     }
     
-    .hero-subtitulo {
+    .hero-subtitle {
         font-size: 1rem;
     }
     
-    /* Botones en columna */
-    .hero-botones {
+    .hero-buttons {
         flex-direction: column;
     }
     
-    /* Grids de una sola columna */
-    .temas-grid {
+    .topics-grid {
         grid-template-columns: 1fr;
     }
     
-    .tarjetas-demo {
+    .demo-cards {
         grid-template-columns: 1fr;
     }
 }
 
-/* Móviles pequeños (hasta 640px) */
 @media (max-width: 640px) {
-    /* Título aún más pequeño */
-    .hero-titulo {
+    .hero-title {
         font-size: 1.75rem;
     }
     
-    /* Diagrama más compacto */
-    .diagrama-api {
-        padding: var(--espacio-lg);
+    .api-diagram {
+        padding: var(--spacing-lg);
     }
     
-    /* Cajas más pequeñas */
-    .caja-diagrama {
+    .diagram-box {
         min-width: 100px;
-        padding: var(--espacio-md) var(--espacio-lg);
+        padding: var(--spacing-md) var(--spacing-lg);
         font-size: 1rem;
     }
 }
 
-/* ===========================
-   ANIMACIONES ADICIONALES PARA MÓVIL
-   =========================== */
-
-/* Animación de deslizamiento hacia abajo */
-@keyframes deslizarAbajo {
+/* Additional animations for mobile */
+@keyframes slideDown {
     0%, 100% {
         transform: translateY(0);
     }
@@ -378,8 +321,7 @@
     }
 }
 
-/* Animación de deslizamiento hacia arriba */
-@keyframes deslizarArriba {
+@keyframes slideUp {
     0%, 100% {
         transform: translateY(0);
     }

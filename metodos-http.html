@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos HTTP - Consumo de APIs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+    <link rel="stylesheet" href="css/metodos-http.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">API</span>
+                <span class="brand-text">Consumo de APIs</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="fundamentos.html" class="nav-link">Fundamentos</a></li>
+                <li><a href="urls-endpoints.html" class="nav-link">URLs & Endpoints</a></li>
+                <li><a href="metodos-http.html" class="nav-link active">Métodos HTTP</a></li>
+                <li><a href="codigos-respuesta.html" class="nav-link">Códigos HTTP</a></li>
+                <li><a href="asincronia.html" class="nav-link">Asincronía JS</a></li>
+                <li><a href="manejo-errores.html" class="nav-link">Manejo de Errores</a></li>
+                <li><a href="demos.html" class="nav-link btn-demo">Demos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <span>/</span>
+                <span>Métodos HTTP</span>
+            </div>
+            <h1 class="page-title">Métodos HTTP</h1>
+            <p class="page-subtitle">Comprende los métodos GET, POST, PUT y DELETE para comunicarte efectivamente con las APIs</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Introduction -->
+            <section class="content-section">
+                <div class="intro-box">
+                    <p class="intro-text">
+                        En general, los <strong>métodos HTTP</strong> sirven para comunicar al cliente y al servidor qué tipo de acción 
+                        se quiere realizar sobre un recurso (como leer, crear, actualizar o eliminar información) dentro de una aplicación web o API.
+                    </p>
+                </div>
+            </section>
+
+            <!-- GET Method -->
+            <section class="content-section">
+                <div class="method-card get-card">
+                    <div class="method-header">
+                        <span class="method-badge get-badge">GET</span>
+                        <h2>Método GET</h2>
+                    </div>
+                    
+                    <p class="method-description">
+                        El método GET es la madre de todas las peticiones de HTTP. Este método de petición existía ya en los inicios de la 
+                        world wide web (WWW) y se utiliza para <strong>solicitar un recurso</strong>, como un archivo HTML del servidor web.
+                    </p>
+
+                    <div class="method-content">
+                        <div class="method-example">
+                            <h3>📌 Ejemplo Cotidiano</h3>
+                            <p>Supongamos que queremos buscar "gatos" en Google. Al momento de escribir "gatos" en el navegador de Google 
+                            y presionar enter, se crea una <strong>solicitud HTTP GET</strong> al servidor de Google, este responde con una 
+                            página HTML que muestra los resultados para "gatos".</p>
+                        </div>
+
+                        <!-- IMAGE: GET Example -->
+                        <figure class="method-image">
+                            <img src="images/metodo-get-ejemplo.png" alt="Ejemplo del método GET" class="img-rounded img-shadow">
+                            <figcaption>Ejemplo de solicitud GET en un navegador</figcaption>
+                        </figure>
+
+                        <div class="method-use-cases">
+                            <h4>Casos de Uso</h4>
+                            <ul>
+                                <li>Obtener una lista de productos</li>
+                                <li>Recuperar información de un usuario</li>
+                                <li>Cargar resultados de búsqueda</li>
+                                <li>Visualizar contenido de una página web</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- POST Method -->
+            <section class="content-section">
+                <div class="method-card post-card">
+                    <div class="method-header">
+                        <span class="method-badge post-badge">POST</span>
+                        <h2>Método POST</h2>
+                    </div>
+                    
+                    <p class="method-description">
+                        El método de solicitud POST solicita que un servidor web <strong>acepte los datos incluidos en el cuerpo del mensaje 
+                        de solicitud</strong>, probablemente para almacenarlos. Se utiliza a menudo al subir un archivo o al enviar un formulario 
+                        web completo.
+                    </p>
+
+                    <div class="method-content">
+                        <div class="method-example">
+                            <h3>📌 Ejemplo Cotidiano</h3>
+                            <p>Cuando iniciamos sesión en alguna red social como por ejemplo Instagram o Facebook, escribimos nuestro usuario 
+                            y contraseña en un formulario. Al hacer clic en "Iniciar sesión", esa información se envía al servidor de la red social 
+                            mediante el <strong>método POST</strong>.</p>
+                            <p>El servidor recibe esos datos de manera segura (no aparecen en la barra del navegador), los verifica y, si son 
+                            correctos, nos permite entrar a nuestra cuenta.</p>
+                            <p class="highlight-text">Este proceso usa el método POST porque estamos enviando información privada que el servidor 
+                            necesita para realizar una acción (autenticar al usuario).</p>
+                        </div>
+
+                        <!-- IMAGE: POST Example -->
+                        <figure class="method-image">
+                            <img src="images/metodo-post-ejemplo.png" alt="Ejemplo del método POST" class="img-rounded img-shadow">
+                            <figcaption>Ejemplo de solicitud POST en un formulario de inicio de sesión</figcaption>
+                        </figure>
+
+                        <div class="method-use-cases">
+                            <h4>Casos de Uso</h4>
+                            <ul>
+                                <li>Crear un nuevo usuario</li>
+                                <li>Enviar un formulario de contacto</li>
+                                <li>Subir una imagen o archivo</li>
+                                <li>Publicar un comentario o post</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PUT Method -->
+            <section class="content-section">
+                <div class="method-card put-card">
+                    <div class="method-header">
+                        <span class="method-badge put-badge">PUT</span>
+                        <h2>Método PUT</h2>
+                    </div>
+                    
+                    <p class="method-description">
+                        El método PUT se usa cuando queremos <strong>actualizar o reemplazar información</strong> que ya existe en un servidor.
+                    </p>
+
+                    <div class="comparison-box">
+                        <h4>Diferencia entre POST y PUT</h4>
+                        <div class="comparison-items">
+                            <div class="comparison-item">
+                                <strong>POST:</strong> Sirve para crear algo nuevo (por ejemplo, registrar un usuario).
+                            </div>
+                            <div class="comparison-item">
+                                <strong>PUT:</strong> Sirve para actualizar algo que ya existe (por ejemplo, cambiar tu contraseña o editar tu perfil).
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-content">
+                        <div class="method-example">
+                            <h3>📌 Ejemplo Cotidiano</h3>
+                            <p>Imagina que estás en Instagram y cambias tu biografía. Escribes un nuevo texto en tu perfil: 
+                            "Estudiante de Ingeniería del Software, UTN"</p>
+                            <p>Al presionar "Guardar", tu navegador envía una <strong>solicitud PUT</strong> al servidor con tu nueva información:</p>
+                            <pre><code>PUT /perfil/usuario123
+{
+  "biografia": "Estudiante de Ingeniería del Software, UTN"
+}</code></pre>
+                            <p>Finalmente el servidor actualiza el perfil con el nuevo texto.</p>
+                        </div>
+
+                        <!-- IMAGE: PUT Example -->
+                        <figure class="method-image">
+                            <img src="images/metodo-put-ejemplo.png" alt="Ejemplo del método PUT" class="img-rounded img-shadow">
+                            <figcaption>Ejemplo de solicitud PUT actualizando perfil</figcaption>
+                        </figure>
+
+                        <div class="method-use-cases">
+                            <h4>Casos de Uso</h4>
+                            <ul>
+                                <li>Actualizar información de perfil de usuario</li>
+                                <li>Modificar los datos de un producto</li>
+                                <li>Cambiar configuraciones de cuenta</li>
+                                <li>Editar un documento existente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DELETE Method -->
+            <section class="content-section">
+                <div class="method-card delete-card">
+                    <div class="method-header">
+                        <span class="method-badge delete-badge">DELETE</span>
+                        <h2>Método DELETE</h2>
+                    </div>
+                    
+                    <p class="method-description">
+                        El método DELETE se usa cuando queremos <strong>eliminar información</strong> que ya existe en un servidor. 
+                        En otras palabras, sirve para borrar algo de una página web o aplicación.
+                    </p>
+
+                    <div class="method-content">
+                        <div class="method-example">
+                            <h3>📌 Ejemplo Cotidiano</h3>
+                            <p>Imagina que estás en Instagram o Facebook y decides borrar una foto o eliminar un comentario.</p>
+                            <p>Cuando haces clic en "Eliminar", el navegador envía una solicitud al servidor que dice algo como:</p>
+                            <pre><code>DELETE /fotos/12345</code></pre>
+                            <p>Esto, en lenguaje cotidiano le dice al servidor: <strong>"Borra la foto con el número 12345"</strong>.</p>
+                            <p>El servidor recibe esa orden y elimina ese recurso.</p>
+                        </div>
+
+                        <!-- IMAGE: DELETE Example -->
+                        <figure class="method-image">
+                            <img src="images/metodo-delete-ejemplo.png" alt="Ejemplo del método DELETE" class="img-rounded img-shadow">
+                            <figcaption>Ejemplo de solicitud DELETE eliminando una foto</figcaption>
+                        </figure>
+
+                        <div class="idempotent-box">
+                            <h4>🔄 Idempotencia</h4>
+                            <p>DELETE, al igual que el método PUT es <strong>idempotente</strong>, lo cual quiere decir que, si repites la acción 
+                            varias veces, el resultado es el mismo.</p>
+                            <p><strong>Por ejemplo:</strong></p>
+                            <ul>
+                                <li>Si borras una foto una vez, la foto desaparece.</li>
+                                <li>Si intentas borrarla otra vez, el resultado no cambia, porque ya está borrada.</li>
+                            </ul>
+                        </div>
+
+                        <div class="method-use-cases">
+                            <h4>Casos de Uso</h4>
+                            <ul>
+                                <li>Eliminar una cuenta de usuario</li>
+                                <li>Borrar una publicación o comentario</li>
+                                <li>Remover un producto del carrito</li>
+                                <li>Eliminar un archivo subido</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Summary Table -->
+            <section class="content-section">
+                <h2 class="section-heading">Resumen de Métodos HTTP</h2>
+                
+                <!-- IMAGE: Summary Table -->
+                <figure class="content-image">
+                    <img src="images/tabla-metodos-http.png" alt="Tabla resumen de métodos HTTP" class="img-rounded img-shadow">
+                    <figcaption>Tabla comparativa de los métodos HTTP</figcaption>
+                </figure>
+
+                <div class="summary-grid">
+                    <div class="summary-card get-summary">
+                        <div class="summary-icon">📖</div>
+                        <h3>GET</h3>
+                        <p class="summary-action">Leer / Obtener</p>
+                        <p>Recupera información sin modificarla</p>
+                    </div>
+
+                    <div class="summary-card post-summary">
+                        <div class="summary-icon">➕</div>
+                        <h3>POST</h3>
+                        <p class="summary-action">Crear / Enviar</p>
+                        <p>Crea nuevos recursos o envía datos</p>
+                    </div>
+
+                    <div class="summary-card put-summary">
+                        <div class="summary-icon">✏️</div>
+                        <h3>PUT</h3>
+                        <p class="summary-action">Actualizar / Reemplazar</p>
+                        <p>Modifica recursos existentes</p>
+                    </div>
+
+                    <div class="summary-card delete-summary">
+                        <div class="summary-icon">🗑️</div>
+                        <h3>DELETE</h3>
+                        <p class="summary-action">Eliminar / Borrar</p>
+                        <p>Elimina recursos del servidor</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <nav class="page-navigation">
+                <a href="urls-endpoints.html" class="nav-btn nav-prev">
+                    ← URLs & Endpoints
+                </a>
+                <a href="codigos-respuesta.html" class="nav-btn nav-next">
+                    Códigos de Respuesta HTTP →
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Proyecto Académico</h4>
+                    <p>ISW-512 Diseño de Aplicaciones Web<br>Universidad Técnica Nacional<br>2025 - Ciclo III</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="fundamentos.html">Fundamentos</a></li>
+                        <li><a href="metodos-http.html">Métodos HTTP</a></li>
+                        <li><a href="demos.html">Demos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" target="_blank">Documentación</a></li>
+                        <li><a href="#" target="_blank">GitHub</a></li>
+                        <li><a href="#" target="_blank">Referencias</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Grupo de APIs - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

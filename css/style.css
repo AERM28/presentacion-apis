@@ -1,170 +1,156 @@
 /* ===========================
-   VARIABLES CSS
+   CSS VARIABLES
    =========================== */
 :root {
-    /* Colores Principales */
-    --azul-principal: #3B82F6;
-    --azul-oscuro: #2563EB;
-    --azul-claro: #60A5FA;
-    --morado-principal: #8B5CF6;
-    --morado-oscuro: #7C3AED;
-    --verde-acento: #10B981;
+    /* Colors */
+    --primary: #3B82F6;
+    --primary-dark: #2563EB;
+    --primary-light: #60A5FA;
+    --secondary: #8B5CF6;
+    --secondary-dark: #7C3AED;
+    --accent: #10B981;
     
-    /* Colores de Estado HTTP */
-    --verde-exito: #10B981;
-    --azul-info: #3B82F6;
-    --amarillo-advertencia: #F59E0B;
-    --rojo-error: #EF4444;
+    /* HTTP Status Colors */
+    --success: #10B981;
+    --info: #3B82F6;
+    --warning: #F59E0B;
+    --error: #EF4444;
     
-    /* Colores Neutrales (Escala de Grises) */
-    --blanco: #FFFFFF;
-    --gris-50: #F9FAFB;
-    --gris-100: #F3F4F6;
-    --gris-200: #E5E7EB;
-    --gris-300: #D1D5DB;
-    --gris-400: #9CA3AF;
-    --gris-500: #6B7280;
-    --gris-600: #4B5563;
-    --gris-700: #374151;
-    --gris-800: #1F2937;
-    --gris-900: #111827;
-    --negro: #000000;
+    /* Neutral Colors */
+    --white: #FFFFFF;
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --gray-400: #9CA3AF;
+    --gray-500: #6B7280;
+    --gray-600: #4B5563;
+    --gray-700: #374151;
+    --gray-800: #1F2937;
+    --gray-900: #111827;
+    --black: #000000;
     
-    /* Tipografía */
-    --fuente-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --fuente-mono: 'Fira Code', 'Courier New', monospace;
+    /* Typography */
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'Fira Code', 'Courier New', monospace;
     
-    /* Espaciado */
-    --espacio-xs: 0.25rem;   /* 4px */
-    --espacio-sm: 0.5rem;    /* 8px */
-    --espacio-md: 1rem;      /* 16px */
-    --espacio-lg: 1.5rem;    /* 24px */
-    --espacio-xl: 2rem;      /* 32px */
-    --espacio-2xl: 3rem;     /* 48px */
-    --espacio-3xl: 4rem;     /* 64px */
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
     
-    /* Bordes Redondeados */
-    --radio-sm: 0.25rem;     /* 4px */
-    --radio-md: 0.5rem;      /* 8px */
-    --radio-lg: 0.75rem;     /* 12px */
-    --radio-xl: 1rem;        /* 16px */
-    --radio-completo: 9999px; /* Totalmente redondeado */
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
     
-    /* Sombras */
-    --sombra-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --sombra-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --sombra-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --sombra-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     
-    /* Transiciones */
-    --transicion-rapida: 150ms ease-in-out;
-    --transicion-base: 300ms ease-in-out;
-    --transicion-lenta: 500ms ease-in-out;
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 300ms ease-in-out;
+    --transition-slow: 500ms ease-in-out;
     
-    /* Puntos de Quiebre Responsivos (para referencia en media queries) */
-    --breakpoint-sm: 640px;  /* Móviles */
-    --breakpoint-md: 768px;  /* Tablets */
-    --breakpoint-lg: 1024px; /* Laptops */
-    --breakpoint-xl: 1280px; /* Escritorio */
+    /* Breakpoints (for reference in media queries) */
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
 }
 
 /* ===========================
-   REINICIO Y ESTILOS BASE
+   RESET & BASE STYLES
    =========================== */
-
-/* Reinicia márgenes, rellenos y aplica box-sizing a todos los elementos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Configuración del elemento raíz HTML */
 html {
-    scroll-behavior: smooth;  /* Desplazamiento suave al navegar */
-    font-size: 16px;          /* Tamaño base de fuente */
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
-/* Estilos del cuerpo del documento */
 body {
-    font-family: var(--fuente-sans);
+    font-family: var(--font-sans);
     line-height: 1.6;
-    color: var(--gris-800);
-    background-color: var(--gris-50);
-    overflow-x: hidden;  /* Evita scroll horizontal */
+    color: var(--gray-800);
+    background-color: var(--gray-50);
+    overflow-x: hidden;
 }
 
 /* ===========================
-   TIPOGRAFÍA
+   TYPOGRAPHY
    =========================== */
-
-/* Estilos para todos los encabezados */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: var(--espacio-md);
-    color: var(--gris-900);
+    margin-bottom: var(--spacing-md);
+    color: var(--gray-900);
 }
 
-/* Tamaños específicos para cada nivel de encabezado */
-h1 { font-size: 2.5rem; }    /* 40px */
-h2 { font-size: 2rem; }      /* 32px */
-h3 { font-size: 1.5rem; }    /* 24px */
-h4 { font-size: 1.25rem; }   /* 20px */
-h5 { font-size: 1.125rem; }  /* 18px */
-h6 { font-size: 1rem; }      /* 16px */
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
 
-/* Párrafos */
 p {
-    margin-bottom: var(--espacio-md);
+    margin-bottom: var(--spacing-md);
     line-height: 1.7;
 }
 
-/* Enlaces */
 a {
-    color: var(--azul-principal);
+    color: var(--primary);
     text-decoration: none;
-    transition: color var(--transicion-rapida);
+    transition: color var(--transition-fast);
 }
 
 a:hover {
-    color: var(--azul-oscuro);
+    color: var(--primary-dark);
 }
 
-/* Texto en negrita */
 strong, b {
     font-weight: 600;
 }
 
-/* Texto en cursiva */
 em, i {
     font-style: italic;
 }
 
-/* Código en línea */
 code {
-    font-family: var(--fuente-mono);
-    background-color: var(--gris-100);
+    font-family: var(--font-mono);
+    background-color: var(--gray-100);
     padding: 0.125rem 0.375rem;
-    border-radius: var(--radio-sm);
+    border-radius: var(--radius-sm);
     font-size: 0.875em;
-    color: var(--morado-principal);
+    color: var(--secondary);
 }
 
-/* Bloques de código */
 pre {
-    background-color: var(--gris-900);
-    color: var(--gris-100);
-    padding: var(--espacio-lg);
-    border-radius: var(--radio-lg);
-    overflow-x: auto;  /* Scroll horizontal si el código es muy largo */
-    margin-bottom: var(--espacio-lg);
-    font-family: var(--fuente-mono);
+    background-color: var(--gray-900);
+    color: var(--gray-100);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-mono);
     font-size: 0.875rem;
     line-height: 1.6;
 }
 
-/* Código dentro de bloques pre (sin estilos adicionales) */
 pre code {
     background: none;
     padding: 0;
@@ -173,564 +159,497 @@ pre code {
 }
 
 /* ===========================
-   LISTAS
+   LISTS
    =========================== */
-
-/* Estilos base para listas ordenadas y desordenadas */
 ul, ol {
-    margin-bottom: var(--espacio-lg);
-    padding-left: var(--espacio-xl);
+    margin-bottom: var(--spacing-lg);
+    padding-left: var(--spacing-xl);
 }
 
 ul li, ol li {
-    margin-bottom: var(--espacio-sm);
+    margin-bottom: var(--spacing-sm);
     line-height: 1.7;
 }
 
-/* Listas desordenadas con viñetas */
+/* Unordered Lists */
 ul {
-    list-style-type: disc;  /* Puntos sólidos */
+    list-style-type: disc;
 }
 
-/* Listas desordenadas anidadas */
 ul ul {
-    list-style-type: circle;  /* Círculos vacíos */
-    margin-top: var(--espacio-sm);
-    margin-bottom: var(--espacio-sm);
+    list-style-type: circle;
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
 }
 
-/* Listas ordenadas con números */
+/* Ordered Lists */
 ol {
     list-style-type: decimal;
 }
 
-/* Listas ordenadas anidadas con letras */
 ol ol {
-    list-style-type: lower-alpha;  /* a, b, c, etc. */
-    margin-top: var(--espacio-sm);
-    margin-bottom: var(--espacio-sm);
+    list-style-type: lower-alpha;
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
 }
 
-/* Listas limpias (sin viñetas ni números) */
-.lista-limpia {
+/* Clean Lists (no bullets) */
+.list-clean {
     list-style: none;
     padding-left: 0;
 }
 
-.lista-limpia li {
-    padding-left: var(--espacio-lg);
+.list-clean li {
+    padding-left: var(--spacing-lg);
     position: relative;
 }
 
-/* Flecha personalizada antes de cada elemento */
-.lista-limpia li::before {
+.list-clean li::before {
     content: "→";
     position: absolute;
     left: 0;
-    color: var(--azul-principal);
+    color: var(--primary);
     font-weight: bold;
 }
 
 /* ===========================
-   CONTENEDORES Y DISEÑO
+   CONTAINER & LAYOUT
    =========================== */
-
-/* Contenedor principal con ancho máximo centrado */
-.contenedor {
+.container {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 var(--espacio-lg);
+    padding: 0 var(--spacing-lg);
 }
 
-/* Contenedor más estrecho para lectura */
-.contenedor-estrecho {
+.container-narrow {
     max-width: 960px;
 }
 
-/* Secciones con espaciado vertical */
 section {
-    padding: var(--espacio-3xl) 0;
+    padding: var(--spacing-3xl) 0;
 }
 
-/* Título de sección centrado */
-.titulo-seccion {
+.section-title {
     text-align: center;
-    margin-bottom: var(--espacio-2xl);
+    margin-bottom: var(--spacing-2xl);
     font-size: 2.25rem;
-    color: var(--gris-900);
+    color: var(--gray-900);
 }
 
 /* ===========================
-   NAVEGACIÓN
+   NAVIGATION
    =========================== */
-
-/* Barra de navegación fija en la parte superior */
-.barra-nav {
-    background-color: var(--blanco);
-    box-shadow: var(--sombra-md);
+.navbar {
+    background-color: var(--white);
+    box-shadow: var(--shadow-md);
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: var(--espacio-md) 0;
+    padding: var(--spacing-md) 0;
 }
 
-.barra-nav .contenedor {
+.navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Logo y nombre de la marca */
-.marca-nav {
+.nav-brand {
     display: flex;
     align-items: center;
-    gap: var(--espacio-sm);
+    gap: var(--spacing-sm);
     font-size: 1.25rem;
     font-weight: 700;
 }
 
-/* Logo con gradiente */
 .logo {
-    background: linear-gradient(135deg, var(--azul-principal), var(--morado-principal));
-    color: var(--blanco);
-    padding: var(--espacio-sm) var(--espacio-md);
-    border-radius: var(--radio-md);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
     font-weight: 800;
 }
 
-/* Texto de la marca */
-.texto-marca {
-    color: var(--gris-900);
+.brand-text {
+    color: var(--gray-900);
 }
 
-/* Menú de navegación */
-.menu-nav {
+.nav-menu {
     display: flex;
-    gap: var(--espacio-md);
+    gap: var(--spacing-md);
     list-style: none;
     padding: 0;
     margin: 0;
     align-items: center;
 }
 
-/* Enlaces del menú */
-.enlace-nav {
-    padding: var(--espacio-sm) var(--espacio-md);
-    border-radius: var(--radio-md);
-    transition: all var(--transicion-rapida);
-    color: var(--gris-700);
+.nav-link {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    color: var(--gray-700);
     font-weight: 500;
 }
 
-.enlace-nav:hover {
-    background-color: var(--gris-100);
-    color: var(--azul-principal);
+.nav-link:hover {
+    background-color: var(--gray-100);
+    color: var(--primary);
 }
 
-/* Enlace activo/seleccionado */
-.enlace-nav.activo {
-    background-color: var(--azul-principal);
-    color: var(--blanco);
+.nav-link.active {
+    background-color: var(--primary);
+    color: var(--white);
 }
 
-/* Botón especial de demostración */
-.enlace-nav.btn-demo {
-    background: linear-gradient(135deg, var(--azul-principal), var(--morado-principal));
-    color: var(--blanco);
+.nav-link.btn-demo {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
     font-weight: 600;
 }
 
-.enlace-nav.btn-demo:hover {
-    transform: translateY(-2px);  /* Elevación al pasar el mouse */
-    box-shadow: var(--sombra-lg);
+.nav-link.btn-demo:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
-/* Botón hamburguesa para menú móvil */
-.toggle-nav {
+/* Mobile Menu Toggle */
+.nav-toggle {
     display: none;
     flex-direction: column;
     gap: 4px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: var(--espacio-sm);
+    padding: var(--spacing-sm);
 }
 
-/* Líneas del botón hamburguesa */
-.toggle-nav span {
+.nav-toggle span {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: var(--gris-800);
-    border-radius: var(--radio-completo);
-    transition: all var(--transicion-rapida);
+    background-color: var(--gray-800);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
 }
 
-/* Animación del botón hamburguesa cuando está activo (forma X) */
-.toggle-nav.activo span:nth-child(1) {
+.nav-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
 
-.toggle-nav.activo span:nth-child(2) {
+.nav-toggle.active span:nth-child(2) {
     opacity: 0;
 }
 
-.toggle-nav.activo span:nth-child(3) {
+.nav-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* ===========================
-   BOTONES
+   BUTTONS
    =========================== */
-
-/* Estilos base para todos los botones */
 .btn {
     display: inline-block;
-    padding: var(--espacio-md) var(--espacio-xl);
-    border-radius: var(--radio-md);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-md);
     font-weight: 600;
     text-align: center;
     cursor: pointer;
-    transition: all var(--transicion-rapida);
+    transition: all var(--transition-fast);
     border: 2px solid transparent;
     font-size: 1rem;
 }
 
-/* Botón primario (azul) */
-.btn-primario {
-    background-color: var(--azul-principal);
-    color: var(--blanco);
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
 }
 
-.btn-primario:hover {
-    background-color: var(--azul-oscuro);
+.btn-primary:hover {
+    background-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: var(--sombra-lg);
+    box-shadow: var(--shadow-lg);
 }
 
-/* Botón secundario (morado) */
-.btn-secundario {
-    background-color: var(--morado-principal);
-    color: var(--blanco);
+.btn-secondary {
+    background-color: var(--secondary);
+    color: var(--white);
 }
 
-.btn-secundario:hover {
-    background-color: var(--morado-oscuro);
+.btn-secondary:hover {
+    background-color: var(--secondary-dark);
     transform: translateY(-2px);
-    box-shadow: var(--sombra-lg);
+    box-shadow: var(--shadow-lg);
 }
 
-/* Botón con solo borde (outline) */
 .btn-outline {
     background-color: transparent;
-    border-color: var(--azul-principal);
-    color: var(--azul-principal);
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .btn-outline:hover {
-    background-color: var(--azul-principal);
-    color: var(--blanco);
+    background-color: var(--primary);
+    color: var(--white);
 }
 
-/* Botón de éxito (verde) */
-.btn-exito {
-    background-color: var(--verde-exito);
-    color: var(--blanco);
+.btn-success {
+    background-color: var(--success);
+    color: var(--white);
 }
 
-/* Botón de advertencia (amarillo) */
-.btn-advertencia {
-    background-color: var(--amarillo-advertencia);
-    color: var(--blanco);
+.btn-warning {
+    background-color: var(--warning);
+    color: var(--white);
 }
 
-/* Botón de error (rojo) */
 .btn-error {
-    background-color: var(--rojo-error);
-    color: var(--blanco);
+    background-color: var(--error);
+    color: var(--white);
 }
 
-/* Botón pequeño */
 .btn-sm {
-    padding: var(--espacio-sm) var(--espacio-md);
+    padding: var(--spacing-sm) var(--spacing-md);
     font-size: 0.875rem;
 }
 
-/* Botón grande */
 .btn-lg {
-    padding: var(--espacio-lg) var(--espacio-2xl);
+    padding: var(--spacing-lg) var(--spacing-2xl);
     font-size: 1.125rem;
 }
 
 /* ===========================
-   TARJETAS
+   CARDS
    =========================== */
-
-/* Tarjeta básica con elevación */
-.tarjeta {
-    background-color: var(--blanco);
-    border-radius: var(--radio-xl);
-    padding: var(--espacio-xl);
-    box-shadow: var(--sombra-md);
-    transition: all var(--transicion-base);
-    border: 1px solid var(--gris-200);
+.card {
+    background-color: var(--white);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    border: 1px solid var(--gray-200);
 }
 
-/* Efecto hover en tarjetas */
-.tarjeta:hover {
-    transform: translateY(-5px);  /* Se eleva */
-    box-shadow: var(--sombra-xl);
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
 }
 
-/* Icono de la tarjeta */
-.tarjeta-icono {
+.card-icon {
     font-size: 3rem;
-    margin-bottom: var(--espacio-md);
+    margin-bottom: var(--spacing-md);
 }
 
-/* Título de la tarjeta */
-.tarjeta-titulo {
+.card-title {
     font-size: 1.5rem;
-    margin-bottom: var(--espacio-md);
-    color: var(--gris-900);
+    margin-bottom: var(--spacing-md);
+    color: var(--gray-900);
 }
 
-/* Descripción de la tarjeta */
-.tarjeta-descripcion {
-    color: var(--gris-600);
-    margin-bottom: var(--espacio-lg);
+.card-description {
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-lg);
     line-height: 1.6;
 }
 
-/* Enlace dentro de la tarjeta */
-.tarjeta-enlace {
-    color: var(--azul-principal);
+.card-link {
+    color: var(--primary);
     font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: var(--espacio-xs);
+    gap: var(--spacing-xs);
 }
 
-/* Efecto hover en enlace de tarjeta (aumenta espacio) */
-.tarjeta-enlace:hover {
-    gap: var(--espacio-sm);
+.card-link:hover {
+    gap: var(--spacing-sm);
 }
 
-/* Imagen de tarjeta */
-.tarjeta-imagen {
+/* Card with Image */
+.card-image {
     width: 100%;
     height: 200px;
-    object-fit: cover;  /* Recorta la imagen para llenar el espacio */
-    border-radius: var(--radio-lg);
-    margin-bottom: var(--espacio-md);
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 /* ===========================
-   IMÁGENES
+   IMAGES
    =========================== */
-
-/* Configuración base para imágenes responsivas */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* Imagen con bordes redondeados */
-.img-redondeada {
-    border-radius: var(--radio-lg);
+.img-rounded {
+    border-radius: var(--radius-lg);
 }
 
-/* Imagen circular */
-.img-circulo {
-    border-radius: var(--radio-completo);
+.img-circle {
+    border-radius: var(--radius-full);
 }
 
-/* Imagen con sombra */
-.img-sombra {
-    box-shadow: var(--sombra-lg);
+.img-shadow {
+    box-shadow: var(--shadow-lg);
 }
 
-/* Figura con imagen y descripción */
 figure {
-    margin: var(--espacio-xl) 0;
+    margin: var(--spacing-xl) 0;
 }
 
-/* Pie de foto */
 figcaption {
     text-align: center;
-    color: var(--gris-600);
+    color: var(--gray-600);
     font-size: 0.875rem;
-    margin-top: var(--espacio-sm);
+    margin-top: var(--spacing-sm);
     font-style: italic;
 }
 
 /* ===========================
-   PIE DE PÁGINA
+   FOOTER
    =========================== */
-
-/* Pie de página oscuro */
-.pie-pagina {
-    background-color: var(--gris-900);
-    color: var(--gris-300);
-    padding: var(--espacio-3xl) 0 var(--espacio-xl);
-    margin-top: var(--espacio-3xl);
+.footer {
+    background-color: var(--gray-900);
+    color: var(--gray-300);
+    padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    margin-top: var(--spacing-3xl);
 }
 
-/* Grid responsivo para el contenido del pie */
-.contenido-pie {
+.footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--espacio-2xl);
-    margin-bottom: var(--espacio-2xl);
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
 }
 
-/* Sección individual del pie */
-.seccion-pie h4 {
-    color: var(--blanco);
-    margin-bottom: var(--espacio-md);
+.footer-section h4 {
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
     font-size: 1.125rem;
 }
 
-.seccion-pie p {
+.footer-section p {
     line-height: 1.8;
 }
 
-/* Enlaces del pie de página */
-.enlaces-pie {
+.footer-links {
     list-style: none;
     padding: 0;
 }
 
-.enlaces-pie li {
-    margin-bottom: var(--espacio-sm);
+.footer-links li {
+    margin-bottom: var(--spacing-sm);
 }
 
-.enlaces-pie a {
-    color: var(--gris-400);
-    transition: color var(--transicion-rapida);
+.footer-links a {
+    color: var(--gray-400);
+    transition: color var(--transition-fast);
 }
 
-.enlaces-pie a:hover {
-    color: var(--azul-claro);
+.footer-links a:hover {
+    color: var(--primary-light);
 }
 
-/* Parte inferior del pie con copyright */
-.pie-inferior {
+.footer-bottom {
     text-align: center;
-    padding-top: var(--espacio-xl);
-    border-top: 1px solid var(--gris-700);
-    color: var(--gris-500);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--gray-700);
+    color: var(--gray-500);
 }
 
 /* ===========================
-   CLASES UTILITARIAS
+   UTILITY CLASSES
    =========================== */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
 
-/* Alineación de texto */
-.texto-centro { text-align: center; }
-.texto-izquierda { text-align: left; }
-.texto-derecha { text-align: right; }
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-success { color: var(--success); }
+.text-warning { color: var(--warning); }
+.text-error { color: var(--error); }
 
-/* Colores de texto */
-.texto-primario { color: var(--azul-principal); }
-.texto-secundario { color: var(--morado-principal); }
-.texto-exito { color: var(--verde-exito); }
-.texto-advertencia { color: var(--amarillo-advertencia); }
-.texto-error { color: var(--rojo-error); }
+.bg-primary { background-color: var(--primary); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-success { background-color: var(--success); }
+.bg-warning { background-color: var(--warning); }
+.bg-error { background-color: var(--error); }
 
-/* Colores de fondo */
-.fondo-primario { background-color: var(--azul-principal); }
-.fondo-secundario { background-color: var(--morado-principal); }
-.fondo-exito { background-color: var(--verde-exito); }
-.fondo-advertencia { background-color: var(--amarillo-advertencia); }
-.fondo-error { background-color: var(--rojo-error); }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
 
-/* Márgenes superiores */
-.mt-sm { margin-top: var(--espacio-sm); }
-.mt-md { margin-top: var(--espacio-md); }
-.mt-lg { margin-top: var(--espacio-lg); }
-.mt-xl { margin-top: var(--espacio-xl); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
 
-/* Márgenes inferiores */
-.mb-sm { margin-bottom: var(--espacio-sm); }
-.mb-md { margin-bottom: var(--espacio-md); }
-.mb-lg { margin-bottom: var(--espacio-lg); }
-.mb-xl { margin-bottom: var(--espacio-xl); }
-
-/* Rellenos (padding) */
-.p-sm { padding: var(--espacio-sm); }
-.p-md { padding: var(--espacio-md); }
-.p-lg { padding: var(--espacio-lg); }
-.p-xl { padding: var(--espacio-xl); }
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
 
 /* ===========================
-   DISEÑO RESPONSIVO
+   RESPONSIVE DESIGN
    =========================== */
-
-/* Tablets y pantallas medianas (hasta 1024px) */
 @media (max-width: 1024px) {
     h1 { font-size: 2rem; }
     h2 { font-size: 1.75rem; }
-    .titulo-seccion { font-size: 2rem; }
+    .section-title { font-size: 2rem; }
 }
 
-/* Tablets pequeñas y móviles grandes (hasta 768px) */
 @media (max-width: 768px) {
-    /* Mostrar botón hamburguesa en móviles */
-    .toggle-nav {
+    /* Navigation */
+    .nav-toggle {
         display: flex;
     }
     
-    /* Menú desplegable en móviles */
-    .menu-nav {
+    .nav-menu {
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        background-color: var(--blanco);
+        background-color: var(--white);
         flex-direction: column;
-        padding: var(--espacio-lg);
-        box-shadow: var(--sombra-lg);
-        transform: translateY(-100%);  /* Oculto arriba */
+        padding: var(--spacing-lg);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
-        transition: all var(--transicion-base);
+        transition: all var(--transition-base);
     }
     
-    /* Menú visible cuando está activo */
-    .menu-nav.activo {
+    .nav-menu.active {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
     }
     
-    /* Tipografía más pequeña en móviles */
+    /* Typography */
     h1 { font-size: 1.75rem; }
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.25rem; }
-    .titulo-seccion { font-size: 1.75rem; }
+    .section-title { font-size: 1.75rem; }
     
-    /* Espaciado reducido en secciones */
+    /* Sections */
     section {
-        padding: var(--espacio-xl) 0;
+        padding: var(--spacing-xl) 0;
     }
     
-    /* Menos padding en contenedor */
-    .contenedor {
-        padding: 0 var(--espacio-md);
+    /* Container */
+    .container {
+        padding: 0 var(--spacing-md);
     }
 }
 
-/* Móviles pequeños (hasta 640px) */
 @media (max-width: 640px) {
-    /* Reduce tamaño de fuente base */
     html {
         font-size: 14px;
     }
     
-    /* Botones a ancho completo */
     .btn {
         width: 100%;
         text-align: center;

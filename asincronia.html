@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asincronía en JavaScript - Consumo de APIs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+    <link rel="stylesheet" href="css/asincronia.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">API</span>
+                <span class="brand-text">Consumo de APIs</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="fundamentos.html" class="nav-link">Fundamentos</a></li>
+                <li><a href="urls-endpoints.html" class="nav-link">URLs & Endpoints</a></li>
+                <li><a href="metodos-http.html" class="nav-link">Métodos HTTP</a></li>
+                <li><a href="codigos-respuesta.html" class="nav-link">Códigos HTTP</a></li>
+                <li><a href="asincronia.html" class="nav-link active">Asincronía JS</a></li>
+                <li><a href="manejo-errores.html" class="nav-link">Manejo de Errores</a></li>
+                <li><a href="demos.html" class="nav-link btn-demo">Demos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <span>/</span>
+                <span>Asincronía en JavaScript</span>
+            </div>
+            <h1 class="page-title">Asincronía en JavaScript</h1>
+            <p class="page-subtitle">Domina el código asíncrono para trabajar eficientemente con APIs y operaciones que toman tiempo</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Introduction -->
+            <section class="content-section">
+                <h2 class="section-heading">La Asincronía en JavaScript</h2>
+                <div class="intro-box">
+                    <p class="intro-text">
+                        La <strong>asincronía</strong> es uno de los conceptos principales que existe en el mundo de JavaScript. 
+                        Cuando comenzamos, es muy común trabajar con código síncrono (secuencial), sin embargo, llegado a un punto 
+                        necesitaremos trabajar con código asíncrono, el cual puede ser muy frustrante si no lo entendemos bien.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Syncronía vs Asincronía -->
+            <section class="content-section">
+                <h2 class="section-heading">¿Qué es la Sincronía?</h2>
+                <p>En programación, cuando hablamos de sincronía, nos referimos a una forma de ejecutar el código. Cuando comenzamos a programar, 
+                normalmente realizamos tareas de forma síncrona, llevando a cabo tareas <strong>secuenciales</strong> que se ejecutan una detrás 
+                de otra, de modo que el orden o flujo del programa es sencillo y fácil de observar en el código.</p>
+
+                <!-- IMAGE: Sync vs Async Diagram -->
+                <figure class="content-image">
+                    <img src="images/sincronia-vs-asincronia.png" alt="Comparación entre código síncrono y asíncrono" class="img-rounded img-shadow">
+                    <figcaption>Diferencia entre ejecución síncrona y asíncrona</figcaption>
+                </figure>
+
+                <div class="comparison-box">
+                    <div class="comparison-side sync-side">
+                        <h3>⏭️ Código Síncrono</h3>
+                        <ul>
+                            <li>Se ejecuta línea por línea</li>
+                            <li>Cada operación espera a que la anterior termine</li>
+                            <li>Flujo secuencial y predecible</li>
+                            <li>Fácil de entender y seguir</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-side async-side">
+                        <h3>⚡ Código Asíncrono</h3>
+                        <ul>
+                            <li>No bloquea la ejecución</li>
+                            <li>Múltiples operaciones pueden ejecutarse simultáneamente</li>
+                            <li>Ideal para operaciones que toman tiempo</li>
+                            <li>Requiere manejo especial</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>¿Cuándo necesitamos código asíncrono?</h4>
+                    <p>En el mundo de la programación, tarde o temprano necesitaremos realizar operaciones asíncronas, especialmente en 
+                    JavaScript, donde tenemos que realizar tareas que tienen que esperar a que ocurra un determinado suceso.</p>
+                    <p><strong>Este suceso tiene varias características:</strong></p>
+                    <ul>
+                        <li>Generalmente, no depende de nosotros</li>
+                        <li>No solemos saber cuándo va a ocurrir</li>
+                        <li>A veces, ni siquiera sabemos si va a ocurrir</li>
+                    </ul>
+                    <p>Nuestro código tiene que saber gestionar esas características, y reaccionar sólo cuando dicho suceso ocurra.</p>
+                </div>
+            </section>
+
+            <!-- XMLHttpRequest -->
+            <section class="content-section">
+                <h2 class="section-heading">El Objeto XMLHttpRequest</h2>
+                <p>El objeto XMLHttpRequest se puede utilizar para solicitar datos de un servidor web.</p>
+
+                <div class="feature-box">
+                    <h3>El objeto XMLHttpRequest es el sueño de cualquier desarrollador, porque permite:</h3>
+                    <ul>
+                        <li>Actualizar una página web sin recargarla</li>
+                        <li>Solicitar datos de un servidor después de que se haya cargado la página</li>
+                        <li>Recibir datos de un servidor después de que se haya cargado la página</li>
+                        <li>Enviar datos a un servidor en segundo plano</li>
+                    </ul>
+                </div>
+
+                <!-- IMAGE: XMLHttpRequest Example -->
+                <figure class="content-image">
+                    <img src="images/xmlhttprequest-ejemplo.png" alt="Ejemplo de XMLHttpRequest" class="img-rounded img-shadow">
+                    <figcaption>Ejemplo de uso de XMLHttpRequest</figcaption>
+                </figure>
+
+                <div class="example-box">
+                    <h4>📌 Ejemplo cotidiano</h4>
+                    <p>Piensa en una app de clima:</p>
+                    <ul>
+                        <li>Cada vez que eliges una ciudad, el navegador pide al servidor la información del clima actual usando XMLHttpRequest.</li>
+                        <li>El servidor responde con los datos del clima (temperatura, humedad, etc.).</li>
+                        <li>La página actualiza solo esa parte, sin volver a cargar todo el sitio.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Fetch API -->
+            <section class="content-section">
+                <h2 class="section-heading">Método fetch()</h2>
+                <p>Fetch es el nombre de una nueva API para JavaScript con la cual podemos realizar peticiones HTTP asíncronas 
+                utilizando promesas y de forma que el código sea un poco más sencillo y menos verbose. La forma de realizar una 
+                petición es muy sencilla, básicamente se trata de llamar a <code>fetch</code> y pasarle por parámetro la URL de 
+                la petición a realizar.</p>
+
+                <!-- IMAGE: Fetch Example -->
+                <figure class="content-image">
+                    <img src="images/fetch-ejemplo.png" alt="Ejemplo de método fetch" class="img-rounded img-shadow">
+                    <figcaption>Ejemplo de uso del método fetch()</figcaption>
+                </figure>
+
+                <div class="advantages-box">
+                    <h3>✨ Ventajas del método fetch</h3>
+                    <div class="advantage-item">
+                        <div class="advantage-icon">🌍</div>
+                        <div class="advantage-content">
+                            <h4>Familiaridad entre plataformas</h4>
+                            <p>La misma sintaxis de fetch funciona en todos los entornos de JavaScript (navegadores, Node.js, React), 
+                            lo que facilita el aprendizaje y la reutilización del código.</p>
+                        </div>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-icon">⚡</div>
+                        <div class="advantage-content">
+                            <h4>Implementación más rápida</h4>
+                            <p>En Node.js, el uso de Undici como base de fetch mejora la velocidad, la confiabilidad y la compatibilidad 
+                            con los estándares de Node.</p>
+                        </div>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-icon">🎯</div>
+                        <div class="advantage-content">
+                            <h4>Sintaxis basada en promesas</h4>
+                            <p>Fetch usa promesas en lugar de callbacks, lo que hace el código más limpio y fácil de manejar en 
+                            operaciones asíncronas como las llamadas AJAX.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fetch vs XMLHttpRequest -->
+            <section class="content-section">
+                <h2 class="section-heading">Fetch vs XMLHttpRequest</h2>
+
+                <!-- IMAGE: Comparison Table -->
+                <figure class="content-image">
+                    <img src="images/fetch-vs-xhr.png" alt="Comparación Fetch vs XMLHttpRequest" class="img-rounded img-shadow">
+                    <figcaption>Tabla comparativa: Fetch vs XMLHttpRequest</figcaption>
+                </figure>
+
+                <div class="when-to-use">
+                    <h3>¿Cuándo usar cada uno?</h3>
+                    
+                    <div class="use-case-card fetch-card">
+                        <h4>🚀 Usa <code>fetch</code> si:</h4>
+                        <ul>
+                            <li>Estás en una app moderna y puedes usar polyfills para navegadores antiguos si hace falta.</li>
+                            <li>Quieres código más limpio con async/await.</li>
+                            <li>Necesitas integrarte con Service Workers/Cache API, streams de lectura o políticas de CORS/credenciales declarativas.</li>
+                            <li>No requieres eventos de progreso de subida detallados.</li>
+                        </ul>
+                    </div>
+
+                    <div class="use-case-card xhr-card">
+                        <h4>🔧 Usa <code>XMLHttpRequest</code> si:</h4>
+                        <ul>
+                            <li>Debes soportar navegadores muy antiguos sin polyfills (p. ej., IE).</li>
+                            <li>Necesitas eventos de progreso de subida o descarga sencillos y nativos.</li>
+                            <li>Quieres timeout nativo sin construirlo tú.</li>
+                            <li>Estás trabajando en una base de código que ya usa XHR y migrar ahora sería costoso.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Promises -->
+            <section class="content-section">
+                <h2 class="section-heading">Promises (Promesas)</h2>
+                <p>Imagina que eres un gran cantante y los fanáticos te preguntan día y noche por tu próxima canción.</p>
+                <p>Para obtener algo de alivio, prometes enviárselos cuando se publique. Le das a tus fans una lista. Ellos pueden 
+                registrar allí sus direcciones de correo electrónico, de modo que cuando la canción esté disponible, todas las partes 
+                suscritas la reciban instantáneamente. E incluso si algo sale muy mal, digamos, un incendio en el estudio tal que no 
+                puedas publicar la canción, aún se les notificará.</p>
+
+                <p><strong>Todos están felices:</strong> tú, porque la gente ya no te abruma, y los fanáticos, porque no se perderán la canción.</p>
+
+                <!-- IMAGE: Promise Analogy -->
+                <figure class="content-image">
+                    <img src="images/promises-analogia.png" alt="Analogía de las promesas" class="img-rounded img-shadow">
+                    <figcaption>Analogía del cantante: cómo funcionan las promesas</figcaption>
+                </figure>
+
+                <div class="promise-explanation">
+                    <h3>Esta es una analogía de la vida real para las cosas que a menudo tenemos en la programación:</h3>
+                    <div class="promise-parts">
+                        <div class="promise-part">
+                            <div class="promise-number">1</div>
+                            <div class="promise-content">
+                                <h4>Código Productor</h4>
+                                <p>Un "código productor" que hace algo y toma tiempo. Por ejemplo, algún código que carga los datos a 
+                                través de una red. <strong>Eso es un "cantante".</strong></p>
+                            </div>
+                        </div>
+                        <div class="promise-part">
+                            <div class="promise-number">2</div>
+                            <div class="promise-content">
+                                <h4>Código Consumidor</h4>
+                                <p>Un "código consumidor" que quiere el resultado del "código productor" una vez que está listo. 
+                                Muchas funciones pueden necesitar ese resultado. <strong>Estos son los "fans".</strong></p>
+                            </div>
+                        </div>
+                        <div class="promise-part">
+                            <div class="promise-number">3</div>
+                            <div class="promise-content">
+                                <h4>Promesa</h4>
+                                <p>Una promesa es un objeto JavaScript especial que une el "código productor" y el "código consumidor". 
+                                En términos de nuestra analogía, <strong>esta es la "lista de suscripción".</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMAGE: Promise States -->
+                <figure class="content-image">
+                    <img src="images/promise-estados.png" alt="Estados de una promesa" class="img-rounded img-shadow">
+                    <figcaption>Estados de una promesa: Pending, Fulfilled, Rejected</figcaption>
+                </figure>
+
+                <div class="promise-states">
+                    <h3>Las promesas pueden cumplirse o no</h3>
+                    <div class="states-grid">
+                        <div class="state-card pending-card">
+                            <div class="state-icon">⏳</div>
+                            <h4>Pending (Pendiente)</h4>
+                            <p>Estado inicial, la operación no se ha completado aún.</p>
+                        </div>
+                        <div class="state-card fulfilled-card">
+                            <div class="state-icon">✅</div>
+                            <h4>Fulfilled (Cumplida)</h4>
+                            <p>La operación se completó con éxito.</p>
+                        </div>
+                        <div class="state-card rejected-card">
+                            <div class="state-icon">❌</div>
+                            <h4>Rejected (Rechazada)</h4>
+                            <p>La operación falló.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-cases-box">
+                    <h3>Se usan promises principalmente en:</h3>
+                    <ul>
+                        <li>Peticiones HTTP a APIs</li>
+                        <li>Lectura/escritura de archivos</li>
+                        <li>Operaciones con bases de datos</li>
+                        <li>Timeouts y delays</li>
+                        <li>Cualquier operación que tome tiempo</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Async/Await -->
+            <section class="content-section">
+                <h2 class="section-heading">Async/Await</h2>
+                <p>Existe una sintaxis especial para trabajar con promesas de una forma más confortable, llamada <strong>"async/await"</strong>. 
+                Es sorprendentemente fácil de entender y usar.</p>
+
+                <p>Las palabras clave <code>async</code> y <code>await</code>, implementadas a partir de ES2017, son una sintaxis que 
+                simplifica la programación asíncrona, facilitando el flujo de escritura y lectura de código; por lo que es posible escribir 
+                código que funcione de forma asíncrona, pero que se lea y estructure de forma síncrona.</p>
+
+                <!-- IMAGE: Async/Await Example -->
+                <figure class="content-image">
+                    <img src="images/async-await-ejemplo.png" alt="Ejemplo de Async/Await" class="img-rounded img-shadow">
+                    <figcaption>Ejemplo de uso de async/await</figcaption>
+                </figure>
+
+                <div class="async-explanation">
+                    <h3>¿Cómo funciona?</h3>
+                    <p>Al definir una función como <code>async</code>, podemos usar la palabra clave <code>await</code> antes de cualquier 
+                    expresión que retorne una promesa. De esta forma, la ejecución de la función externa (la función async) se pausará hasta 
+                    que se resuelva la Promesa.</p>
+
+                    <p>La palabra clave <code>await</code> recibe una Promesa y la convierte en un valor de retorno (o genera una excepción 
+                    en caso de error). Cuando usamos await, JavaScript esperará hasta que finalice la Promesa. Si se completa con éxito 
+                    (el término utilizado es <strong>fulfilled</strong>), el valor obtenido es retornado. Si la Promesa es rechazada 
+                    (el término utilizado es <strong>rejected</strong>), se retorna el error arrojado por la excepción.</p>
+                </div>
+
+                <div class="important-note">
+                    <div class="note-icon">⚠️</div>
+                    <div class="note-content">
+                        <h4>Importante</h4>
+                        <p><code>await</code> solo funciona si está dentro de otra función <code>async</code></p>
+                    </div>
+                </div>
+
+                <div class="use-cases-box">
+                    <h3>Se usa async/await principalmente en estos casos:</h3>
+                    <ul>
+                        <li>Llamadas a APIs REST</li>
+                        <li>Operaciones con bases de datos</li>
+                        <li>Lectura/escritura de archivos</li>
+                        <li>Cualquier operación con promesas</li>
+                        <li>Cuando queremos código más legible y mantenible</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <nav class="page-navigation">
+                <a href="codigos-respuesta.html" class="nav-btn nav-prev">
+                    ← Códigos de Respuesta HTTP
+                </a>
+                <a href="manejo-errores.html" class="nav-btn nav-next">
+                    Manejo de Errores →
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Proyecto Académico</h4>
+                    <p>ISW-512 Diseño de Aplicaciones Web<br>Universidad Técnica Nacional<br>2025 - Ciclo III</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="fundamentos.html">Fundamentos</a></li>
+                        <li><a href="metodos-http.html">Métodos HTTP</a></li>
+                        <li><a href="demos.html">Demos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" target="_blank">Documentación</a></li>
+                        <li><a href="#" target="_blank">GitHub</a></li>
+                        <li><a href="#" target="_blank">Referencias</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Grupo de APIs - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,508 @@
+/* ===========================
+   COMPARISON BOX (Sync vs Async)
+   =========================== */
+.comparison-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+}
+
+.comparison-side {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.comparison-side:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.sync-side {
+    border-top: 4px solid #3B82F6;
+}
+
+.async-side {
+    border-top: 4px solid #8B5CF6;
+}
+
+.comparison-side h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--gray-900);
+}
+
+.comparison-side ul {
+    margin: 0;
+    padding-left: var(--spacing-xl);
+}
+
+.comparison-side li {
+    margin-bottom: var(--spacing-sm);
+    color: var(--gray-700);
+    line-height: 1.6;
+}
+
+/* ===========================
+   FEATURE BOX
+   =========================== */
+.feature-box {
+    background: linear-gradient(135deg, #DBEAFE, #BFDBFE);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    margin: var(--spacing-xl) 0;
+    border: 2px solid var(--info);
+}
+
+.feature-box h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--gray-900);
+}
+
+.feature-box ul {
+    margin: 0;
+    padding-left: var(--spacing-xl);
+}
+
+.feature-box li {
+    margin-bottom: var(--spacing-sm);
+    color: var(--gray-700);
+    line-height: 1.7;
+}
+
+/* ===========================
+   ADVANTAGES BOX
+   =========================== */
+.advantages-box {
+    background: var(--white);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    border: 2px solid var(--accent);
+    margin: var(--spacing-2xl) 0;
+}
+
+.advantages-box h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-xl);
+    color: var(--gray-900);
+    text-align: center;
+}
+
+.advantage-item {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+    padding: var(--spacing-lg);
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+    transition: all var(--transition-fast);
+}
+
+.advantage-item:last-child {
+    margin-bottom: 0;
+}
+
+.advantage-item:hover {
+    background: var(--white);
+    box-shadow: var(--shadow-md);
+    transform: translateX(5px);
+}
+
+.advantage-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.advantage-content h4 {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--gray-900);
+}
+
+.advantage-content p {
+    margin: 0;
+    color: var(--gray-700);
+    line-height: 1.7;
+}
+
+/* ===========================
+   WHEN TO USE SECTION
+   =========================== */
+.when-to-use {
+    margin: var(--spacing-2xl) 0;
+}
+
+.when-to-use h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    color: var(--gray-900);
+}
+
+.use-case-card {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.use-case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.fetch-card {
+    border-left: 6px solid #10B981;
+}
+
+.xhr-card {
+    border-left: 6px solid #F59E0B;
+}
+
+.use-case-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--gray-900);
+}
+
+.use-case-card code {
+    background-color: var(--gray-100);
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--radius-sm);
+    font-size: 1em;
+    color: var(--primary);
+}
+
+.use-case-card ul {
+    margin: 0;
+    padding-left: var(--spacing-xl);
+}
+
+.use-case-card li {
+    margin-bottom: var(--spacing-sm);
+    color: var(--gray-700);
+    line-height: 1.7;
+}
+
+/* ===========================
+   PROMISE EXPLANATION
+   =========================== */
+.promise-explanation {
+    background: var(--gray-50);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    margin: var(--spacing-2xl) 0;
+}
+
+.promise-explanation h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xl);
+    color: var(--gray-900);
+}
+
+.promise-parts {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.promise-part {
+    display: flex;
+    gap: var(--spacing-lg);
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+}
+
+.promise-part:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(5px);
+}
+
+.promise-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.promise-content h4 {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--gray-900);
+}
+
+.promise-content p {
+    margin: 0;
+    color: var(--gray-700);
+    line-height: 1.7;
+}
+
+/* ===========================
+   PROMISE STATES
+   =========================== */
+.promise-states {
+    margin: var(--spacing-2xl) 0;
+}
+
+.promise-states h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    color: var(--gray-900);
+}
+
+.states-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.state-card {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    border-top: 4px solid;
+}
+
+.state-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.pending-card {
+    border-top-color: #F59E0B;
+}
+
+.fulfilled-card {
+    border-top-color: #10B981;
+}
+
+.rejected-card {
+    border-top-color: #EF4444;
+}
+
+.state-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.state-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--gray-900);
+}
+
+.state-card p {
+    margin: 0;
+    color: var(--gray-600);
+    line-height: 1.6;
+}
+
+/* ===========================
+   USE CASES BOX
+   =========================== */
+.use-cases-box {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--gray-200);
+    margin: var(--spacing-xl) 0;
+}
+
+.use-cases-box h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--gray-900);
+}
+
+.use-cases-box ul {
+    margin: 0;
+    padding-left: var(--spacing-xl);
+}
+
+.use-cases-box li {
+    margin-bottom: var(--spacing-sm);
+    color: var(--gray-700);
+    line-height: 1.7;
+}
+
+/* ===========================
+   ASYNC EXPLANATION
+   =========================== */
+.async-explanation {
+    background: var(--gray-50);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-xl) 0;
+}
+
+.async-explanation h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--gray-900);
+}
+
+.async-explanation p {
+    color: var(--gray-700);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+}
+
+.async-explanation p:last-child {
+    margin-bottom: 0;
+}
+
+.async-explanation code {
+    background-color: var(--gray-100);
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9375em;
+    color: var(--primary);
+}
+
+/* ===========================
+   IMPORTANT NOTE
+   =========================== */
+.important-note {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+    background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-xl) 0;
+    border: 2px solid var(--warning);
+}
+
+.note-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.note-content h4 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--gray-900);
+}
+
+.note-content p {
+    margin: 0;
+    color: var(--gray-700);
+    line-height: 1.7;
+}
+
+.note-content code {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9375em;
+    color: var(--gray-900);
+}
+
+/* ===========================
+   EXAMPLE BOX
+   =========================== */
+.example-box {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary);
+    margin: var(--spacing-xl) 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.example-box h4 {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--gray-900);
+}
+
+.example-box p {
+    color: var(--gray-700);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.example-box ul {
+    margin: 0;
+    padding-left: var(--spacing-xl);
+}
+
+.example-box li {
+    margin-bottom: var(--spacing-sm);
+    color: var(--gray-700);
+    line-height: 1.7;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+@media (max-width: 768px) {
+    .comparison-box {
+        grid-template-columns: 1fr;
+    }
+
+    .promise-parts {
+        grid-template-columns: 1fr;
+    }
+
+    .promise-part {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .states-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .advantage-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .important-note {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .advantages-box {
+        padding: var(--spacing-lg);
+    }
+
+    .promise-explanation {
+        padding: var(--spacing-lg);
+    }
+
+    .advantage-icon {
+        font-size: 2rem;
+    }
+
+    .state-icon {
+        font-size: 2rem;
+    }
+
+    .note-icon {
+        font-size: 2rem;
+    }
+}
