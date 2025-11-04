@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de Errores - Consumo de APIs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+    <link rel="stylesheet" href="css/manejo-errores.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">API</span>
+                <span class="brand-text">Consumo de APIs</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="fundamentos.html" class="nav-link">Fundamentos</a></li>
+                <li><a href="urls-endpoints.html" class="nav-link">URLs & Endpoints</a></li>
+                <li><a href="metodos-http.html" class="nav-link">Métodos HTTP</a></li>
+                <li><a href="codigos-respuesta.html" class="nav-link">Códigos HTTP</a></li>
+                <li><a href="asincronia.html" class="nav-link">Asincronía JS</a></li>
+                <li><a href="manejo-errores.html" class="nav-link active">Manejo de Errores</a></li>
+                <li><a href="demos.html" class="nav-link btn-demo">Demos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <span>/</span>
+                <span>Manejo de Errores y Estados de Carga</span>
+            </div>
+            <h1 class="page-title">Manejo de Errores y Estados de Carga</h1>
+            <p class="page-subtitle">Aprende a manejar respuestas de APIs e implementar estados de carga, éxito y error en tu interfaz</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Introduction -->
+            <section class="content-section">
+                <h2 class="section-heading">¿Por Qué es Importante el Manejo de Errores?</h2>
+                <div class="intro-box">
+                    <p class="intro-text">
+                        Cuando trabajamos con APIs, las cosas no siempre salen como esperamos. El servidor puede estar caído, 
+                        la conexión puede fallar, o el usuario puede enviar datos incorrectos. Un buen manejo de errores es 
+                        esencial para crear aplicaciones robustas y proporcionar una experiencia de usuario profesional.
+                    </p>
+                </div>
+
+                <div class="importance-grid">
+                    <div class="importance-card">
+                        <div class="importance-icon">👤</div>
+                        <h3>Mejor Experiencia de Usuario</h3>
+                        <p>Los usuarios necesitan saber qué está pasando: si algo está cargando, si fue exitoso, o si hubo un error.</p>
+                    </div>
+                    <div class="importance-card">
+                        <div class="importance-icon">🐛</div>
+                        <h3>Debugging Más Fácil</h3>
+                        <p>Mensajes de error claros te ayudan a identificar y solucionar problemas rápidamente.</p>
+                    </div>
+                    <div class="importance-card">
+                        <div class="importance-icon">🛡️</div>
+                        <h3>Aplicaciones Robustas</h3>
+                        <p>Prevenir que tu aplicación se rompa cuando algo sale mal.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fetch API Error Behavior -->
+            <section class="content-section">
+                <h2 class="section-heading">Comportamiento de fetch() con Errores</h2>
+                
+                <div class="warning-box">
+                    <div class="warning-icon">⚠️</div>
+                    <div class="warning-content">
+                        <h3>¡Importante!</h3>
+                        <p>Según la documentación de MDN, <code>fetch()</code> <strong>solo rechaza la promesa cuando ocurre un error de red</strong>, 
+                        como cuando el usuario está offline o hay un problema de DNS.</p>
+                        <p>Esto significa que <code>fetch()</code> <strong>NO rechaza la promesa</strong> para errores HTTP como 404 o 500. 
+                        La promesa se resuelve normalmente, y tú debes verificar manualmente el estado de la respuesta.</p>
+                    </div>
+                </div>
+
+                <div class="example-comparison">
+                    <div class="comparison-column">
+                        <h4 class="incorrect-label">❌ Comportamiento Inesperado</h4>
+                        <pre><code>fetch('http://example.com/api/500')
+  .then(() => console.log('ok'))
+  .catch(() => console.log('error'));
+
+// Resultado: Imprime "ok" 😱
+// Aunque el servidor devolvió 500!</code></pre>
+                        <p class="explanation">El <code>catch</code> no se ejecuta porque no hubo error de red, solo un código HTTP 500.</p>
+                    </div>
+
+                    <div class="comparison-column">
+                        <h4 class="correct-label">✅ Comportamiento Correcto</h4>
+                        <pre><code>fetch('http://example.com/api/500')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Error HTTP');
+    }
+    return response.json();
+  })
+  .catch(() => console.log('error'));
+
+// Resultado: Imprime "error" ✓</code></pre>
+                        <p class="explanation">Verificamos <code>response.ok</code> y lanzamos un error manualmente si no está en el rango 200-299.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Handling Methods -->
+            <section class="content-section">
+                <h2 class="section-heading">Métodos para Manejar Errores</h2>
+
+                <!-- Method 1: response.ok -->
+                <div class="method-box">
+                    <h3>Método 1: Verificar <code>response.ok</code></h3>
+                    <p>La propiedad <code>ok</code> es <code>true</code> si el código de estado HTTP está en el rango 200-299.</p>
+                    
+                    <pre><code>async function getData() {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    
+    if (!response.ok) {
+      throw new Error(`Error HTTP: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+}</code></pre>
+                </div>
+
+                <!-- Method 2: Check Status Codes -->
+                <div class="method-box">
+                    <h3>Método 2: Verificar Códigos de Estado Específicos</h3>
+                    <p>Puedes manejar diferentes códigos de estado de manera específica.</p>
+                    
+                    <pre><code>async function loginUser(credentials) {
+  try {
+    const response = await fetch('https://api.example.com/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(credentials)
+    });
+    
+    const data = await response.json();
+    
+    switch(response.status) {
+      case 200:
+        console.log('Login exitoso');
+        return data;
+      case 401:
+        throw new Error('Credenciales incorrectas');
+      case 404:
+        throw new Error('Endpoint no encontrado');
+      case 500:
+        throw new Error('Error del servidor');
+      default:
+        throw new Error(`Error: ${response.status}`);
+    }
+  } catch (error) {
+    console.error('Error en login:', error.message);
+    throw error;
+  }
+}</code></pre>
+                </div>
+
+                <!-- Method 3: Custom Error Handler -->
+                <div class="method-box">
+                    <h3>Método 3: Función Reutilizable de Manejo de Errores</h3>
+                    <p>Crea una función helper para manejar errores de forma consistente.</p>
+                    
+                    <pre><code>function handleResponse(response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
+}
+
+// Uso:
+fetch('https://api.example.com/data')
+  .then(handleResponse)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));</code></pre>
+                </div>
+            </section>
+
+            <!-- UI States -->
+            <section class="content-section">
+                <h2 class="section-heading">Estados de la Interfaz de Usuario</h2>
+                
+                <p class="intro-text">
+                    Cuando hacemos peticiones a una API, la interfaz debe reflejar tres estados principales:
+                </p>
+
+                <div class="states-overview">
+                    <div class="state-card loading-state">
+                        <div class="state-icon">⏳</div>
+                        <h3>Estado de Carga</h3>
+                        <p>Indica que la petición está en proceso</p>
+                        <ul>
+                            <li>Mostrar spinner o skeleton</li>
+                            <li>Deshabilitar botones</li>
+                            <li>Mensaje "Cargando..."</li>
+                        </ul>
+                    </div>
+
+                    <div class="state-card success-state">
+                        <div class="state-icon">✅</div>
+                        <h3>Estado de Éxito</h3>
+                        <p>La petición se completó exitosamente</p>
+                        <ul>
+                            <li>Mostrar los datos obtenidos</li>
+                            <li>Mensaje de confirmación</li>
+                            <li>Actualizar la UI</li>
+                        </ul>
+                    </div>
+
+                    <div class="state-card error-state">
+                        <div class="state-icon">❌</div>
+                        <h3>Estado de Error</h3>
+                        <p>La petición falló</p>
+                        <ul>
+                            <li>Mensaje de error claro</li>
+                            <li>Botón para reintentar</li>
+                            <li>Sugerencias de solución</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Implementation Example -->
+            <section class="content-section">
+                <h2 class="section-heading">Implementación Completa con Estados</h2>
+
+                <div class="implementation-box">
+                    <h3>Ejemplo: Lista de Usuarios con Manejo Completo</h3>
+                    
+                    <h4>HTML</h4>
+                    <pre><code>&lt;div id="app"&gt;
+  &lt;button id="loadBtn"&gt;Cargar Usuarios&lt;/button&gt;
+  &lt;div id="status"&gt;&lt;/div&gt;
+  &lt;div id="users"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                    <h4>JavaScript</h4>
+                    <pre><code>// Variables de estado
+let isLoading = false;
+let users = [];
+let error = null;
+
+// Elementos del DOM
+const loadBtn = document.getElementById('loadBtn');
+const statusDiv = document.getElementById('status');
+const usersDiv = document.getElementById('users');
+
+// Función para actualizar la UI según el estado
+function updateUI() {
+  // Estado de carga
+  if (isLoading) {
+    loadBtn.disabled = true;
+    statusDiv.innerHTML = `
+      &lt;div class="loading"&gt;
+        &lt;div class="spinner"&gt;&lt;/div&gt;
+        &lt;p&gt;Cargando usuarios...&lt;/p&gt;
+      &lt;/div&gt;
+    `;
+    usersDiv.innerHTML = '';
+    return;
+  }
+  
+  // Estado de error
+  if (error) {
+    loadBtn.disabled = false;
+    statusDiv.innerHTML = `
+      &lt;div class="error"&gt;
+        &lt;p&gt;❌ Error: ${error}&lt;/p&gt;
+        &lt;button onclick="loadUsers()"&gt;Reintentar&lt;/button&gt;
+      &lt;/div&gt;
+    `;
+    usersDiv.innerHTML = '';
+    return;
+  }
+  
+  // Estado de éxito
+  if (users.length > 0) {
+    loadBtn.disabled = false;
+    statusDiv.innerHTML = `
+      &lt;div class="success"&gt;
+        ✅ ${users.length} usuarios cargados exitosamente
+      &lt;/div&gt;
+    `;
+    
+    usersDiv.innerHTML = users.map(user => `
+      &lt;div class="user-card"&gt;
+        &lt;h3&gt;${user.name}&lt;/h3&gt;
+        &lt;p&gt;${user.email}&lt;/p&gt;
+      &lt;/div&gt;
+    `).join('');
+  }
+}
+
+// Función para cargar usuarios
+async function loadUsers() {
+  // Activar estado de carga
+  isLoading = true;
+  error = null;
+  users = [];
+  updateUI();
+  
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    
+    // Verificar si la respuesta es exitosa
+    if (!response.ok) {
+      throw new Error(`Error HTTP: ${response.status}`);
+    }
+    
+    // Parsear JSON
+    const data = await response.json();
+    
+    // Actualizar estado de éxito
+    users = data;
+    isLoading = false;
+    updateUI();
+    
+  } catch (err) {
+    // Actualizar estado de error
+    isLoading = false;
+    
+    // Distinguir tipos de error
+    if (err instanceof TypeError) {
+      error = 'Error de red. Verifica tu conexión a internet.';
+    } else if (err.message.includes('HTTP')) {
+      error = `El servidor respondió con un error: ${err.message}`;
+    } else {
+      error = err.message;
+    }
+    
+    updateUI();
+  }
+}
+
+// Event listener
+loadBtn.addEventListener('click', loadUsers);</code></pre>
+                </div>
+            </section>
+
+            <!-- Best Practices -->
+            <section class="content-section">
+                <h2 class="section-heading">Mejores Prácticas</h2>
+                
+                <div class="best-practices-grid">
+                    <div class="practice-card">
+                        <div class="practice-number">1</div>
+                        <h3>Siempre Verifica <code>response.ok</code></h3>
+                        <p>No confíes en que <code>catch</code> maneje todos los errores HTTP.</p>
+                    </div>
+
+                    <div class="practice-card">
+                        <div class="practice-number">2</div>
+                        <h3>Maneja Errores de Parsing JSON</h3>
+                        <p>El método <code>.json()</code> puede fallar si la respuesta no es JSON válido.</p>
+                        <pre><code>try {
+  const data = await response.json();
+} catch (e) {
+  if (e instanceof SyntaxError) {
+    console.error('Respuesta no es JSON válido');
+  }
+}</code></pre>
+                    </div>
+
+                    <div class="practice-card">
+                        <div class="practice-number">3</div>
+                        <h3>Proporciona Mensajes Claros</h3>
+                        <p>Los usuarios no técnicos no entienden "Error 500". Usa mensajes amigables.</p>
+                        <div class="message-examples">
+                            <p class="bad-message">❌ "Error: 500"</p>
+                            <p class="good-message">✅ "El servidor está experimentando problemas. Intenta de nuevo más tarde."</p>
+                        </div>
+                    </div>
+
+                    <div class="practice-card">
+                        <div class="practice-number">4</div>
+                        <h3>Implementa Timeouts</h3>
+                        <p>No dejes que el usuario espere indefinidamente.</p>
+                        <pre><code>const controller = new AbortController();
+const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+fetch(url, { signal: controller.signal })
+  .then(response => {
+    clearTimeout(timeoutId);
+    return response.json();
+  })
+  .catch(error => {
+    if (error.name === 'AbortError') {
+      console.error('Timeout: la petición tardó demasiado');
+    }
+  });</code></pre>
+                    </div>
+
+                    <div class="practice-card">
+                        <div class="practice-number">5</div>
+                        <h3>Ofrece Acciones de Recuperación</h3>
+                        <p>Siempre proporciona una forma de que el usuario intente de nuevo o tome otra acción.</p>
+                    </div>
+
+                    <div class="practice-card">
+                        <div class="practice-number">6</div>
+                        <h3>Registra Errores para Debugging</h3>
+                        <p>Guarda información detallada de errores para ayudar en el desarrollo.</p>
+                        <pre><code>catch (error) {
+  console.error('Error details:', {
+    message: error.message,
+    stack: error.stack,
+    timestamp: new Date().toISOString()
+  });
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Common Error Types -->
+            <section class="content-section">
+                <h2 class="section-heading">Tipos Comunes de Errores</h2>
+
+                <div class="error-types">
+                    <div class="error-type-card network-error">
+                        <h3>🌐 Errores de Red</h3>
+                        <p><strong>Cuándo ocurren:</strong> Sin conexión a internet, DNS fallido, timeout</p>
+                        <p><strong>Cómo manejar:</strong></p>
+                        <pre><code>if (error instanceof TypeError) {
+  showMessage('Error de conexión. Verifica tu internet.');
+}</code></pre>
+                    </div>
+
+                    <div class="error-type-card http-error">
+                        <h3>📡 Errores HTTP (4xx, 5xx)</h3>
+                        <p><strong>Cuándo ocurren:</strong> El servidor responde pero con un código de error</p>
+                        <p><strong>Cómo manejar:</strong></p>
+                        <pre><code>if (!response.ok) {
+  if (response.status === 404) {
+    showMessage('Recurso no encontrado');
+  } else if (response.status >= 500) {
+    showMessage('Error del servidor');
+  }
+}</code></pre>
+                    </div>
+
+                    <div class="error-type-card parsing-error">
+                        <h3>📋 Errores de Parsing</h3>
+                        <p><strong>Cuándo ocurren:</strong> La respuesta no es JSON válido</p>
+                        <p><strong>Cómo manejar:</strong></p>
+                        <pre><code>try {
+  const data = await response.json();
+} catch (e) {
+  if (e instanceof SyntaxError) {
+    showMessage('Respuesta inválida del servidor');
+  }
+}</code></pre>
+                    </div>
+
+                    <div class="error-type-card auth-error">
+                        <h3>🔐 Errores de Autenticación</h3>
+                        <p><strong>Cuándo ocurren:</strong> Token inválido o expirado (401, 403)</p>
+                        <p><strong>Cómo manejar:</strong></p>
+                        <pre><code>if (response.status === 401) {
+  logout();
+  showMessage('Sesión expirada. Inicia sesión de nuevo');
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visual Example -->
+            <section class="content-section">
+                <h2 class="section-heading">Ejemplo Visual Interactivo</h2>
+                
+                <div class="visual-demo">
+                    <div class="demo-description">
+                        <p>A continuación se muestra cómo se ven los tres estados en una aplicación real:</p>
+                    </div>
+
+                    <!-- Loading State Demo -->
+                    <div class="demo-state">
+                        <h3>Estado de Carga</h3>
+                        <div class="demo-ui loading-demo">
+                            <div class="spinner"></div>
+                            <p>Cargando usuarios...</p>
+                            <button disabled>Cargar Usuarios</button>
+                        </div>
+                    </div>
+
+                    <!-- Success State Demo -->
+                    <div class="demo-state">
+                        <h3>Estado de Éxito</h3>
+                        <div class="demo-ui success-demo">
+                            <div class="success-message">✅ 10 usuarios cargados exitosamente</div>
+                            <div class="user-list">
+                                <div class="user-item">👤 Juan Pérez - juan@example.com</div>
+                                <div class="user-item">👤 María García - maria@example.com</div>
+                                <div class="user-item">👤 Carlos López - carlos@example.com</div>
+                            </div>
+                            <button>Recargar</button>
+                        </div>
+                    </div>
+
+                    <!-- Error State Demo -->
+                    <div class="demo-state">
+                        <h3>Estado de Error</h3>
+                        <div class="demo-ui error-demo">
+                            <div class="error-message">
+                                <p>❌ Error al cargar usuarios</p>
+                                <p class="error-detail">No se pudo conectar al servidor. Verifica tu conexión a internet.</p>
+                            </div>
+                            <button>Reintentar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <nav class="page-navigation">
+                <a href="asincronia.html" class="nav-btn nav-prev">
+                    ← Asincronía en JavaScript
+                </a>
+                <a href="demos.html" class="nav-btn nav-next">
+                    Demos Interactivas →
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Proyecto Académico</h4>
+                    <p>ISW-512 Diseño de Aplicaciones Web<br>Universidad Técnica Nacional<br>2025 - Ciclo III</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="fundamentos.html">Fundamentos</a></li>
+                        <li><a href="metodos-http.html">Métodos HTTP</a></li>
+                        <li><a href="demos.html">Demos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#referencias">Referencias</a></li>
+                        <li><a href="https://developer.mozilla.org/es/docs/Web/API/Fetch_API" target="_blank">MDN Web Docs</a></li>
+                        <li><a href="https://web.dev/articles/fetch-api-error-handling" target="_blank">web.dev</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Grupo de APIs - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
