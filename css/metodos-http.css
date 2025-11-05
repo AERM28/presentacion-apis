@@ -147,28 +147,91 @@
     display: block;
 }
 
-/* Method Use Cases */
+/* ===========================
+   METHOD USE CASES - CARDS VISUALES
+   =========================== */
 .method-use-cases {
-    background: var(--white);
-    padding: var(--spacing-lg);
-    border: 2px solid var(--gray-200);
-    border-radius: var(--radius-lg);
+    background: transparent;
+    padding: 0;
+    border: none;
+    border-radius: 0;
 }
 
 .method-use-cases h4 {
-    font-size: 1.125rem;
-    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xl);
     color: var(--gray-900);
+    text-align: center;
+    font-weight: 700;
 }
 
 .method-use-cases ul {
+    list-style: none;
+    padding-left: 0;
     margin: 0;
-    padding-left: var(--spacing-xl);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-lg);
 }
 
 .method-use-cases li {
-    color: var(--gray-700);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%);
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    position: relative;
+    color: var(--gray-800);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.method-use-cases li:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.method-use-cases li::before {
+    content: "✓";
+    position: relative;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+}
+
+/* Color específico para cada método */
+.get-card .method-use-cases li::before {
+    background: linear-gradient(135deg, #10B981, #059669);
+}
+
+.post-card .method-use-cases li::before {
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+}
+
+.put-card .method-use-cases li::before {
+    background: linear-gradient(135deg, #F59E0B, #D97706);
+}
+
+.delete-card .method-use-cases li::before {
+    background: linear-gradient(135deg, #EF4444, #DC2626);
 }
 
 /* ===========================
@@ -228,13 +291,15 @@
 }
 
 .idempotent-box ul {
-    margin: 0;
+    list-style: disc;
     padding-left: var(--spacing-xl);
+    margin: 0;
 }
 
 .idempotent-box li {
     color: var(--gray-700);
     margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
 }
 
 /* ===========================
@@ -347,6 +412,10 @@
     .summary-grid {
         grid-template-columns: 1fr;
     }
+
+    .method-use-cases ul {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 640px) {
@@ -364,5 +433,20 @@
 
     .method-example {
         padding: var(--spacing-md);
+    }
+
+    .method-use-cases h4 {
+        font-size: 1.25rem;
+    }
+
+    .method-use-cases li {
+        font-size: 0.9375rem;
+        padding: var(--spacing-md);
+    }
+
+    .method-use-cases li::before {
+        width: 35px;
+        height: 35px;
+        font-size: 1.25rem;
     }
 }

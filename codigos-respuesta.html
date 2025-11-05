@@ -3,19 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Códigos de Respuesta HTTP - Consumo de APIs</title>
+    <title>Códigos de Respuesta HTTP</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/paginas.css">
-    <link rel="stylesheet" href="css/codigos-http.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand">
-                <span class="logo">API</span>
-                <span class="brand-text">Consumo de APIs</span>
-            </div>
+            <div class="nav-brand"></div>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -34,7 +29,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
             <div class="breadcrumb">
@@ -43,341 +38,180 @@
                 <span>Códigos de Respuesta HTTP</span>
             </div>
             <h1 class="page-title">Códigos de Respuesta HTTP</h1>
-            <p class="page-subtitle">Aprende a interpretar los mensajes que los servidores envían en respuesta a tus peticiones</p>
+            <p class="page-subtitle">Comprende los códigos HTTP 100s, 200s, 300s, 400s y 500s</p>
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <!-- Introduction -->
-            <section class="content-section">
+            <!-- ¿Qué son los códigos HTTP? -->
+            <section class="content-section fade-in">
                 <h2 class="section-heading">¿Qué son los Códigos de Estado HTTP?</h2>
-                <div class="intro-box">
-                    <p class="intro-text">
-                        Los <strong>códigos de estado HTTP</strong> son como notas cortas de un servidor que se insertan en una página web. 
-                        En realidad, no son parte del contenido del sitio. En su lugar, son <strong>mensajes del servidor</strong> que te permiten 
-                        saber cómo fueron las cosas cuando recibió la solicitud de ver una determinada página.
-                    </p>
+                <p class="intro-text">Los códigos de estado HTTP son como notas cortas de un servidor que se insertan en una página web. En realidad, no son parte del contenido del sitio. En su lugar, son mensajes del servidor que te permiten saber cómo fueron las cosas cuando recibió la solicitud de ver una determinada página.</p>
+                
+                <div class="note-text">
+                    <strong>Importante:</strong> Este tipo de mensajes se devuelven cada vez que tu navegador interactúa con un servidor, aunque no sea visible.
                 </div>
 
-                <p>Este tipo de mensajes se devuelven cada vez que tu navegador interactúa con un servidor, aunque no sea visible.</p>
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <h4>🎯 Importancia de los códigos HTTP</h4>
+                    <p>Comprender los códigos de respuesta HTTP permite diagnosticar errores, optimizar la experiencia del usuario, y mantener la seguridad y el rendimiento de un sitio o aplicación web.</p>
+                </div>
+            </section>
+
+            <!-- Tipos de códigos -->
+            <section class="content-section fade-in">
+                <h2 class="section-heading">Tipos de Códigos de Estado HTTP</h2>
+                <p class="intro-text">Los códigos de estado HTTP se dividen en 5 tipos. Se trata de agrupaciones de respuestas que tienen significados similares o relacionados. Saber qué son puede ayudar a determinar rápidamente la sustancia general de un código de estado antes de recurrir a la búsqueda de su significado específico.</p>
+            </section>
+
+            <!-- 100s - Informativos -->
+            <section class="content-section fade-in">
+                <div class="definition-box" style="border-color: var(--info-color);">
+                    <div class="definition-icon">ℹ️</div>
+                    <div class="definition-content">
+                        <h2 style="color: var(--info-color); margin-bottom: 1rem;">100s - Códigos Informativos</h2>
+                        <p class="definition-text">
+                            Códigos informativos que indican que <strong>la solicitud iniciada por el navegador continúa</strong>.
+                        </p>
+                    </div>
+                </div>
 
                 <div class="highlight-box">
-                    <h4>💡 Importancia</h4>
-                    <p>Comprender los códigos de respuesta HTTP permite diagnosticar errores, optimizar la experiencia del usuario, 
-                    y mantener la seguridad y el rendimiento de un sitio o aplicación web.</p>
+                    <h4>Significado</h4>
+                    <p>Estos códigos son respuestas provisionales. El servidor informa al cliente que ha recibido la solicitud y que debe continuar con el proceso.</p>
                 </div>
             </section>
 
-            <!-- 5 Classes -->
-            <section class="content-section">
-                <h2 class="section-heading">Tipos de Códigos de Estado HTTP</h2>
-                <p class="intro-text">
-                    Los códigos de estado HTTP se dividen en <strong>5 tipos</strong>. Se trata de agrupaciones de respuestas que tienen 
-                    significados similares o relacionados. Saber qué son puede ayudar a determinar rápidamente la sustancia general de un 
-                    código de estado antes de recurrir a la búsqueda de su significado específico.
-                </p>
-
-                <!-- IMAGE: 5 Classes Overview -->
-                <figure class="content-image">
-                    <img src="images/clases-codigos-http.png" alt="Las 5 clases de códigos HTTP" class="img-rounded img-shadow">
-                    <figcaption>Las 5 categorías de códigos de estado HTTP</figcaption>
-                </figure>
-
-                <div class="classes-grid">
-                    <div class="class-card class-1xx">
-                        <div class="class-header">
-                            <span class="class-number">1xx</span>
-                            <h3>Informativos</h3>
-                        </div>
-                        <p>Códigos informativos que indican que la solicitud iniciada por el navegador continúa.</p>
-                        <div class="class-examples">
-                            <span class="example-code">100 Continue</span>
-                            <span class="example-code">101 Switching Protocols</span>
-                        </div>
+            <!-- 200s - Éxito -->
+            <section class="content-section fade-in">
+                <div class="definition-box" style="border-color: var(--success-color);">
+                    <div class="definition-icon">✅</div>
+                    <div class="definition-content">
+                        <h2 style="color: var(--success-color); margin-bottom: 1rem;">200s - Códigos de Éxito</h2>
+                        <p class="definition-text">
+                            Los códigos con éxito regresaron cuando <strong>la solicitud del navegador fue recibida, entendida y procesada por el servidor</strong>.
+                        </p>
                     </div>
+                </div>
 
-                    <div class="class-card class-2xx">
-                        <div class="class-header">
-                            <span class="class-number">2xx</span>
-                            <h3>Éxito</h3>
-                        </div>
-                        <p>Los códigos con éxito regresaron cuando la solicitud del navegador fue recibida, entendida y procesada por el servidor.</p>
-                        <div class="class-examples">
-                            <span class="example-code">200 OK</span>
-                            <span class="example-code">201 Created</span>
-                            <span class="example-code">204 No Content</span>
-                        </div>
-                    </div>
-
-                    <div class="class-card class-3xx">
-                        <div class="class-header">
-                            <span class="class-number">3xx</span>
-                            <h3>Redirección</h3>
-                        </div>
-                        <p>Códigos de redireccionamiento devueltos cuando un nuevo recurso ha sido sustituido por el recurso solicitado.</p>
-                        <div class="class-examples">
-                            <span class="example-code">301 Moved Permanently</span>
-                            <span class="example-code">302 Found</span>
-                            <span class="example-code">304 Not Modified</span>
-                        </div>
-                    </div>
-
-                    <div class="class-card class-4xx">
-                        <div class="class-header">
-                            <span class="class-number">4xx</span>
-                            <h3>Error del Cliente</h3>
-                        </div>
-                        <p>Códigos de error del cliente que indican que hubo un problema con la solicitud.</p>
-                        <div class="class-examples">
-                            <span class="example-code">400 Bad Request</span>
-                            <span class="example-code">401 Unauthorized</span>
-                            <span class="example-code">403 Forbidden</span>
-                            <span class="example-code">404 Not Found</span>
-                        </div>
-                    </div>
-
-                    <div class="class-card class-5xx">
-                        <div class="class-header">
-                            <span class="class-number">5xx</span>
-                            <h3>Error del Servidor</h3>
-                        </div>
-                        <p>Códigos de error del servidor que indican que la solicitud fue aceptada, pero que un error en el servidor impidió que se cumpliera.</p>
-                        <div class="class-examples">
-                            <span class="example-code">500 Internal Server Error</span>
-                            <span class="example-code">502 Bad Gateway</span>
-                            <span class="example-code">503 Service Unavailable</span>
-                        </div>
-                    </div>
+                <div class="highlight-box">
+                    <h4>Ejemplos comunes</h4>
+                    <p><strong>200 OK:</strong> La solicitud se completó correctamente.</p>
+                    <p><strong>201 Created:</strong> La solicitud se completó y se creó un nuevo recurso.</p>
+                    <p><strong>204 No Content:</strong> La solicitud se completó pero no hay contenido para devolver.</p>
                 </div>
             </section>
 
-            <!-- Common Codes -->
-            <section class="content-section">
-                <h2 class="section-heading">Códigos HTTP Más Comunes</h2>
-
-                <!-- IMAGE: Common Codes Table -->
-                <figure class="content-image">
-                    <img src="images/codigos-http-comunes.png" alt="Tabla de códigos HTTP más comunes" class="img-rounded img-shadow">
-                    <figcaption>Códigos de estado HTTP más utilizados</figcaption>
-                </figure>
-
-                <!-- 2xx Success -->
-                <div class="code-section success-section">
-                    <h3 class="code-section-title">✅ Códigos 2xx - Éxito</h3>
-                    
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge success-badge">200</span>
-                            <h4>OK</h4>
-                        </div>
-                        <p>La solicitud ha sido exitosa. El significado depende del método HTTP utilizado.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Respuesta estándar para solicitudes GET exitosas.
-                        </div>
-                    </div>
-
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge success-badge">201</span>
-                            <h4>Created</h4>
-                        </div>
-                        <p>La solicitud ha sido completada y ha resultado en la creación de un nuevo recurso.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Respuesta típica después de un POST exitoso.
-                        </div>
-                    </div>
-
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge success-badge">204</span>
-                            <h4>No Content</h4>
-                        </div>
-                        <p>La solicitud se ha completado con éxito pero no devuelve ningún contenido.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Respuesta después de una operación DELETE exitosa.
-                        </div>
+            <!-- 300s - Redirección -->
+            <section class="content-section fade-in">
+                <div class="definition-box" style="border-color: var(--accent-color);">
+                    <div class="definition-icon">↪️</div>
+                    <div class="definition-content">
+                        <h2 style="color: var(--accent-color); margin-bottom: 1rem;">300s - Códigos de Redirección</h2>
+                        <p class="definition-text">
+                            Códigos de redireccionamiento devueltos cuando <strong>un nuevo recurso ha sido sustituido por el recurso solicitado</strong>.
+                        </p>
                     </div>
                 </div>
 
-                <!-- 3xx Redirection -->
-                <div class="code-section redirect-section">
-                    <h3 class="code-section-title">🔄 Códigos 3xx - Redirección</h3>
-                    
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge redirect-badge">301</span>
-                            <h4>Moved Permanently</h4>
-                        </div>
-                        <p>El recurso solicitado se ha movido permanentemente a una nueva URL.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Cuando un sitio web cambia su dominio o estructura de URLs.
-                        </div>
-                    </div>
-
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge redirect-badge">302</span>
-                            <h4>Found</h4>
-                        </div>
-                        <p>El recurso solicitado reside temporalmente en una URL diferente.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Redirecciones temporales durante mantenimiento.
-                        </div>
-                    </div>
-
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge redirect-badge">304</span>
-                            <h4>Not Modified</h4>
-                        </div>
-                        <p>El recurso no ha sido modificado desde la última solicitud.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Optimización de caché del navegador.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4xx Client Errors -->
-                <div class="code-section error-client-section">
-                    <h3 class="code-section-title">⚠️ Códigos 4xx - Errores del Cliente</h3>
-                    
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge error-badge">400</span>
-                            <h4>Bad Request</h4>
-                        </div>
-                        <p>El servidor no puede procesar la solicitud debido a un error del cliente (sintaxis incorrecta).</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Datos de formulario inválidos o mal formateados.
-                        </div>
-                    </div>
-
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge error-badge">401</span>
-                            <h4>Unauthorized</h4>
-                        </div>
-                        <p>Se requiere autenticación para acceder al recurso.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Intentar acceder a un recurso protegido sin credenciales.
-                        </div>
-                    </div>
-
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge error-badge">403</span>
-                            <h4>Forbidden</h4>
-                        </div>
-                        <p>El servidor entiende la solicitud, pero se niega a autorizarla.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Usuario autenticado pero sin permisos suficientes.
-                        </div>
-                    </div>
-
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge error-badge">404</span>
-                            <h4>Not Found</h4>
-                        </div>
-                        <p>El servidor no puede encontrar el recurso solicitado.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> URL incorrecta o recurso eliminado.
-                        </div>
-                    </div>
-
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge error-badge">429</span>
-                            <h4>Too Many Requests</h4>
-                        </div>
-                        <p>El usuario ha enviado demasiadas solicitudes en un período de tiempo.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Límites de tasa de API excedidos.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5xx Server Errors -->
-                <div class="code-section error-server-section">
-                    <h3 class="code-section-title">🔥 Códigos 5xx - Errores del Servidor</h3>
-                    
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge server-error-badge">500</span>
-                            <h4>Internal Server Error</h4>
-                        </div>
-                        <p>El servidor ha encontrado una situación que no sabe cómo manejar.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Error genérico del servidor, problema en el código backend.
-                        </div>
-                    </div>
-
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge server-error-badge">502</span>
-                            <h4>Bad Gateway</h4>
-                        </div>
-                        <p>El servidor actuando como gateway recibió una respuesta inválida del servidor upstream.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Problemas de comunicación entre servidores.
-                        </div>
-                    </div>
-
-                    <div class="code-item">
-                        <div class="code-header">
-                            <span class="code-badge server-error-badge">503</span>
-                            <h4>Service Unavailable</h4>
-                        </div>
-                        <p>El servidor no está listo para manejar la solicitud.</p>
-                        <div class="code-usage">
-                            <strong>Uso común:</strong> Servidor en mantenimiento o sobrecargado.
-                        </div>
-                    </div>
+                <div class="highlight-box">
+                    <h4>Ejemplos comunes</h4>
+                    <p><strong>301 Moved Permanently:</strong> El recurso se ha movido permanentemente a una nueva URL.</p>
+                    <p><strong>302 Found:</strong> El recurso se encuentra temporalmente en una URL diferente.</p>
+                    <p><strong>304 Not Modified:</strong> El recurso no ha cambiado desde la última solicitud.</p>
                 </div>
             </section>
 
-            <!-- Visual Summary -->
-            <section class="content-section">
-                <h2 class="section-heading">Resumen Visual</h2>
-                <div class="visual-summary">
-                    <div class="summary-item info-item">
-                        <div class="summary-icon">ℹ️</div>
-                        <div class="summary-number">1xx</div>
-                        <div class="summary-label">Informativo</div>
+            <!-- 400s - Error del cliente -->
+            <section class="content-section fade-in">
+                <div class="definition-box" style="border-color: var(--warning-color);">
+                    <div class="definition-icon">⚠️</div>
+                    <div class="definition-content">
+                        <h2 style="color: var(--warning-color); margin-bottom: 1rem;">400s - Códigos de Error del Cliente</h2>
+                        <p class="definition-text">
+                            Códigos de error del cliente que indican que <strong>hubo un problema con la solicitud</strong>.
+                        </p>
                     </div>
-                    <div class="summary-item success-item">
-                        <div class="summary-icon">✅</div>
-                        <div class="summary-number">2xx</div>
-                        <div class="summary-label">Éxito</div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Ejemplos comunes</h4>
+                    <p><strong>400 Bad Request:</strong> La solicitud no pudo ser entendida por el servidor.</p>
+                    <p><strong>401 Unauthorized:</strong> Se requiere autenticación para acceder al recurso.</p>
+                    <p><strong>403 Forbidden:</strong> El servidor entiende la solicitud pero se niega a autorizarla.</p>
+                    <p><strong>404 Not Found:</strong> El recurso solicitado no se encontró en el servidor.</p>
+                    <p><strong>429 Too Many Requests:</strong> El usuario ha enviado demasiadas solicitudes en un período de tiempo.</p>
+                </div>
+            </section>
+
+            <!-- 500s - Error del servidor -->
+            <section class="content-section fade-in">
+                <div class="definition-box" style="border-color: var(--error-color);">
+                    <div class="definition-icon">🔥</div>
+                    <div class="definition-content">
+                        <h2 style="color: var(--error-color); margin-bottom: 1rem;">500s - Códigos de Error del Servidor</h2>
+                        <p class="definition-text">
+                            Códigos de error del servidor que indican que <strong>la solicitud fue aceptada, pero que un error en el servidor impidió que se cumpliera</strong>.
+                        </p>
                     </div>
-                    <div class="summary-item redirect-item">
-                        <div class="summary-icon">🔄</div>
-                        <div class="summary-number">3xx</div>
-                        <div class="summary-label">Redirección</div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Ejemplos comunes</h4>
+                    <p><strong>500 Internal Server Error:</strong> Error genérico del servidor.</p>
+                    <p><strong>502 Bad Gateway:</strong> El servidor recibió una respuesta inválida de otro servidor.</p>
+                    <p><strong>503 Service Unavailable:</strong> El servidor no está disponible temporalmente.</p>
+                    <p><strong>504 Gateway Timeout:</strong> El servidor no recibió respuesta a tiempo de otro servidor.</p>
+                </div>
+            </section>
+
+            <!-- Tabla resumen visual -->
+            <section class="content-section fade-in">
+                <h2 class="section-heading">Resumen Visual de Códigos HTTP</h2>
+                <div class="types-grid">
+                    <div class="type-card" style="border-color: var(--info-color);">
+                        <div class="type-icon">ℹ️</div>
+                        <h3 style="color: var(--info-color);">100s</h3>
+                        <p><strong>Informativos</strong></p>
+                        <p style="font-size: 0.85rem;">La solicitud continúa</p>
                     </div>
-                    <div class="summary-item client-error-item">
-                        <div class="summary-icon">⚠️</div>
-                        <div class="summary-number">4xx</div>
-                        <div class="summary-label">Error Cliente</div>
+                    
+                    <div class="type-card" style="border-color: var(--success-color);">
+                        <div class="type-icon">✅</div>
+                        <h3 style="color: var(--success-color);">200s</h3>
+                        <p><strong>Éxito</strong></p>
+                        <p style="font-size: 0.85rem;">Solicitud procesada correctamente</p>
                     </div>
-                    <div class="summary-item server-error-item">
-                        <div class="summary-icon">🔥</div>
-                        <div class="summary-number">5xx</div>
-                        <div class="summary-label">Error Servidor</div>
+                    
+                    <div class="type-card" style="border-color: var(--accent-color);">
+                        <div class="type-icon">↪️</div>
+                        <h3 style="color: var(--accent-color);">300s</h3>
+                        <p><strong>Redirección</strong></p>
+                        <p style="font-size: 0.85rem;">Recurso movido a otra ubicación</p>
+                    </div>
+                    
+                    <div class="type-card" style="border-color: var(--warning-color);">
+                        <div class="type-icon">⚠️</div>
+                        <h3 style="color: var(--warning-color);">400s</h3>
+                        <p><strong>Error del Cliente</strong></p>
+                        <p style="font-size: 0.85rem;">Problema con la solicitud</p>
+                    </div>
+                    
+                    <div class="type-card" style="border-color: var(--error-color); grid-column: span 2;">
+                        <div class="type-icon">🔥</div>
+                        <h3 style="color: var(--error-color);">500s</h3>
+                        <p><strong>Error del Servidor</strong></p>
+                        <p style="font-size: 0.85rem;">El servidor no pudo cumplir la solicitud</p>
                     </div>
                 </div>
             </section>
 
             <!-- Navigation -->
             <nav class="page-navigation">
-                <a href="metodos-http.html" class="nav-btn nav-prev">
-                    ← Métodos HTTP
-                </a>
-                <a href="asincronia.html" class="nav-btn nav-next">
-                    Asincronía en JavaScript →
-                </a>
+                <a href="metodos-http.html" class="nav-btn nav-prev">← Métodos HTTP</a>
+                <a href="asincronia.html" class="nav-btn nav-next">Asincronía JS →</a>
             </nav>
         </div>
     </main>
@@ -414,7 +248,6 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -430,19 +263,13 @@
             }
         });
 
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in');
                 }
             });
-        }, observerOptions);
+        });
 
         document.querySelectorAll('.content-section').forEach(section => {
             observer.observe(section);
