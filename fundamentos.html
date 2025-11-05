@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundamentos de APIs</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fundamentos.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -76,13 +77,95 @@
                 <h2 class="section-heading">¿Cómo funcionan las APIs?</h2>
                 <p class="intro-text">Es útil pensar en la comunicación de la API en términos de una solicitud y respuesta entre un cliente y un servidor. La aplicación que envía la solicitud es el cliente y el servidor proporciona la respuesta. La API es el puente que establece la conexión entre ellos.</p>
 
-                <h3 class="subsection-title">Ejemplo: Procesamiento de pagos con PayPal</h3>
-                <ol class="process-list">
-                    <li>Cuando el comprador hace clic en el botón de pago, se envía una llamada a la API para recuperar la información. Esta es la <strong>solicitud</strong>. Esta solicitud se procesa desde una aplicación al servidor web a través del identificador uniforme de recursos (URI) de la API e incluye un verbo de solicitud, una cabecera y, a veces, un cuerpo de solicitud.</li>
-                    <li>Tras recibir una solicitud válida desde la página web del producto, la API llama al programa externo o al servidor web, en este caso, al sistema de pago externo.</li>
-                    <li>El servidor envía una <strong>respuesta</strong> a la API con la información solicitada.</li>
-                    <li>La API transfiere los datos a la aplicación solicitante inicial, en este caso, el sitio web del producto.</li>
-                </ol>
+                <!-- Diagrama de flujo interactivo -->
+                <div class="flow-diagram">
+                    <div class="flow-step" data-step="1">
+                        <div class="flow-icon">💻</div>
+                        <h4>Cliente</h4>
+                        <p>Usuario hace clic en "Pagar con PayPal"</p>
+                    </div>
+                    
+                    <div class="flow-arrow">
+                        <div class="arrow-line"></div>
+                        <div class="arrow-label">1. Solicitud HTTP</div>
+                        <div class="arrow-details">
+                            <span class="detail-badge">GET/POST</span>
+                            <span class="detail-badge">Headers</span>
+                            <span class="detail-badge">Body</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-step" data-step="2">
+                        <div class="flow-icon">🔌</div>
+                        <h4>API</h4>
+                        <p>Procesa y valida la solicitud</p>
+                    </div>
+
+                    <div class="flow-arrow">
+                        <div class="arrow-line"></div>
+                        <div class="arrow-label">2. Llamada externa</div>
+                    </div>
+
+                    <div class="flow-step" data-step="3">
+                        <div class="flow-icon">🖥️</div>
+                        <h4>Servidor</h4>
+                        <p>Sistema de pago de PayPal</p>
+                    </div>
+
+                    <div class="flow-arrow flow-arrow-back">
+                        <div class="arrow-line"></div>
+                        <div class="arrow-label">3. Respuesta con datos</div>
+                        <div class="arrow-details">
+                            <span class="detail-badge success">200 OK</span>
+                            <span class="detail-badge">JSON</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-step" data-step="4">
+                        <div class="flow-icon">🔌</div>
+                        <h4>API</h4>
+                        <p>Transfiere datos al cliente</p>
+                    </div>
+
+                    <div class="flow-arrow flow-arrow-back">
+                        <div class="arrow-line"></div>
+                        <div class="arrow-label">4. Datos procesados</div>
+                    </div>
+
+                    <div class="flow-step" data-step="5">
+                        <div class="flow-icon">✅</div>
+                        <h4>Cliente</h4>
+                        <p>Muestra confirmación de pago</p>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Componentes de una Solicitud HTTP</h3>
+                <div class="components-grid">
+                    <div class="component-card">
+                        <div class="component-icon">🎯</div>
+                        <h4>URI (Uniform Resource Identifier)</h4>
+                        <p>La dirección específica del recurso solicitado</p>
+                        <code>https://api.paypal.com/v1/payments</code>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-icon">⚡</div>
+                        <h4>Verbo HTTP</h4>
+                        <p>El tipo de acción a realizar</p>
+                        <code>GET, POST, PUT, DELETE</code>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-icon">📋</div>
+                        <h4>Headers (Cabeceras)</h4>
+                        <p>Metadatos sobre la solicitud</p>
+                        <code>Authorization, Content-Type</code>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-icon">📦</div>
+                        <h4>Body (Cuerpo)</h4>
+                        <p>Datos enviados con la solicitud</p>
+                        <code>{ "amount": 100, "currency": "USD" }</code>
+                    </div>
+                </div>
 
                 <div class="note-text">
                     <strong>Nota:</strong> Si bien la transferencia de datos difiere según el servicio web que se utilice, las solicitudes y respuestas se realizan a través de una API. No hay visibilidad en la interfaz de usuario, lo que significa que las API intercambian datos dentro de la computadora o la aplicación, y aparecen ante el usuario como una conexión sin fisuras.
@@ -168,16 +251,157 @@
             <!-- Ventajas y Desventajas -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Ventajas y Desventajas del uso de APIs</h2>
-                <div class="types-grid">
-                    <div class="type-card" style="grid-column: span 2;">
-                        <div class="type-icon">✅</div>
-                        <h3>Ventajas</h3>
-                        <p>Las APIs ofrecen múltiples beneficios como la integración simplificada, reutilización de código, escalabilidad, y facilitan la colaboración entre equipos y organizaciones.</p>
+                
+                <div class="pros-cons-container">
+                    <div class="pros-section">
+                        <div class="pros-header">
+                            <span class="pros-icon">✅</span>
+                            <h3>Ventajas</h3>
+                        </div>
+                        <ul class="pros-list">
+                            <li>
+                                <span class="list-icon">🚀</span>
+                                <div>
+                                    <strong>Desarrollo acelerado</strong>
+                                    <p>Reduce tiempo al reutilizar funcionalidades existentes</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="list-icon">🔗</span>
+                                <div>
+                                    <strong>Integración simplificada</strong>
+                                    <p>Conecta diferentes sistemas fácilmente</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="list-icon">♻️</span>
+                                <div>
+                                    <strong>Reutilización de código</strong>
+                                    <p>Evita duplicar esfuerzos de desarrollo</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="list-icon">📈</span>
+                                <div>
+                                    <strong>Escalabilidad</strong>
+                                    <p>Facilita el crecimiento de aplicaciones</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="list-icon">👥</span>
+                                <div>
+                                    <strong>Colaboración entre equipos</strong>
+                                    <p>Mejora la comunicación y productividad</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="list-icon">🔒</span>
+                                <div>
+                                    <strong>Control de acceso</strong>
+                                    <p>Comparte solo la información necesaria</p>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="type-card" style="grid-column: span 2;">
-                        <div class="type-icon">⚠️</div>
-                        <h3>Desventajas</h3>
-                        <p>Entre las desventajas se encuentran: dependencia de servicios externos, posibles problemas de seguridad, necesidad de mantenimiento constante, y limitaciones de control sobre funcionalidades de terceros.</p>
+
+                    <div class="cons-section">
+                        <div class="cons-header">
+                            <span class="cons-icon">⚠️</span>
+                            <h3>Desventajas</h3>
+                        </div>
+                        <ul class="cons-list">
+                            <li>
+                                <span class="list-icon">🔗</span>
+                                <div>
+                                    <strong>Dependencia externa</strong>
+                                    <p>Vulnerabilidad si el servicio falla</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="list-icon">🛡️</span>
+                                <div>
+                                    <strong>Riesgos de seguridad</strong>
+                                    <p>Posibles brechas si no se protegen adecuadamente</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="list-icon">🔧</span>
+                                <div>
+                                    <strong>Mantenimiento constante</strong>
+                                    <p>Requiere actualizaciones y monitoreo</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="list-icon">🎮</span>
+                                <div>
+                                    <strong>Control limitado</strong>
+                                    <p>Restricciones sobre funcionalidades de terceros</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="list-icon">⚡</span>
+                                <div>
+                                    <strong>Problemas de rendimiento</strong>
+                                    <p>Latencia en la comunicación entre servicios</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="list-icon">📚</span>
+                                <div>
+                                    <strong>Curva de aprendizaje</strong>
+                                    <p>Necesidad de documentación y capacitación</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Documentación de APIs -->
+            <section class="content-section fade-in">
+                <h2 class="section-heading">Documentación de APIs</h2>
+                <p class="intro-text">Una buena documentación es esencial para el éxito de cualquier API. Funciona como un manual técnico que guía a los desarrolladores en su implementación.</p>
+
+                <div class="documentation-grid">
+                    <div class="doc-card">
+                        <div class="doc-icon">📝</div>
+                        <h4>Descripción clara</h4>
+                        <p>Explicación de qué hace la API y sus casos de uso</p>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-icon">🔍</div>
+                        <h4>Endpoints detallados</h4>
+                        <p>Lista completa de rutas disponibles y sus funciones</p>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-icon">💡</div>
+                        <h4>Ejemplos de código</h4>
+                        <p>Snippets listos para usar en diferentes lenguajes</p>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-icon">⚙️</div>
+                        <h4>Parámetros y respuestas</h4>
+                        <p>Especificación de entradas y salidas esperadas</p>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-icon">🔐</div>
+                        <h4>Autenticación</h4>
+                        <p>Métodos de seguridad y autorización</p>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-icon">❌</div>
+                        <h4>Manejo de errores</h4>
+                        <p>Códigos de error y soluciones comunes</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>🛠️ Herramientas populares para documentación</h4>
+                    <div class="tools-badges">
+                        <span class="tool-badge">Swagger/OpenAPI</span>
+                        <span class="tool-badge">Postman</span>
+                        <span class="tool-badge">API Blueprint</span>
+                        <span class="tool-badge">ReadMe</span>
                     </div>
                 </div>
             </section>
@@ -250,6 +474,25 @@
         document.querySelectorAll('.content-section').forEach(section => {
             observer.observe(section);
         });
+
+        // Flow diagram animation
+        const flowSteps = document.querySelectorAll('.flow-step');
+        const flowObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    flowSteps.forEach((step, index) => {
+                        setTimeout(() => {
+                            step.classList.add('active');
+                        }, index * 200);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const flowDiagram = document.querySelector('.flow-diagram');
+        if (flowDiagram) {
+            flowObserver.observe(flowDiagram);
+        }
     </script>
 </body>
 </html>

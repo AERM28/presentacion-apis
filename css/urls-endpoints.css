@@ -1,0 +1,330 @@
+
+
+/* Anatomía visual de la URL */
+.url-anatomy {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--bg-card);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.url-display {
+    font-family: 'Courier New', monospace;
+    font-size: 1.125rem;
+    padding: 1.5rem;
+    background: var(--bg-primary);
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.url-part {
+    position: relative;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.url-part::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-md);
+}
+
+.url-part:hover::after {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+
+.url-part.scheme {
+    background: rgba(99, 102, 241, 0.2);
+    color: #818cf8;
+}
+
+.url-part.scheme:hover {
+    background: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+.url-part.hostname {
+    background: rgba(236, 72, 153, 0.2);
+    color: #f472b6;
+}
+
+.url-part.hostname:hover {
+    background: rgba(236, 72, 153, 0.3);
+    box-shadow: 0 0 10px rgba(236, 72, 153, 0.3);
+}
+
+.url-part.path {
+    background: rgba(20, 184, 166, 0.2);
+    color: #5eead4;
+}
+
+.url-part.path:hover {
+    background: rgba(20, 184, 166, 0.3);
+    box-shadow: 0 0 10px rgba(20, 184, 166, 0.3);
+}
+
+.url-part.query {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+}
+
+.url-part.query:hover {
+    background: rgba(245, 158, 11, 0.3);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+
+/* Ejemplo en cada componente */
+.component-example {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-primary);
+    border-radius: 0.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    color: var(--primary-light);
+    text-align: center;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.component-scheme .component-example {
+    color: #818cf8;
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.component-hostname .component-example {
+    color: #f472b6;
+    border-color: rgba(236, 72, 153, 0.3);
+}
+
+.component-path .component-example {
+    color: #5eead4;
+    border-color: rgba(20, 184, 166, 0.3);
+}
+
+.component-query .component-example {
+    color: #fbbf24;
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* Contenedor de comparación */
+.comparison-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.comparison-card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.comparison-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.url-card {
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.url-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.endpoint-card {
+    border-color: rgba(236, 72, 153, 0.3);
+}
+
+.endpoint-card:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+}
+
+.comparison-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.comparison-icon {
+    font-size: 2.5rem;
+}
+
+.comparison-header h3 {
+    color: var(--text-primary);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.comparison-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.comparison-list li {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    align-items: flex-start;
+}
+
+.comparison-list .bullet {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.endpoint-card .comparison-list .bullet {
+    color: var(--secondary-color);
+}
+
+.comparison-example {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.comparison-example strong {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.comparison-example code {
+    display: block;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    color: var(--primary-light);
+    word-break: break-all;
+}
+
+.endpoint-card .comparison-example code {
+    color: var(--secondary-color);
+}
+
+.comparison-vs {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    padding: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .url-display {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .url-anatomy {
+        padding: 1rem;
+    }
+
+    .url-display {
+        font-size: 0.75rem;
+        padding: 1rem;
+    }
+
+    .url-part::after {
+        font-size: 0.65rem;
+        bottom: -30px;
+    }
+
+    .comparison-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .comparison-vs {
+        transform: rotate(90deg);
+        font-size: 1.5rem;
+    }
+
+    .comparison-card {
+        padding: 1.5rem;
+    }
+
+    .comparison-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .comparison-icon {
+        font-size: 2rem;
+    }
+
+    .comparison-header h3 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .url-display {
+        font-size: 0.65rem;
+        padding: 0.75rem;
+    }
+
+    .url-part {
+        padding: 0.15rem 0.3rem;
+    }
+
+    .component-example {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+    }
+
+    .comparison-list li {
+        font-size: 0.875rem;
+    }
+
+    .comparison-example code {
+        font-size: 0.75rem;
+    }
+}

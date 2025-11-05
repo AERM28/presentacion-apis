@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URLs & Endpoints</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/urls-endpoints.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -69,36 +70,45 @@
             <section class="content-section fade-in">
                 <h2 class="section-heading">Componentes de una URL</h2>
                 
-                <div class="types-grid">
-                    <div class="type-card">
-                        <div class="type-icon">🔐</div>
-                        <h3>Esquema (scheme)</h3>
-                        <p>Indica el protocolo: <strong>http</strong> (sin cifrado) o <strong>https</strong> (con cifrado SSL).</p>
-                    </div>
-                    
-                    <div class="type-card">
-                        <div class="type-icon">🖥️</div>
-                        <h3>Nombre de host (hostname)</h3>
-                        <p>Identifica el servidor que aloja el recurso, por ejemplo: <strong>www.ejemplo.com</strong></p>
-                    </div>
-                    
-                    <div class="type-card">
-                        <div class="type-icon">📂</div>
-                        <h3>Ruta (path)</h3>
-                        <p>Especifica el recurso dentro del servidor, por ejemplo: <strong>/docs/es/programación-web</strong></p>
-                    </div>
-                    
-                    <div class="type-card">
-                        <div class="type-icon">❓</div>
-                        <h3>Cadena de consulta (query)</h3>
-                        <p>Es una parte opcional que sirve para enviar información al servidor (datos, parámetros o filtros). Siempre empieza con <strong>?</strong> y va al final de la URL.</p>
+                <!-- Visualización de URL completa -->
+                <div class="url-anatomy">
+                    <div class="url-display">
+                        <span class="url-part scheme" data-label="Esquema">https://</span><span class="url-part hostname" data-label="Hostname">www.ejemplo.com</span><span class="url-part path" data-label="Ruta">/docs/es/programacion-web</span><span class="url-part query" data-label="Query">?term=bluebird&source=browser</span>
                     </div>
                 </div>
 
-                <div class="highlight-box" style="margin-top: 2rem;">
-                    <h4>Ejemplo de cadena de consulta</h4>
-                    <p><code>term=bluebird&source=browser-search</code></p>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Los parámetros se separan con <strong>&</strong> y siguen el formato <strong>clave=valor</strong></p>
+                <div class="types-grid">
+                    <div class="type-card component-scheme">
+                        <div class="type-icon">🔐</div>
+                        <h3>Esquema (scheme)</h3>
+                        <p>Indica el protocolo: <strong>http</strong> (sin cifrado) o <strong>https</strong> (con cifrado SSL).</p>
+                        <div class="component-example">https://</div>
+                    </div>
+                    
+                    <div class="type-card component-hostname">
+                        <div class="type-icon">🖥️</div>
+                        <h3>Nombre de host (hostname)</h3>
+                        <p>Identifica el servidor que aloja el recurso.</p>
+                        <div class="component-example">www.ejemplo.com</div>
+                    </div>
+                    
+                    <div class="type-card component-path">
+                        <div class="type-icon">📂</div>
+                        <h3>Ruta (path)</h3>
+                        <p>Especifica el recurso dentro del servidor.</p>
+                        <div class="component-example">/docs/es/programacion-web</div>
+                    </div>
+                    
+                    <div class="type-card component-query">
+                        <div class="type-icon">❓</div>
+                        <h3>Cadena de consulta (query)</h3>
+                        <p>Es una parte opcional que sirve para enviar información al servidor (datos, parámetros o filtros). Siempre empieza con <strong>?</strong> y va al final de la URL.</p>
+                        <div class="component-example">?term=bluebird&source=browser-search</div>
+                    </div>
+                </div>
+
+                <div class="note-text" style="margin-top: 2rem;">
+                    <strong>Nota sobre cadenas de consulta:</strong> Los parámetros se separan con <strong>&</strong> y siguen el formato <strong>clave=valor</strong>. Ejemplo: <code>term=bluebird&source=browser-search</code>
                 </div>
             </section>
 
@@ -126,27 +136,57 @@
             <section class="content-section fade-in">
                 <h2 class="section-heading">Diferencias entre una URL y un Endpoint</h2>
                 
-                <div class="types-grid">
-                    <div class="type-card" style="border-color: var(--primary-color);">
-                        <div class="type-icon">🔗</div>
-                        <h3>URL</h3>
-                        <ul style="text-align: left; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">
-                            <li>Es una dirección completa de un recurso en la web</li>
-                            <li>Incluye protocolo, dominio, ruta y parámetros</li>
-                            <li>Ejemplo: <code style="color: var(--primary-light);">https://api.ejemplo.com/usuarios?activos=true</code></li>
-                            <li>Es más general y abarca toda la ubicación</li>
+                <div class="comparison-container">
+                    <div class="comparison-card url-card">
+                        <div class="comparison-header">
+                            <div class="comparison-icon">🔗</div>
+                            <h3>URL</h3>
+                        </div>
+                        <ul class="comparison-list">
+                            <li>
+                                <span class="bullet">•</span>
+                                <span>Es una dirección completa de un recurso en la web</span>
+                            </li>
+                            <li>
+                                <span class="bullet">•</span>
+                                <span>Incluye protocolo, dominio, ruta y parámetros</span>
+                            </li>
+                            <li>
+                                <span class="bullet">•</span>
+                                <span>Es más general y abarca toda la ubicación</span>
+                            </li>
                         </ul>
+                        <div class="comparison-example">
+                            <strong>Ejemplo:</strong>
+                            <code>https://api.ejemplo.com/usuarios?activos=true</code>
+                        </div>
                     </div>
                     
-                    <div class="type-card" style="border-color: var(--secondary-color);">
-                        <div class="type-icon">📍</div>
-                        <h3>Endpoint</h3>
-                        <ul style="text-align: left; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">
-                            <li>Es el punto específico de acceso a un recurso de la API</li>
-                            <li>Generalmente se refiere solo a la ruta</li>
-                            <li>Ejemplo: <code style="color: var(--secondary-color);">/usuarios</code> o <code style="color: var(--secondary-color);">/productos/123</code></li>
-                            <li>Es más específico y orientado a la funcionalidad</li>
+                    <div class="comparison-vs">VS</div>
+                    
+                    <div class="comparison-card endpoint-card">
+                        <div class="comparison-header">
+                            <div class="comparison-icon">📍</div>
+                            <h3>Endpoint</h3>
+                        </div>
+                        <ul class="comparison-list">
+                            <li>
+                                <span class="bullet">•</span>
+                                <span>Es el punto específico de acceso a un recurso de la API</span>
+                            </li>
+                            <li>
+                                <span class="bullet">•</span>
+                                <span>Generalmente se refiere solo a la ruta</span>
+                            </li>
+                            <li>
+                                <span class="bullet">•</span>
+                                <span>Es más específico y orientado a la funcionalidad</span>
+                            </li>
                         </ul>
+                        <div class="comparison-example">
+                            <strong>Ejemplo:</strong>
+                            <code>/usuarios</code> o <code>/productos/123</code>
+                        </div>
                     </div>
                 </div>
 
@@ -220,6 +260,29 @@
 
         document.querySelectorAll('.content-section').forEach(section => {
             observer.observe(section);
+        });
+
+        // URL anatomy hover effect
+        const urlParts = document.querySelectorAll('.url-part');
+        const componentCards = document.querySelectorAll('.type-card');
+
+        urlParts.forEach(part => {
+            part.addEventListener('mouseenter', () => {
+                const partClass = part.classList[1];
+                componentCards.forEach(card => {
+                    if (card.classList.contains(`component-${partClass}`)) {
+                        card.style.transform = 'scale(1.05)';
+                        card.style.borderColor = 'var(--primary-color)';
+                    }
+                });
+            });
+
+            part.addEventListener('mouseleave', () => {
+                componentCards.forEach(card => {
+                    card.style.transform = '';
+                    card.style.borderColor = '';
+                });
+            });
         });
     </script>
 </body>

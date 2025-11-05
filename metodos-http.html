@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Métodos HTTP</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/metodos-http.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -49,144 +50,275 @@
             <section class="content-section fade-in">
                 <h2 class="section-heading">¿Qué son los Métodos HTTP?</h2>
                 <p class="intro-text">En general, los métodos HTTP sirven para comunicar al cliente y al servidor qué tipo de acción se quiere realizar sobre un recurso (como leer, crear, actualizar o eliminar información) dentro de una aplicación web o API.</p>
+
+                <!-- Diagrama CRUD -->
+                <div class="crud-diagram">
+                    <div class="crud-title">Operaciones CRUD</div>
+                    <div class="crud-items">
+                        <div class="crud-item get">
+                            <div class="crud-icon">📥</div>
+                            <div class="crud-method">GET</div>
+                            <div class="crud-action">READ</div>
+                        </div>
+                        <div class="crud-item post">
+                            <div class="crud-icon">📤</div>
+                            <div class="crud-method">POST</div>
+                            <div class="crud-action">CREATE</div>
+                        </div>
+                        <div class="crud-item put">
+                            <div class="crud-icon">✏️</div>
+                            <div class="crud-method">PUT</div>
+                            <div class="crud-action">UPDATE</div>
+                        </div>
+                        <div class="crud-item delete">
+                            <div class="crud-icon">🗑️</div>
+                            <div class="crud-method">DELETE</div>
+                            <div class="crud-action">DELETE</div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- GET -->
             <section class="content-section fade-in">
-                <div class="definition-box" style="border-color: var(--info-color);">
-                    <div class="definition-icon">📥</div>
-                    <div class="definition-content">
-                        <h2 style="color: var(--info-color); margin-bottom: 1rem;">GET</h2>
-                        <p class="definition-text">
+                <div class="method-card get-card">
+                    <div class="method-header">
+                        <div class="method-badge get">GET</div>
+                        <div class="method-icon">📥</div>
+                    </div>
+                    <div class="method-content">
+                        <p class="method-description">
                             El método GET es la madre de todas las peticiones de HTTP. Este método de petición existía ya en los inicios de la world wide web (WWW) y se utiliza para <strong>solicitar un recurso</strong>, como un archivo HTML del servidor web.
                         </p>
                     </div>
                 </div>
 
-                <div class="highlight-box">
+                <div class="example-box">
                     <h4>📖 Ejemplo práctico: Búsqueda en Google</h4>
-                    <p>Supongamos que queremos buscar "gatos" en Google. Al escribir "gatos" en el navegador y presionar enter, se crea una solicitud HTTP GET al servidor de Google, este responde con una página HTML que muestra los resultados para "gatos".</p>
+                    <div class="example-steps">
+                        <div class="example-step">
+                            <span class="step-number">1</span>
+                            <p>Escribimos "gatos" en el navegador de Google y presionamos enter</p>
+                        </div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-step">
+                            <span class="step-number">2</span>
+                            <p>Se crea una solicitud HTTP GET al servidor de Google</p>
+                        </div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-step">
+                            <span class="step-number">3</span>
+                            <p>El servidor responde con una página HTML que muestra los resultados para "gatos"</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="note-text">
-                    <strong>Característica:</strong> GET solo solicita información, no la modifica. Es seguro y puede repetirse sin efectos secundarios.
+                <div class="characteristic-box get">
+                    <strong>✓ Característica:</strong> GET solo solicita información, no la modifica. Es seguro y puede repetirse sin efectos secundarios.
                 </div>
             </section>
 
             <!-- POST -->
             <section class="content-section fade-in">
-                <div class="definition-box" style="border-color: var(--success-color);">
-                    <div class="definition-icon">📤</div>
-                    <div class="definition-content">
-                        <h2 style="color: var(--success-color); margin-bottom: 1rem;">POST</h2>
-                        <p class="definition-text">
+                <div class="method-card post-card">
+                    <div class="method-header">
+                        <div class="method-badge post">POST</div>
+                        <div class="method-icon">📤</div>
+                    </div>
+                    <div class="method-content">
+                        <p class="method-description">
                             El método de solicitud POST solicita que un servidor web <strong>acepte los datos incluidos en el cuerpo del mensaje de solicitud</strong>, probablemente para almacenarlos. Se utiliza a menudo al subir un archivo o al enviar un formulario web completo.
                         </p>
                     </div>
                 </div>
 
-                <div class="highlight-box">
+                <div class="example-box">
                     <h4>🔐 Ejemplo práctico: Inicio de sesión en redes sociales</h4>
-                    <p>Cuando iniciamos sesión en Instagram o Facebook, escribimos nuestro usuario y contraseña en un formulario. Al hacer clic en "Iniciar sesión", esa información se envía al servidor mediante el método POST.</p>
-                    <p style="margin-top: 0.5rem;">El servidor recibe esos datos de manera segura (no aparecen en la barra del navegador), los verifica y, si son correctos, nos permite entrar a nuestra cuenta.</p>
+                    <div class="example-steps">
+                        <div class="example-step">
+                            <span class="step-number">1</span>
+                            <p>Escribimos nuestro usuario y contraseña en un formulario de Instagram o Facebook</p>
+                        </div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-step">
+                            <span class="step-number">2</span>
+                            <p>Al hacer clic en "Iniciar sesión", esa información se envía al servidor mediante el método POST</p>
+                        </div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-step">
+                            <span class="step-number">3</span>
+                            <p>El servidor recibe esos datos de manera segura (no aparecen en la barra del navegador), los verifica y, si son correctos, nos permite entrar a nuestra cuenta</p>
+                        </div>
+                    </div>
+                    <div class="example-note">
+                        Este proceso usa el método POST porque estamos enviando información privada que el servidor necesita para realizar una acción (autenticar al usuario).
+                    </div>
                 </div>
 
-                <div class="note-text">
-                    <strong>Característica:</strong> POST crea nuevos recursos. Los datos viajan en el cuerpo de la solicitud, por lo que son más seguros que en GET.
+                <div class="characteristic-box post">
+                    <strong>✓ Característica:</strong> POST crea nuevos recursos. Los datos viajan en el cuerpo de la solicitud, por lo que son más seguros que en GET.
                 </div>
             </section>
 
             <!-- PUT -->
             <section class="content-section fade-in">
-                <div class="definition-box" style="border-color: var(--warning-color);">
-                    <div class="definition-icon">✏️</div>
-                    <div class="definition-content">
-                        <h2 style="color: var(--warning-color); margin-bottom: 1rem;">PUT</h2>
-                        <p class="definition-text">
-                            El método PUT se usa cuando queremos <strong>actualizar o reemplazar información que ya existe</strong> en un servidor. PUT no crea cosas nuevas, sino que modifica las que ya existen.
+                <div class="method-card put-card">
+                    <div class="method-header">
+                        <div class="method-badge put">PUT</div>
+                        <div class="method-icon">✏️</div>
+                    </div>
+                    <div class="method-content">
+                        <p class="method-description">
+                            El método PUT se usa cuando queremos <strong>actualizar o reemplazar información que ya existe</strong> en un servidor. Es parecido al POST, pero con una diferencia muy importante: PUT no crea cosas nuevas, sino que modifica las que ya existen.
                         </p>
                     </div>
                 </div>
 
-                <div class="highlight-box">
-                    <h4>Diferencia entre POST y PUT</h4>
-                    <p><strong>POST:</strong> sirve para crear algo nuevo (por ejemplo, registrar un usuario).</p>
-                    <p><strong>PUT:</strong> sirve para actualizar algo que ya existe (por ejemplo, cambiar tu contraseña o editar tu perfil).</p>
+                <div class="comparison-box">
+                    <h4>🔍 Diferencia entre POST y PUT</h4>
+                    <div class="comparison-grid">
+                        <div class="comparison-item post">
+                            <div class="comparison-label">POST</div>
+                            <p>Sirve para <strong>crear algo nuevo</strong> (por ejemplo, registrar un usuario)</p>
+                        </div>
+                        <div class="comparison-divider">VS</div>
+                        <div class="comparison-item put">
+                            <div class="comparison-label">PUT</div>
+                            <p>Sirve para <strong>actualizar algo que ya existe</strong> (por ejemplo, cambiar tu contraseña o editar tu perfil)</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="highlight-box">
+                <div class="example-box">
                     <h4>📝 Ejemplo práctico: Actualizar biografía de Instagram</h4>
-                    <p>Imagina que estás en Instagram y cambias tu biografía, escribes un nuevo texto en tu perfil: "Estudiante de Ingeniería del Software, UTN"</p>
-                    <p style="margin-top: 0.5rem;">Al presionar "Guardar", tu navegador envía una solicitud PUT al servidor:</p>
-                    <pre style="background: var(--bg-primary); padding: 1rem; border-radius: 0.5rem; margin-top: 0.5rem; overflow-x: auto;">
-PUT /perfil/usuario123
+                    <div class="example-steps">
+                        <div class="example-step">
+                            <span class="step-number">1</span>
+                            <p>Estás en Instagram y cambias tu biografía, escribes: "Estudiante de Ingeniería del Software, UTN"</p>
+                        </div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-step">
+                            <span class="step-number">2</span>
+                            <p>Al presionar "Guardar", tu navegador envía una solicitud PUT al servidor:</p>
+                            <div class="code-block">
+                                <div class="code-header">Solicitud PUT</div>
+                                <pre>PUT /perfil/usuario123
 {
   "biografia": "Estudiante de Ingeniería del Software, UTN"
 }</pre>
-                    <p style="margin-top: 0.5rem;">Finalmente el servidor actualiza el perfil con el nuevo texto.</p>
+                            </div>
+                        </div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-step">
+                            <span class="step-number">3</span>
+                            <p>Finalmente el servidor actualiza el perfil con el nuevo texto</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="note-text">
-                    <strong>Característica:</strong> PUT es idempotente, lo que significa que si repites la acción varias veces, el resultado es el mismo.
+                <div class="characteristic-box put">
+                    <strong>✓ Característica:</strong> PUT es idempotente, lo que significa que si repites la acción varias veces, el resultado es el mismo.
                 </div>
             </section>
 
             <!-- DELETE -->
             <section class="content-section fade-in">
-                <div class="definition-box" style="border-color: var(--error-color);">
-                    <div class="definition-icon">🗑️</div>
-                    <div class="definition-content">
-                        <h2 style="color: var(--error-color); margin-bottom: 1rem;">DELETE</h2>
-                        <p class="definition-text">
+                <div class="method-card delete-card">
+                    <div class="method-header">
+                        <div class="method-badge delete">DELETE</div>
+                        <div class="method-icon">🗑️</div>
+                    </div>
+                    <div class="method-content">
+                        <p class="method-description">
                             El método DELETE se usa cuando queremos <strong>eliminar información que ya existe</strong> en un servidor. En otras palabras, sirve para borrar algo de una página web o aplicación.
                         </p>
                     </div>
                 </div>
 
-                <div class="highlight-box">
+                <div class="example-box">
                     <h4>📷 Ejemplo práctico: Eliminar una foto</h4>
-                    <p>Imagina que estás en Instagram o Facebook y decides borrar una foto o eliminar un comentario.</p>
-                    <p style="margin-top: 0.5rem;">Cuando haces clic en "Eliminar", el navegador envía una solicitud al servidor:</p>
-                    <pre style="background: var(--bg-primary); padding: 1rem; border-radius: 0.5rem; margin-top: 0.5rem;">DELETE /fotos/12345</pre>
-                    <p style="margin-top: 0.5rem;">Esto le dice al servidor: "Borra la foto con el número 12345".</p>
-                    <p style="margin-top: 0.5rem;">El servidor recibe esa orden y elimina ese recurso.</p>
+                    <div class="example-steps">
+                        <div class="example-step">
+                            <span class="step-number">1</span>
+                            <p>Estás en Instagram o Facebook y decides borrar una foto o eliminar un comentario</p>
+                        </div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-step">
+                            <span class="step-number">2</span>
+                            <p>Cuando haces clic en "Eliminar", el navegador envía una solicitud al servidor:</p>
+                            <div class="code-block">
+                                <div class="code-header">Solicitud DELETE</div>
+                                <pre>DELETE /fotos/12345</pre>
+                            </div>
+                            <p style="margin-top: 0.5rem;">Esto le dice al servidor: <strong>"Borra la foto con el número 12345"</strong></p>
+                        </div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-step">
+                            <span class="step-number">3</span>
+                            <p>El servidor recibe esa orden y elimina ese recurso</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="note-text">
-                    <strong>Característica:</strong> DELETE, al igual que PUT, es idempotente. Si borras una foto una vez, la foto desaparece. Si intentas borrarla otra vez, el resultado no cambia, porque ya está borrada.
+                <div class="characteristic-box delete">
+                    <strong>✓ Característica:</strong> DELETE, al igual que PUT, es idempotente. Si borras una foto una vez, la foto desaparece. Si intentas borrarla otra vez, el resultado no cambia, porque ya está borrada.
                 </div>
             </section>
 
             <!-- Resumen comparativo -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Resumen de Métodos HTTP</h2>
-                <div class="types-grid">
-                    <div class="type-card" style="border-color: var(--info-color);">
-                        <div class="type-icon">📥</div>
-                        <h3 style="color: var(--info-color);">GET</h3>
-                        <p><strong>Acción:</strong> Leer/Obtener</p>
-                        <p><strong>Ejemplo:</strong> Ver una página web</p>
+                <div class="summary-grid">
+                    <div class="summary-card get">
+                        <div class="summary-icon">📥</div>
+                        <h3>GET</h3>
+                        <div class="summary-detail">
+                            <strong>Acción:</strong>
+                            <span>Leer/Obtener</span>
+                        </div>
+                        <div class="summary-detail">
+                            <strong>Ejemplo:</strong>
+                            <span>Ver una página web</span>
+                        </div>
                     </div>
                     
-                    <div class="type-card" style="border-color: var(--success-color);">
-                        <div class="type-icon">📤</div>
-                        <h3 style="color: var(--success-color);">POST</h3>
-                        <p><strong>Acción:</strong> Crear</p>
-                        <p><strong>Ejemplo:</strong> Registrar un usuario</p>
+                    <div class="summary-card post">
+                        <div class="summary-icon">📤</div>
+                        <h3>POST</h3>
+                        <div class="summary-detail">
+                            <strong>Acción:</strong>
+                            <span>Crear</span>
+                        </div>
+                        <div class="summary-detail">
+                            <strong>Ejemplo:</strong>
+                            <span>Registrar un usuario</span>
+                        </div>
                     </div>
                     
-                    <div class="type-card" style="border-color: var(--warning-color);">
-                        <div class="type-icon">✏️</div>
-                        <h3 style="color: var(--warning-color);">PUT</h3>
-                        <p><strong>Acción:</strong> Actualizar</p>
-                        <p><strong>Ejemplo:</strong> Editar un perfil</p>
+                    <div class="summary-card put">
+                        <div class="summary-icon">✏️</div>
+                        <h3>PUT</h3>
+                        <div class="summary-detail">
+                            <strong>Acción:</strong>
+                            <span>Actualizar</span>
+                        </div>
+                        <div class="summary-detail">
+                            <strong>Ejemplo:</strong>
+                            <span>Editar un perfil</span>
+                        </div>
                     </div>
                     
-                    <div class="type-card" style="border-color: var(--error-color);">
-                        <div class="type-icon">🗑️</div>
-                        <h3 style="color: var(--error-color);">DELETE</h3>
-                        <p><strong>Acción:</strong> Eliminar</p>
-                        <p><strong>Ejemplo:</strong> Borrar una foto</p>
+                    <div class="summary-card delete">
+                        <div class="summary-icon">🗑️</div>
+                        <h3>DELETE</h3>
+                        <div class="summary-detail">
+                            <strong>Acción:</strong>
+                            <span>Eliminar</span>
+                        </div>
+                        <div class="summary-detail">
+                            <strong>Ejemplo:</strong>
+                            <span>Borrar una foto</span>
+                        </div>
                     </div>
                 </div>
             </section>

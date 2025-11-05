@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asincronía en JavaScript</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/asincronia.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -51,7 +52,7 @@
                 <p class="intro-text">La asincronía es uno de los conceptos principales que existe en el mundo de JavaScript. Cuando comenzamos, es muy común trabajar con código síncrono (secuencial), sin embargo, llegado a un punto necesitaremos trabajar con código asíncrono, el cual puede ser muy frustrante si no lo entendemos bien.</p>
             </section>
 
-            <!-- Sincronía -->
+            <!-- Sincronía vs Asincronía -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">¿Qué es la Sincronía?</h2>
                 <div class="definition-box">
@@ -63,15 +64,75 @@
                     </div>
                 </div>
 
+                <!-- Comparación visual -->
+                <div class="sync-async-comparison">
+                    <div class="comparison-side sync-side">
+                        <h3>⏭️ Código Síncrono</h3>
+                        <div class="execution-flow">
+                            <div class="flow-block" data-order="1">
+                                <span class="block-number">1</span>
+                                <span class="block-text">Tarea 1</span>
+                            </div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-block" data-order="2">
+                                <span class="block-number">2</span>
+                                <span class="block-text">Tarea 2</span>
+                            </div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-block" data-order="3">
+                                <span class="block-number">3</span>
+                                <span class="block-text">Tarea 3</span>
+                            </div>
+                        </div>
+                        <p class="comparison-note">Secuencial y predecible</p>
+                    </div>
+
+                    <div class="comparison-side async-side">
+                        <h3>⚡ Código Asíncrono</h3>
+                        <div class="execution-flow">
+                            <div class="flow-block" data-order="1">
+                                <span class="block-number">1</span>
+                                <span class="block-text">Tarea 1</span>
+                            </div>
+                            <div class="flow-split">
+                                <div class="split-branch">
+                                    <div class="flow-arrow">↓</div>
+                                    <div class="flow-block waiting" data-order="2">
+                                        <span class="block-number">2</span>
+                                        <span class="block-text">Espera...</span>
+                                    </div>
+                                </div>
+                                <div class="split-branch">
+                                    <div class="flow-arrow">↓</div>
+                                    <div class="flow-block" data-order="3">
+                                        <span class="block-number">3</span>
+                                        <span class="block-text">Tarea 3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="comparison-note">No bloquea la ejecución</p>
+                    </div>
+                </div>
+
                 <p class="intro-text">Sin embargo, en el mundo de la programación, tarde o temprano necesitaremos realizar operaciones asíncronas, especialmente en ciertos lenguajes como JavaScript, donde tenemos que realizar tareas que tienen que esperar a que ocurra un determinado suceso.</p>
 
-                <div class="highlight-box">
-                    <h4>Características de un suceso asíncrono:</h4>
-                    <ul style="color: var(--text-secondary); line-height: 1.8;">
-                        <li>Generalmente, no depende de nosotros</li>
-                        <li>No solemos saber cuándo va a ocurrir</li>
-                        <li>A veces, ni siquiera sabemos si va a ocurrir</li>
-                    </ul>
+                <div class="characteristics-box">
+                    <h4>🎯 Características de un suceso asíncrono:</h4>
+                    <div class="characteristics-grid">
+                        <div class="characteristic-item">
+                            <div class="char-icon">🎲</div>
+                            <p>Generalmente, no depende de nosotros</p>
+                        </div>
+                        <div class="characteristic-item">
+                            <div class="char-icon">⏰</div>
+                            <p>No solemos saber cuándo va a ocurrir</p>
+                        </div>
+                        <div class="characteristic-item">
+                            <div class="char-icon">❓</div>
+                            <p>A veces, ni siquiera sabemos si va a ocurrir</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="note-text">
@@ -82,38 +143,43 @@
             <!-- XMLHttpRequest -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">El objeto XMLHttpRequest</h2>
-                <div class="definition-box" style="border-color: var(--warning-color);">
-                    <div class="definition-icon">📡</div>
-                    <div class="definition-content">
-                        <p class="definition-text">
-                            El objeto XMLHttpRequest se puede utilizar para <strong>solicitar datos de un servidor web</strong>. Es el sueño de cualquier desarrollador, porque permite:
-                        </p>
+                <div class="method-card xhr-card">
+                    <div class="method-header">
+                        <div class="method-badge xhr">XMLHttpRequest</div>
+                        <div class="method-icon">📡</div>
+                    </div>
+                    <div class="method-content">
+                        <p>El objeto XMLHttpRequest se puede utilizar para <strong>solicitar datos de un servidor web</strong>. Es el sueño de cualquier desarrollador, porque permite:</p>
                     </div>
                 </div>
 
-                <div class="types-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                    <div class="highlight-box">
-                        <h4>✨ Actualizar sin recargar</h4>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h4>Actualizar sin recargar</h4>
                         <p>Actualizar una página web sin recargarla</p>
                     </div>
-                    <div class="highlight-box">
-                        <h4>📥 Solicitar datos</h4>
+                    <div class="feature-card">
+                        <div class="feature-icon">📥</div>
+                        <h4>Solicitar datos</h4>
                         <p>Solicitar datos de un servidor después de que se haya cargado la página</p>
                     </div>
-                    <div class="highlight-box">
-                        <h4>📤 Recibir datos</h4>
+                    <div class="feature-card">
+                        <div class="feature-icon">📤</div>
+                        <h4>Recibir datos</h4>
                         <p>Recibir datos de un servidor después de que se haya cargado la página</p>
                     </div>
-                    <div class="highlight-box">
-                        <h4>🔄 Enviar en segundo plano</h4>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h4>Enviar en segundo plano</h4>
                         <p>Enviar datos a un servidor en segundo plano</p>
                     </div>
                 </div>
 
-                <div class="highlight-box" style="margin-top: 2rem;">
+                <div class="example-box">
                     <h4>🌤️ Ejemplo cotidiano: App de clima</h4>
                     <p>Piensa en una app de clima:</p>
-                    <ul style="color: var(--text-secondary); line-height: 1.8; margin-top: 0.5rem;">
+                    <ul>
                         <li>Cada vez que eliges una ciudad, el navegador pide al servidor la información del clima actual usando XMLHttpRequest.</li>
                         <li>El servidor responde con los datos del clima (temperatura, humedad, etc.).</li>
                         <li>La página actualiza solo esa parte, sin volver a cargar todo el sitio.</li>
@@ -124,30 +190,31 @@
             <!-- Fetch -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Método Fetch</h2>
-                <div class="definition-box" style="border-color: var(--primary-color);">
-                    <div class="definition-icon">🚀</div>
-                    <div class="definition-content">
-                        <p class="definition-text">
-                            Fetch es el nombre de una nueva API para JavaScript con la cual podemos realizar <strong>peticiones HTTP asíncronas utilizando promesas</strong> y de forma que el código sea un poco más sencillo y menos verbose. La forma de realizar una petición es muy sencilla, básicamente se trata de llamar a fetch y pasarle por parámetro la URL de la petición a realizar.
-                        </p>
+                <div class="method-card fetch-card">
+                    <div class="method-header">
+                        <div class="method-badge fetch">Fetch API</div>
+                        <div class="method-icon">🚀</div>
+                    </div>
+                    <div class="method-content">
+                        <p>Fetch es el nombre de una nueva API para JavaScript con la cual podemos realizar <strong>peticiones HTTP asíncronas utilizando promesas</strong> y de forma que el código sea un poco más sencillo y menos verbose. La forma de realizar una petición es muy sencilla, básicamente se trata de llamar a fetch y pasarle por parámetro la URL de la petición a realizar.</p>
                     </div>
                 </div>
 
                 <h3 class="subsection-title">Ventajas del método Fetch</h3>
-                <div class="types-grid">
-                    <div class="type-card">
-                        <div class="type-icon">🌍</div>
-                        <h3>Familiaridad entre plataformas</h3>
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="advantage-icon">🌍</div>
+                        <h4>Familiaridad entre plataformas</h4>
                         <p>La misma sintaxis de búsqueda funciona en todos los entornos de JavaScript (navegadores, Node.js, React), lo que facilita el aprendizaje y la reutilización del código.</p>
                     </div>
-                    <div class="type-card">
-                        <div class="type-icon">⚡</div>
-                        <h3>Implementación más rápida</h3>
+                    <div class="advantage-card">
+                        <div class="advantage-icon">⚡</div>
+                        <h4>Implementación más rápida</h4>
                         <p>En Node.js, el uso de Undici como base de fetch mejora la velocidad, la confiabilidad y la compatibilidad con los estándares de Node.</p>
                     </div>
-                    <div class="type-card">
-                        <div class="type-icon">🔗</div>
-                        <h3>Sintaxis basada en promesas</h3>
+                    <div class="advantage-card">
+                        <div class="advantage-icon">🔗</div>
+                        <h4>Sintaxis basada en promesas</h4>
                         <p>Fetch usa promesas en lugar de callbacks, lo que hace el código más limpio y fácil de manejar en operaciones asíncronas como las llamadas AJAX.</p>
                     </div>
                 </div>
@@ -158,11 +225,13 @@
                 <h2 class="section-heading">Fetch vs XMLHttpRequest</h2>
                 <h3 class="subsection-title">¿Cuándo usar cada uno?</h3>
                 
-                <div class="types-grid" style="grid-template-columns: 1fr 1fr;">
-                    <div class="type-card" style="border-color: var(--primary-color);">
-                        <div class="type-icon">🚀</div>
-                        <h3 style="color: var(--primary-color);">Usa Fetch si:</h3>
-                        <ul style="text-align: left; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;">
+                <div class="versus-container">
+                    <div class="versus-card fetch-side">
+                        <div class="versus-header">
+                            <div class="versus-icon">🚀</div>
+                            <h3>Usa Fetch si:</h3>
+                        </div>
+                        <ul class="versus-list">
                             <li>Estás en una app moderna y puedes usar polyfills para navegadores antiguos</li>
                             <li>Quieres código más limpio con async/await</li>
                             <li>Necesitas integrarte con Service Workers/Cache API, streams de lectura o políticas de CORS/credenciales</li>
@@ -170,10 +239,14 @@
                         </ul>
                     </div>
                     
-                    <div class="type-card" style="border-color: var(--warning-color);">
-                        <div class="type-icon">📡</div>
-                        <h3 style="color: var(--warning-color);">Usa XMLHttpRequest si:</h3>
-                        <ul style="text-align: left; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;">
+                    <div class="versus-divider">VS</div>
+                    
+                    <div class="versus-card xhr-side">
+                        <div class="versus-header">
+                            <div class="versus-icon">📡</div>
+                            <h3>Usa XMLHttpRequest si:</h3>
+                        </div>
+                        <ul class="versus-list">
                             <li>Debes soportar navegadores muy antiguos sin polyfills (ej. IE)</li>
                             <li>Necesitas eventos de progreso de subida o descarga nativos</li>
                             <li>Quieres timeout nativo sin construirlo tú</li>
@@ -186,35 +259,69 @@
             <!-- Promises -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Promises (Promesas)</h2>
-                <div class="definition-box" style="border-color: var(--accent-color);">
-                    <div class="definition-icon">🤝</div>
-                    <div class="definition-content">
-                        <p class="definition-text">
-                            Una <strong>promesa</strong> es un objeto JavaScript especial que une el "código productor" y el "código consumidor". En términos de analogía, es como una lista de suscripción.
-                        </p>
+                <div class="method-card promise-card">
+                    <div class="method-header">
+                        <div class="method-badge promise">Promises</div>
+                        <div class="method-icon">🤝</div>
+                    </div>
+                    <div class="method-content">
+                        <p>Una <strong>promesa</strong> es un objeto JavaScript especial que une el "código productor" y el "código consumidor". En términos de analogía, es como una lista de suscripción.</p>
                     </div>
                 </div>
 
-                <div class="highlight-box">
+                <div class="analogy-box">
                     <h4>🎵 Analogía: El cantante y sus fans</h4>
-                    <p>Imagina que eres un gran cantante y los fanáticos te preguntan día y noche por tu próxima canción.</p>
-                    <p style="margin-top: 0.5rem;">Para obtener algo de alivio, prometes enviárselos cuando se publique. Les das a tus fans una lista donde pueden registrar sus direcciones de correo electrónico, de modo que cuando la canción esté disponible, todas las partes suscritas la reciban instantáneamente. E incluso si algo sale muy mal, digamos un incendio en el estudio tal que no puedas publicar la canción, aún se les notificará.</p>
+                    <div class="analogy-content">
+                        <p>Imagina que eres un gran cantante y los fanáticos te preguntan día y noche por tu próxima canción.</p>
+                        <p>Para obtener algo de alivio, <strong>prometes enviárselos cuando se publique</strong>. Les das a tus fans una lista donde pueden registrar sus direcciones de correo electrónico, de modo que cuando la canción esté disponible, todas las partes suscritas la reciban instantáneamente.</p>
+                        <p>E incluso si algo sale muy mal, digamos un incendio en el estudio tal que no puedas publicar la canción, aún se les notificará.</p>
+                    </div>
                 </div>
 
                 <h3 class="subsection-title">Componentes de una promesa</h3>
-                <ol class="process-list">
-                    <li><strong>Un "código productor"</strong> que hace algo y toma tiempo. Por ejemplo, algún código que carga los datos a través de una red. Eso es un "cantante".</li>
-                    <li><strong>Un "código consumidor"</strong> que quiere el resultado del "código productor" una vez que está listo. Muchas funciones pueden necesitar ese resultado. Estos son los "fans".</li>
-                    <li><strong>Una promesa</strong> es un objeto JavaScript especial que une el "código productor" y el "código consumidor". El "código productor" toma el tiempo que sea necesario para producir el resultado prometido, y la "promesa" hace que ese resultado esté disponible para todo el código suscrito cuando esté listo.</li>
-                </ol>
-
-                <div class="note-text">
-                    <strong>Importante:</strong> Las promesas pueden cumplirse (fulfilled) o no cumplirse (rejected).
+                <div class="components-list">
+                    <div class="component-item">
+                        <div class="component-number">1</div>
+                        <div class="component-content">
+                            <h4>Código Productor</h4>
+                            <p>Hace algo y toma tiempo. Por ejemplo, algún código que carga los datos a través de una red. Eso es un "cantante".</p>
+                        </div>
+                    </div>
+                    <div class="component-item">
+                        <div class="component-number">2</div>
+                        <div class="component-content">
+                            <h4>Código Consumidor</h4>
+                            <p>Quiere el resultado del "código productor" una vez que está listo. Muchas funciones pueden necesitar ese resultado. Estos son los "fans".</p>
+                        </div>
+                    </div>
+                    <div class="component-item">
+                        <div class="component-number">3</div>
+                        <div class="component-content">
+                            <h4>La Promesa</h4>
+                            <p>Un objeto JavaScript especial que une el "código productor" y el "código consumidor". La "promesa" hace que ese resultado esté disponible para todo el código suscrito cuando esté listo.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="highlight-box" style="margin-top: 2rem;">
+                <div class="promise-states">
+                    <h4>Estados de una Promesa</h4>
+                    <div class="states-grid">
+                        <div class="state-card fulfilled">
+                            <div class="state-icon">✅</div>
+                            <h5>Fulfilled</h5>
+                            <p>La promesa se cumplió exitosamente</p>
+                        </div>
+                        <div class="state-card rejected">
+                            <div class="state-icon">❌</div>
+                            <h5>Rejected</h5>
+                            <p>La promesa fue rechazada (error)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-cases-box">
                     <h4>Se usan Promises principalmente en:</h4>
-                    <ul style="color: var(--text-secondary); line-height: 1.8;">
+                    <ul>
                         <li>Llamadas a APIs externas</li>
                         <li>Operaciones de lectura/escritura de archivos</li>
                         <li>Consultas a bases de datos</li>
@@ -226,38 +333,40 @@
             <!-- Async/Await -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Async/Await</h2>
-                <div class="definition-box" style="border-color: var(--secondary-color);">
-                    <div class="definition-icon">⚡</div>
-                    <div class="definition-content">
-                        <p class="definition-text">
-                            Existe una sintaxis especial para trabajar con promesas de una forma más confortable, llamada <strong>"async/await"</strong>. Es sorprendentemente fácil de entender y usar.
-                        </p>
+                <div class="method-card async-card">
+                    <div class="method-header">
+                        <div class="method-badge async">Async/Await</div>
+                        <div class="method-icon">⚡</div>
+                    </div>
+                    <div class="method-content">
+                        <p>Existe una sintaxis especial para trabajar con promesas de una forma más confortable, llamada <strong>"async/await"</strong>. Es sorprendentemente fácil de entender y usar.</p>
                     </div>
                 </div>
 
                 <p class="intro-text">Las palabras clave async y await, implementadas a partir de ES2017, son una sintaxis que simplifica la programación asíncrona, facilitando el flujo de escritura y lectura de código; por lo que es posible escribir código que funcione de forma asíncrona, pero que se lea y estructure de forma síncrona.</p>
 
-                <div class="highlight-box">
-                    <h4>🔑 Cómo funciona</h4>
-                    <p>Al definir una función como <strong>async</strong>, podemos usar la palabra clave <strong>await</strong> antes de cualquier expresión que retorne una promesa. De esta forma, la ejecución de la función externa (la función async) se pausará hasta que se resuelva la Promesa.</p>
-                </div>
-
-                <div class="highlight-box">
-                    <h4>⚙️ Funcionamiento de await</h4>
-                    <p>La palabra clave <strong>await</strong> recibe una Promesa y la convierte en un valor de retorno (o genera una excepción en caso de error). Cuando usamos await, JavaScript esperará hasta que finalice la Promesa.</p>
-                    <ul style="color: var(--text-secondary); line-height: 1.8; margin-top: 0.5rem;">
-                        <li>Si se completa con éxito (fulfilled), el valor obtenido es retornado.</li>
-                        <li>Si la Promesa es rechazada (rejected), se retorna el error arrojado por la excepción.</li>
-                    </ul>
+                <div class="functionality-box">
+                    <div class="func-item">
+                        <h4>🔑 Cómo funciona</h4>
+                        <p>Al definir una función como <strong>async</strong>, podemos usar la palabra clave <strong>await</strong> antes de cualquier expresión que retorne una promesa. De esta forma, la ejecución de la función externa (la función async) se pausará hasta que se resuelva la Promesa.</p>
+                    </div>
+                    <div class="func-item">
+                        <h4>⚙️ Funcionamiento de await</h4>
+                        <p>La palabra clave <strong>await</strong> recibe una Promesa y la convierte en un valor de retorno (o genera una excepción en caso de error). Cuando usamos await, JavaScript esperará hasta que finalice la Promesa.</p>
+                        <ul>
+                            <li>Si se completa con éxito (fulfilled), el valor obtenido es retornado.</li>
+                            <li>Si la Promesa es rechazada (rejected), se retorna el error arrojado por la excepción.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="note-text">
                     <strong>Regla importante:</strong> await solo funciona si está dentro de otra función async.
                 </div>
 
-                <div class="highlight-box" style="margin-top: 2rem;">
+                <div class="use-cases-box">
                     <h4>Se usa Async/Await principalmente en:</h4>
-                    <ul style="color: var(--text-secondary); line-height: 1.8;">
+                    <ul>
                         <li>Consumo de APIs REST</li>
                         <li>Operaciones con bases de datos</li>
                         <li>Lectura/escritura de archivos</li>
@@ -269,37 +378,42 @@
             <!-- Resumen comparativo -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Resumen: Métodos de Asincronía</h2>
-                <div class="types-grid">
-                    <div class="type-card" style="border-color: var(--warning-color);">
-                        <div class="type-icon">📡</div>
-                        <h3>XMLHttpRequest</h3>
-                        <p><strong>Época:</strong> Método tradicional</p>
-                        <p><strong>Sintaxis:</strong> Callbacks</p>
-                        <p><strong>Uso:</strong> Código legacy</p>
+                <div class="timeline">
+                    <div class="timeline-item xhr-time">
+                        <div class="timeline-marker">📡</div>
+                        <div class="timeline-content">
+                            <h3>XMLHttpRequest</h3>
+                            <p class="timeline-era">Método tradicional</p>
+                            <p><strong>Sintaxis:</strong> Callbacks</p>
+                            <p><strong>Uso:</strong> Código legacy</p>
+                        </div>
                     </div>
-                    
-                    <div class="type-card" style="border-color: var(--primary-color);">
-                        <div class="type-icon">🚀</div>
-                        <h3>Fetch</h3>
-                        <p><strong>Época:</strong> Moderno (ES6+)</p>
-                        <p><strong>Sintaxis:</strong> Promises</p>
-                        <p><strong>Uso:</strong> Apps modernas</p>
+                    <div class="timeline-item fetch-time">
+                        <div class="timeline-marker">🚀</div>
+                        <div class="timeline-content">
+                            <h3>Fetch</h3>
+                            <p class="timeline-era">Moderno (ES6+)</p>
+                            <p><strong>Sintaxis:</strong> Promises</p>
+                            <p><strong>Uso:</strong> Apps modernas</p>
+                        </div>
                     </div>
-                    
-                    <div class="type-card" style="border-color: var(--accent-color);">
-                        <div class="type-icon">🤝</div>
-                        <h3>Promises</h3>
-                        <p><strong>Época:</strong> ES6 (2015)</p>
-                        <p><strong>Sintaxis:</strong> .then().catch()</p>
-                        <p><strong>Uso:</strong> Base de async</p>
+                    <div class="timeline-item promise-time">
+                        <div class="timeline-marker">🤝</div>
+                        <div class="timeline-content">
+                            <h3>Promises</h3>
+                            <p class="timeline-era">ES6 (2015)</p>
+                            <p><strong>Sintaxis:</strong> .then().catch()</p>
+                            <p><strong>Uso:</strong> Base de async</p>
+                        </div>
                     </div>
-                    
-                    <div class="type-card" style="border-color: var(--secondary-color);">
-                        <div class="type-icon">⚡</div>
-                        <h3>Async/Await</h3>
-                        <p><strong>Época:</strong> ES2017</p>
-                        <p><strong>Sintaxis:</strong> Código síncrono</p>
-                        <p><strong>Uso:</strong> Más legible</p>
+                    <div class="timeline-item async-time">
+                        <div class="timeline-marker">⚡</div>
+                        <div class="timeline-content">
+                            <h3>Async/Await</h3>
+                            <p class="timeline-era">ES2017</p>
+                            <p><strong>Sintaxis:</strong> Código síncrono</p>
+                            <p><strong>Uso:</strong> Más legible</p>
+                        </div>
                     </div>
                 </div>
             </section>
