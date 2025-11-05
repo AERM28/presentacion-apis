@@ -128,7 +128,7 @@ a:hover {
 .navbar {
     background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(10px);
-    padding: var(--spacing-sm) 0;
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -138,38 +138,34 @@ a:hover {
 
 .navbar .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    font-size: 1.25rem;
-    font-weight: 700;
+    display: none;
 }
 
 .logo {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    padding: 0.5rem 0.75rem;
-    border-radius: var(--border-radius-md);
-    font-weight: 800;
+    display: none;
 }
 
 .brand-text {
-    color: var(--text-primary);
+    display: none;
 }
 
 .nav-toggle {
     display: none;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.3rem;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1001;
+    position: absolute;
+    right: 1.5rem;
 }
 
 .nav-toggle span {
@@ -195,16 +191,24 @@ a:hover {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: var(--spacing-sm);
+    gap: 0.5rem;
     align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    list-style: none;
 }
 
 .nav-link {
+    display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius-md);
     color: var(--text-secondary);
     transition: all var(--transition-fast);
     font-weight: 500;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -221,6 +225,7 @@ a:hover {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white !important;
     font-weight: 600;
+    padding: 0.5rem 1.25rem;
 }
 
 .btn-demo:hover {
