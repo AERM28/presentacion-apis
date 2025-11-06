@@ -69,9 +69,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     min-width: 100px;
     position: relative;
+    align-self: center;
 }
 
 .arrow-line {
@@ -83,7 +85,7 @@
 }
 
 .arrow-line::after {
-    content: '→';
+    content: '';
     position: absolute;
     right: -10px;
     top: 50%;
@@ -98,7 +100,7 @@
 }
 
 .flow-arrow-back .arrow-line::after {
-    content: '←';
+    content: '';
     right: auto;
     left: -10px;
     color: var(--secondary-color);
