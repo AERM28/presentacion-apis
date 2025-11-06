@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="css/manejo-errores.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Barra de navegación principal -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand">
-            </div>
+            <!-- Contenedor para el logo o marca -->
+            <div class="nav-brand"></div>
+            <!-- Botón hamburguesa para menú móvil -->
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <!-- Menú de navegación con enlaces a todas las páginas -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Inicio</a></li>
                 <li><a href="fundamentos.html" class="nav-link">Fundamentos</a></li>
@@ -31,25 +33,28 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero de página con breadcrumbs y título -->
     <section class="page-hero">
         <div class="container">
+            <!-- Breadcrumbs para navegación jerárquica -->
             <div class="breadcrumb">
                 <a href="index.html">Inicio</a>
                 <span>/</span>
                 <span>Manejo de Errores y Estados de Carga</span>
             </div>
+            <!-- Título y descripción de la página -->
             <h1 class="page-title">Manejo de Errores y Estados de Carga</h1>
             <p class="page-subtitle">Aprende a manejar respuestas de APIs e implementar estados de carga, éxito y error en tu interfaz</p>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Contenido principal -->
     <main class="main-content">
         <div class="container">
-            <!-- Introduction -->
+            <!-- Sección: Introducción - Importancia del manejo de errores -->
             <section class="content-section">
                 <h2 class="section-heading">¿Por Qué es Importante el Manejo de Errores?</h2>
+                <!-- Caja introductoria con texto explicativo -->
                 <div class="intro-box">
                     <p class="intro-text">
                         Cuando trabajamos con APIs, las cosas no siempre salen como esperamos. El servidor puede estar caído, 
@@ -58,17 +63,21 @@
                     </p>
                 </div>
 
+                <!-- Grid con tres razones principales para manejar errores -->
                 <div class="importance-grid">
+                    <!-- Razón 1: Experiencia de usuario -->
                     <div class="importance-card">
                         <div class="importance-icon">👤</div>
                         <h3>Mejor Experiencia de Usuario</h3>
                         <p>Los usuarios necesitan saber qué está pasando: si algo está cargando, si fue exitoso, o si hubo un error.</p>
                     </div>
+                    <!-- Razón 2: Debugging -->
                     <div class="importance-card">
                         <div class="importance-icon">🐛</div>
                         <h3>Debugging Más Fácil</h3>
                         <p>Mensajes de error claros te ayudan a identificar y solucionar problemas rápidamente.</p>
                     </div>
+                    <!-- Razón 3: Robustez -->
                     <div class="importance-card">
                         <div class="importance-icon">🛡️</div>
                         <h3>Aplicaciones Robustas</h3>
@@ -77,10 +86,11 @@
                 </div>
             </section>
 
-            <!-- Fetch API Error Behavior -->
+            <!-- Sección: Comportamiento de fetch() con errores -->
             <section class="content-section">
                 <h2 class="section-heading">Comportamiento de fetch() con Errores</h2>
                 
+                <!-- Caja de advertencia importante sobre fetch() -->
                 <div class="warning-box">
                     <div class="warning-icon">⚠️</div>
                     <div class="warning-content">
@@ -92,7 +102,9 @@
                     </div>
                 </div>
 
+                <!-- Comparación lado a lado: comportamiento incorrecto vs correcto -->
                 <div class="example-comparison">
+                    <!-- Columna izquierda: Ejemplo incorrecto -->
                     <div class="comparison-column">
                         <h4 class="incorrect-label">❌ Comportamiento Inesperado</h4>
                         <pre><code>fetch('http://example.com/api/500')
@@ -104,6 +116,7 @@
                         <p class="explanation">El <code>catch</code> no se ejecuta porque no hubo error de red, solo un código HTTP 500.</p>
                     </div>
 
+                    <!-- Columna derecha: Ejemplo correcto -->
                     <div class="comparison-column">
                         <h4 class="correct-label">✅ Comportamiento Correcto</h4>
                         <pre><code>fetch('http://example.com/api/500')
@@ -121,15 +134,15 @@
                 </div>
             </section>
 
-            <!-- Error Handling Methods -->
+            <!-- Sección: Métodos para manejar errores -->
             <section class="content-section">
                 <h2 class="section-heading">Métodos para Manejar Errores</h2>
 
-                <!-- Method 1: response.ok -->
+                <!-- Método 1: Verificar response.ok -->
                 <div class="method-box">
                     <h3>Método 1: Verificar <code>response.ok</code></h3>
                     <p>La propiedad <code>ok</code> es <code>true</code> si el código de estado HTTP está en el rango 200-299.</p>
-                    
+                    <!-- Ejemplo de código con async/await -->
                     <pre><code>async function getData() {
   try {
     const response = await fetch('https://api.example.com/data');
@@ -146,11 +159,11 @@
 }</code></pre>
                 </div>
 
-                <!-- Method 2: Check Status Codes -->
+                <!-- Método 2: Verificar códigos de estado específicos -->
                 <div class="method-box">
                     <h3>Método 2: Verificar Códigos de Estado Específicos</h3>
                     <p>Puedes manejar diferentes códigos de estado de manera específica.</p>
-                    
+                    <!-- Ejemplo con switch para manejar diferentes códigos HTTP -->
                     <pre><code>async function loginUser(credentials) {
   try {
     const response = await fetch('https://api.example.com/login', {
@@ -181,11 +194,11 @@
 }</code></pre>
                 </div>
 
-                <!-- Method 3: Custom Error Handler -->
+                <!-- Método 3: Función helper reutilizable -->
                 <div class="method-box">
                     <h3>Método 3: Función Reutilizable de Manejo de Errores</h3>
                     <p>Crea una función helper para manejar errores de forma consistente.</p>
-                    
+                    <!-- Ejemplo de función reutilizable -->
                     <pre><code>function handleResponse(response) {
   if (!response.ok) {
     throw Error(response.statusText);
@@ -202,7 +215,7 @@ fetch('https://api.example.com/data')
                 </div>
             </section>
 
-            <!-- UI States -->
+            <!-- Sección: Estados de la interfaz de usuario -->
             <section class="content-section">
                 <h2 class="section-heading">Estados de la Interfaz de Usuario</h2>
                 
@@ -210,7 +223,9 @@ fetch('https://api.example.com/data')
                     Cuando hacemos peticiones a una API, la interfaz debe reflejar tres estados principales:
                 </p>
 
+                <!-- Grid con los tres estados principales de la UI -->
                 <div class="states-overview">
+                    <!-- Estado 1: Carga -->
                     <div class="state-card loading-state">
                         <div class="state-icon">⏳</div>
                         <h3>Estado de Carga</h3>
@@ -222,6 +237,7 @@ fetch('https://api.example.com/data')
                         </ul>
                     </div>
 
+                    <!-- Estado 2: Éxito -->
                     <div class="state-card success-state">
                         <div class="state-icon">✅</div>
                         <h3>Estado de Éxito</h3>
@@ -233,6 +249,7 @@ fetch('https://api.example.com/data')
                         </ul>
                     </div>
 
+                    <!-- Estado 3: Error -->
                     <div class="state-card error-state">
                         <div class="state-icon">❌</div>
                         <h3>Estado de Error</h3>
@@ -246,13 +263,14 @@ fetch('https://api.example.com/data')
                 </div>
             </section>
 
-            <!-- Implementation Example -->
+            <!-- Sección: Implementación completa con estados -->
             <section class="content-section">
                 <h2 class="section-heading">Implementación Completa con Estados</h2>
 
                 <div class="implementation-box">
                     <h3>Ejemplo: Lista de Usuarios con Manejo Completo</h3>
                     
+                    <!-- Estructura HTML básica -->
                     <h4>HTML</h4>
                     <pre><code>&lt;div id="app"&gt;
   &lt;button id="loadBtn"&gt;Cargar Usuarios&lt;/button&gt;
@@ -260,6 +278,7 @@ fetch('https://api.example.com/data')
   &lt;div id="users"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
+                    <!-- Implementación JavaScript completa con manejo de estados -->
                     <h4>JavaScript</h4>
                     <pre><code>// Variables de estado
 let isLoading = false;
@@ -363,17 +382,20 @@ loadBtn.addEventListener('click', loadUsers);</code></pre>
                 </div>
             </section>
 
-            <!-- Best Practices -->
+            <!-- Sección: Mejores prácticas -->
             <section class="content-section">
                 <h2 class="section-heading">Mejores Prácticas</h2>
                 
+                <!-- Grid con 6 mejores prácticas -->
                 <div class="best-practices-grid">
+                    <!-- Práctica 1: Verificar response.ok -->
                     <div class="practice-card">
                         <div class="practice-number">1</div>
                         <h3>Siempre Verifica <code>response.ok</code></h3>
                         <p>No confíes en que <code>catch</code> maneje todos los errores HTTP.</p>
                     </div>
 
+                    <!-- Práctica 2: Manejar errores de parsing JSON -->
                     <div class="practice-card">
                         <div class="practice-number">2</div>
                         <h3>Maneja Errores de Parsing JSON</h3>
@@ -387,6 +409,7 @@ loadBtn.addEventListener('click', loadUsers);</code></pre>
 }</code></pre>
                     </div>
 
+                    <!-- Práctica 3: Mensajes de error claros -->
                     <div class="practice-card">
                         <div class="practice-number">3</div>
                         <h3>Proporciona Mensajes Claros</h3>
@@ -397,6 +420,7 @@ loadBtn.addEventListener('click', loadUsers);</code></pre>
                         </div>
                     </div>
 
+                    <!-- Práctica 4: Implementar timeouts -->
                     <div class="practice-card">
                         <div class="practice-number">4</div>
                         <h3>Implementa Timeouts</h3>
@@ -416,12 +440,14 @@ fetch(url, { signal: controller.signal })
   });</code></pre>
                     </div>
 
+                    <!-- Práctica 5: Acciones de recuperación -->
                     <div class="practice-card">
                         <div class="practice-number">5</div>
                         <h3>Ofrece Acciones de Recuperación</h3>
                         <p>Siempre proporciona una forma de que el usuario intente de nuevo o tome otra acción.</p>
                     </div>
 
+                    <!-- Práctica 6: Registrar errores -->
                     <div class="practice-card">
                         <div class="practice-number">6</div>
                         <h3>Registra Errores para Debugging</h3>
@@ -437,11 +463,13 @@ fetch(url, { signal: controller.signal })
                 </div>
             </section>
 
-            <!-- Common Error Types -->
+            <!-- Sección: Tipos comunes de errores -->
             <section class="content-section">
                 <h2 class="section-heading">Tipos Comunes de Errores</h2>
 
+                <!-- Grid con 4 tipos de errores comunes -->
                 <div class="error-types">
+                    <!-- Tipo 1: Errores de red -->
                     <div class="error-type-card network-error">
                         <h3>🌐 Errores de Red</h3>
                         <p><strong>Cuándo ocurren:</strong> Sin conexión a internet, DNS fallido, timeout</p>
@@ -451,6 +479,7 @@ fetch(url, { signal: controller.signal })
 }</code></pre>
                     </div>
 
+                    <!-- Tipo 2: Errores HTTP -->
                     <div class="error-type-card http-error">
                         <h3>📡 Errores HTTP (4xx, 5xx)</h3>
                         <p><strong>Cuándo ocurren:</strong> El servidor responde pero con un código de error</p>
@@ -464,6 +493,7 @@ fetch(url, { signal: controller.signal })
 }</code></pre>
                     </div>
 
+                    <!-- Tipo 3: Errores de parsing -->
                     <div class="error-type-card parsing-error">
                         <h3>📋 Errores de Parsing</h3>
                         <p><strong>Cuándo ocurren:</strong> La respuesta no es JSON válido</p>
@@ -477,6 +507,7 @@ fetch(url, { signal: controller.signal })
 }</code></pre>
                     </div>
 
+                    <!-- Tipo 4: Errores de autenticación -->
                     <div class="error-type-card auth-error">
                         <h3>🔐 Errores de Autenticación</h3>
                         <p><strong>Cuándo ocurren:</strong> Token inválido o expirado (401, 403)</p>
@@ -489,7 +520,7 @@ fetch(url, { signal: controller.signal })
                 </div>
             </section>
 
-            <!-- Visual Example -->
+            <!-- Sección: Ejemplo visual interactivo -->
             <section class="content-section">
                 <h2 class="section-heading">Ejemplo Visual Interactivo</h2>
                 
@@ -498,7 +529,7 @@ fetch(url, { signal: controller.signal })
                         <p>A continuación se muestra cómo se ven los tres estados en una aplicación real:</p>
                     </div>
 
-                    <!-- Loading State Demo -->
+                    <!-- Demo del estado de carga -->
                     <div class="demo-state">
                         <h3>Estado de Carga</h3>
                         <div class="demo-ui loading-demo">
@@ -508,7 +539,7 @@ fetch(url, { signal: controller.signal })
                         </div>
                     </div>
 
-                    <!-- Success State Demo -->
+                    <!-- Demo del estado de éxito -->
                     <div class="demo-state">
                         <h3>Estado de Éxito</h3>
                         <div class="demo-ui success-demo">
@@ -522,7 +553,7 @@ fetch(url, { signal: controller.signal })
                         </div>
                     </div>
 
-                    <!-- Error State Demo -->
+                    <!-- Demo del estado de error -->
                     <div class="demo-state">
                         <h3>Estado de Error</h3>
                         <div class="demo-ui error-demo">
@@ -536,7 +567,7 @@ fetch(url, { signal: controller.signal })
                 </div>
             </section>
 
-            <!-- Navigation -->
+            <!-- Navegación entre páginas (anterior y siguiente) -->
             <nav class="page-navigation">
                 <a href="asincronia.html" class="nav-btn nav-prev">
                     ← Asincronía en JavaScript
@@ -548,14 +579,16 @@ fetch(url, { signal: controller.signal })
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <!-- Sección: Información del proyecto académico -->
                 <div class="footer-section">
                     <h4>Proyecto Académico</h4>
                     <p>ISW-512 Diseño de Aplicaciones Web<br>Universidad Técnica Nacional<br>2025 - Ciclo III</p>
                 </div>
+                <!-- Sección: Enlaces de navegación rápida -->
                 <div class="footer-section">
                     <h4>Navegación</h4>
                     <ul class="footer-links">
@@ -564,6 +597,7 @@ fetch(url, { signal: controller.signal })
                         <li><a href="demos.html">Demos</a></li>
                     </ul>
                 </div>
+                <!-- Sección: Enlaces a recursos externos -->
                 <div class="footer-section">
                     <h4>Recursos</h4>
                     <ul class="footer-links">
@@ -573,6 +607,7 @@ fetch(url, { signal: controller.signal })
                     </ul>
                 </div>
             </div>
+            <!-- Copyright -->
             <div class="footer-bottom">
                 <p>&copy; 2025 Grupo de APIs - Todos los derechos reservados</p>
             </div>
@@ -580,15 +615,17 @@ fetch(url, { signal: controller.signal })
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // Funcionalidad del menú móvil
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
+        // Alterna la visibilidad del menú al hacer clic en el botón hamburguesa
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
 
+        // Cierra el menú móvil cuando se hace clic fuera de él
         document.addEventListener('click', (e) => {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('active');
@@ -596,12 +633,13 @@ fetch(url, { signal: controller.signal })
             }
         });
 
-        // Animate elements on scroll
+        // Animación fade-in al hacer scroll: observa cuando las secciones entran en el viewport
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
+        // Crea un observador que añade la clase fade-in cuando los elementos son visibles
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -610,6 +648,7 @@ fetch(url, { signal: controller.signal })
             });
         }, observerOptions);
 
+        // Aplica el observer a todas las secciones de contenido
         document.querySelectorAll('.content-section').forEach(section => {
             observer.observe(section);
         });

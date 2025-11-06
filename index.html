@@ -9,16 +9,19 @@
 </head>
 
 <body>
-    <!-- Navigation -->
+    <!-- Barra de navegación principal del sitio -->
     <nav class="navbar">
         <div class="container">
+            <!-- Contenedor para el logo o marca del sitio -->
             <div class="nav-brand">
             </div>
+            <!-- Botón hamburguesa para menú móvil -->
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <!-- Menú de navegación con enlaces a todas las secciones del curso -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Inicio</a></li>
                 <li><a href="fundamentos.html" class="nav-link">Fundamentos</a></li>
@@ -32,27 +35,33 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Sección hero: banner principal con título y llamados a la acción -->
     <section class="hero">
         <div class="container">
+            <!-- Contenido textual del hero -->
             <div class="hero-content">
                 <h1 class="hero-title">Consumo de <span class="highlight">APIs</span></h1>
                 <p class="hero-subtitle">Aprende a conectar aplicaciones, consumir servicios externos y dominar la
                     comunicación entre sistemas</p>
+                <!-- Botones de acción principal: comenzar curso y ver demos -->
                 <div class="hero-buttons">
                     <a href="fundamentos.html" class="btn btn-primary">Comenzar</a>
                     <a href="demos.html" class="btn btn-secondary">Ver Demos</a>
                 </div>
             </div>
+            <!-- Diagrama visual que ilustra la comunicación cliente-servidor -->
             <div class="hero-visual">
                 <div class="api-diagram">
+                    <!-- Representa el cliente que realiza peticiones -->
                     <div class="diagram-box client">
                         <span>Cliente</span>
                     </div>
+                    <!-- Flechas que muestran el flujo de request y response -->
                     <div class="diagram-arrows">
                         <div class="arrow request">Request →</div>
                         <div class="arrow response">← Response</div>
                     </div>
+                    <!-- Representa el servidor que responde a las peticiones -->
                     <div class="diagram-box server">
                         <span>Servidor</span>
                     </div>
@@ -61,11 +70,13 @@
         </div>
     </section>
 
-    <!-- Topics Grid -->
+    <!-- Sección de temas del curso organizados en tarjetas -->
     <section class="topics">
         <div class="container">
             <h2 class="section-title">Contenido del Curso</h2>
+            <!-- Grid responsivo con todas las tarjetas de temas -->
             <div class="topics-grid">
+                <!-- Tarjeta: Fundamentos de APIs -->
                 <article class="card">
                     <div class="card-icon">📚</div>
                     <h3 class="card-title">Fundamentos de APIs</h3>
@@ -74,6 +85,7 @@
                     <a href="fundamentos.html" class="card-link">Explorar →</a>
                 </article>
 
+                <!-- Tarjeta: URLs y Endpoints -->
                 <article class="card">
                     <div class="card-icon">🔗</div>
                     <h3 class="card-title">URLs & Endpoints</h3>
@@ -81,6 +93,7 @@
                     <a href="urls-endpoints.html" class="card-link">Explorar →</a>
                 </article>
 
+                <!-- Tarjeta: Métodos HTTP -->
                 <article class="card">
                     <div class="card-icon">🔄</div>
                     <h3 class="card-title">Métodos HTTP</h3>
@@ -88,6 +101,7 @@
                     <a href="metodos-http.html" class="card-link">Explorar →</a>
                 </article>
 
+                <!-- Tarjeta: Códigos de Respuesta HTTP -->
                 <article class="card">
                     <div class="card-icon">📊</div>
                     <h3 class="card-title">Códigos de Respuesta</h3>
@@ -95,6 +109,7 @@
                     <a href="codigos-respuesta.html" class="card-link">Explorar →</a>
                 </article>
 
+                <!-- Tarjeta: Asincronía en JavaScript -->
                 <article class="card">
                     <div class="card-icon">⚡</div>
                     <h3 class="card-title">Asincronía en JavaScript</h3>
@@ -102,6 +117,7 @@
                     <a href="asincronia.html" class="card-link">Explorar →</a>
                 </article>
 
+                <!-- Tarjeta: Manejo de Errores -->
                 <article class="card">
                     <div class="card-icon">🛡️</div>
                     <h3 class="card-title">Manejo de Errores</h3>
@@ -112,17 +128,19 @@
         </div>
     </section>
 
-    <!-- Demo Preview -->
+    <!-- Sección de vista previa de demos prácticas -->
     <section class="demo-preview">
         <div class="container">
             <h2 class="section-title">Ejemplos Prácticos</h2>
             <div class="demo-cards">
+                <!-- Demo: Integración con API de Mapas -->
                 <div class="demo-card">
                     <div class="demo-image">🗺️</div>
                     <h3>API de Mapas</h3>
                     <p>Integración con geolocalización para mostrar la ubicación del usuario en tiempo real</p>
                     <a href="demos.html#mapas" class="btn btn-outline">Ver Demo</a>
                 </div>
+                <!-- Demo: Integración con reCAPTCHA -->
                 <div class="demo-card">
                     <div class="demo-image">🔐</div>
                     <h3>API de Captcha</h3>
@@ -133,14 +151,16 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Pie de página con información del proyecto y enlaces -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <!-- Información académica del proyecto -->
                 <div class="footer-section">
                     <h4>Proyecto Académico</h4>
                     <p>ISW-512 Diseño de Aplicaciones Web<br>Universidad Técnica Nacional<br>2025 - Ciclo III</p>
                 </div>
+                <!-- Enlaces de navegación rápida -->
                 <div class="footer-section">
                     <h4>Navegación</h4>
                     <ul class="footer-links">
@@ -149,6 +169,7 @@
                         <li><a href="demos.html">Demos</a></li>
                     </ul>
                 </div>
+                <!-- Enlaces a recursos adicionales -->
                 <div class="footer-section">
                     <h4>Recursos</h4>
                     <ul class="footer-links">
@@ -158,6 +179,7 @@
                     </ul>
                 </div>
             </div>
+            <!-- Copyright del proyecto -->
             <div class="footer-bottom">
                 <p>&copy; 2025 Grupo de APIs - Todos los derechos reservados</p>
             </div>
@@ -165,16 +187,17 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // Funcionalidad del menú móvil hamburguesa
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
+        // Toggle del menú al hacer clic en el botón hamburguesa
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
 
-        // Close menu when clicking outside
+        // Cierra el menú móvil al hacer clic fuera de él
         document.addEventListener('click', (e) => {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('active');
@@ -182,7 +205,7 @@
             }
         });
 
-        // Smooth scroll for anchor links
+        // Implementa scroll suave para todos los enlaces ancla (#)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();

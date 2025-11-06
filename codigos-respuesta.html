@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="css/codigos-respuesta.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Barra de navegación principal -->
     <nav class="navbar">
         <div class="container">
+            <!-- Contenedor para el logo o marca -->
             <div class="nav-brand"></div>
+            <!-- Botón hamburguesa para menú móvil -->
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <!-- Menú de navegación con enlaces a todas las páginas -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Inicio</a></li>
                 <li><a href="fundamentos.html" class="nav-link">Fundamentos</a></li>
@@ -30,25 +33,28 @@
         </div>
     </nav>
 
-    <!-- Page Hero -->
+    <!-- Hero de página con breadcrumbs y título -->
     <section class="page-hero">
         <div class="container">
+            <!-- Breadcrumbs para navegación jerárquica -->
             <div class="breadcrumb">
                 <a href="index.html">Inicio</a>
                 <span>/</span>
                 <span>Códigos de Respuesta HTTP</span>
             </div>
+            <!-- Título y descripción de la página -->
             <h1 class="page-title">Códigos de Respuesta HTTP</h1>
             <p class="page-subtitle">Entendiendo los mensajes del servidor y cómo interpretarlos</p>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Contenido principal -->
     <main class="main-content">
         <div class="container">
-            <!-- Introducción -->
+            <!-- Sección: Introducción a los Códigos de Estado HTTP -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">¿Qué son los Códigos de Estado HTTP?</h2>
+                <!-- Caja destacada con la definición principal -->
                 <div class="definition-box">
                     <div class="definition-icon">📨</div>
                     <div class="definition-content">
@@ -58,20 +64,24 @@
                     </div>
                 </div>
 
+                <!-- Texto explicativo adicional -->
                 <p class="intro-text">Este tipo de mensajes se devuelven cada vez que tu navegador interactúa con un servidor, aunque no sea visible.</p>
 
+                <!-- Caja destacando la importancia de los códigos HTTP -->
                 <div class="highlight-box">
                     <h4>💡 Importancia</h4>
                     <p>Comprender los códigos de respuesta HTTP permite diagnosticar errores, optimizar la experiencia del usuario, y mantener la seguridad y el rendimiento de un sitio o aplicación web.</p>
                 </div>
             </section>
 
-            <!-- Las 5 clases -->
+            <!-- Sección: Las 5 Clases de Códigos de Estado -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Las 5 Clases de Códigos de Estado HTTP</h2>
                 <p class="intro-text">Los códigos de estado HTTP se dividen en 5 tipos. Se trata de agrupaciones de respuestas que tienen significados similares o relacionados. Saber qué son puede ayudar a determinar rápidamente la sustancia general de un código de estado antes de recurrir a la búsqueda de su significado específico.</p>
 
+                <!-- Contenedor con las 5 categorías principales de códigos HTTP -->
                 <div class="status-categories">
+                    <!-- Categoría 1xx: Códigos Informativos -->
                     <div class="status-category cat-1xx">
                         <div class="category-header">
                             <div class="category-number">1xx</div>
@@ -81,6 +91,7 @@
                         <div class="category-icon">ℹ️</div>
                     </div>
 
+                    <!-- Categoría 2xx: Códigos de Éxito -->
                     <div class="status-category cat-2xx">
                         <div class="category-header">
                             <div class="category-number">2xx</div>
@@ -90,6 +101,7 @@
                         <div class="category-icon">✅</div>
                     </div>
 
+                    <!-- Categoría 3xx: Códigos de Redirección -->
                     <div class="status-category cat-3xx">
                         <div class="category-header">
                             <div class="category-number">3xx</div>
@@ -99,6 +111,7 @@
                         <div class="category-icon">↪️</div>
                     </div>
 
+                    <!-- Categoría 4xx: Errores del Cliente -->
                     <div class="status-category cat-4xx">
                         <div class="category-header">
                             <div class="category-number">4xx</div>
@@ -108,6 +121,7 @@
                         <div class="category-icon">⚠️</div>
                     </div>
 
+                    <!-- Categoría 5xx: Errores del Servidor -->
                     <div class="status-category cat-5xx">
                         <div class="category-header">
                             <div class="category-number">5xx</div>
@@ -119,14 +133,15 @@
                 </div>
             </section>
 
-            <!-- Códigos más comunes -->
+            <!-- Sección: Códigos de Estado Más Comunes -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Códigos de Estado Más Comunes</h2>
 
-                <!-- 2xx Success -->
+                <!-- Grupo: Códigos de Éxito (2xx) -->
                 <div class="code-group">
                     <h3 class="group-title success-group">🟢 Códigos de Éxito (2xx)</h3>
                     
+                    <!-- Código 200: OK -->
                     <div class="code-card success">
                         <div class="code-number">200</div>
                         <div class="code-info">
@@ -139,6 +154,7 @@
                         </div>
                     </div>
 
+                    <!-- Código 201: Created -->
                     <div class="code-card success">
                         <div class="code-number">201</div>
                         <div class="code-info">
@@ -147,6 +163,7 @@
                         </div>
                     </div>
 
+                    <!-- Código 204: No Content -->
                     <div class="code-card success">
                         <div class="code-number">204</div>
                         <div class="code-info">
@@ -156,10 +173,11 @@
                     </div>
                 </div>
 
-                <!-- 3xx Redirection -->
+                <!-- Grupo: Códigos de Redirección (3xx) -->
                 <div class="code-group">
                     <h3 class="group-title redirect-group">🔵 Códigos de Redirección (3xx)</h3>
                     
+                    <!-- Código 301: Moved Permanently -->
                     <div class="code-card redirect">
                         <div class="code-number">301</div>
                         <div class="code-info">
@@ -168,6 +186,7 @@
                         </div>
                     </div>
 
+                    <!-- Código 302: Found -->
                     <div class="code-card redirect">
                         <div class="code-number">302</div>
                         <div class="code-info">
@@ -176,6 +195,7 @@
                         </div>
                     </div>
 
+                    <!-- Código 304: Not Modified -->
                     <div class="code-card redirect">
                         <div class="code-number">304</div>
                         <div class="code-info">
@@ -185,10 +205,11 @@
                     </div>
                 </div>
 
-                <!-- 4xx Client Errors -->
+                <!-- Grupo: Errores del Cliente (4xx) -->
                 <div class="code-group">
                     <h3 class="group-title error-group">🟡 Errores del Cliente (4xx)</h3>
                     
+                    <!-- Código 400: Bad Request -->
                     <div class="code-card error">
                         <div class="code-number">400</div>
                         <div class="code-info">
@@ -197,6 +218,7 @@
                         </div>
                     </div>
 
+                    <!-- Código 401: Unauthorized -->
                     <div class="code-card error">
                         <div class="code-number">401</div>
                         <div class="code-info">
@@ -205,6 +227,7 @@
                         </div>
                     </div>
 
+                    <!-- Código 403: Forbidden -->
                     <div class="code-card error">
                         <div class="code-number">403</div>
                         <div class="code-info">
@@ -213,6 +236,7 @@
                         </div>
                     </div>
 
+                    <!-- Código 404: Not Found -->
                     <div class="code-card error">
                         <div class="code-number">404</div>
                         <div class="code-info">
@@ -221,6 +245,7 @@
                         </div>
                     </div>
 
+                    <!-- Código 405: Method Not Allowed -->
                     <div class="code-card error">
                         <div class="code-number">405</div>
                         <div class="code-info">
@@ -230,10 +255,11 @@
                     </div>
                 </div>
 
-                <!-- 5xx Server Errors -->
+                <!-- Grupo: Errores del Servidor (5xx) -->
                 <div class="code-group">
                     <h3 class="group-title server-error-group">🔴 Errores del Servidor (5xx)</h3>
                     
+                    <!-- Código 500: Internal Server Error -->
                     <div class="code-card server-error">
                         <div class="code-number">500</div>
                         <div class="code-info">
@@ -242,6 +268,7 @@
                         </div>
                     </div>
 
+                    <!-- Código 502: Bad Gateway -->
                     <div class="code-card server-error">
                         <div class="code-number">502</div>
                         <div class="code-info">
@@ -250,6 +277,7 @@
                         </div>
                     </div>
 
+                    <!-- Código 503: Service Unavailable -->
                     <div class="code-card server-error">
                         <div class="code-number">503</div>
                         <div class="code-info">
@@ -258,6 +286,7 @@
                         </div>
                     </div>
 
+                    <!-- Código 504: Gateway Timeout -->
                     <div class="code-card server-error">
                         <div class="code-number">504</div>
                         <div class="code-info">
@@ -268,31 +297,37 @@
                 </div>
             </section>
 
-            <!-- Resumen visual -->
+            <!-- Sección: Resumen Visual de Códigos HTTP -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Resumen Visual de Códigos HTTP</h2>
+                <!-- Contenedor con resumen visual de las 5 categorías -->
                 <div class="visual-summary">
                     <div class="summary-row">
+                        <!-- Box 1xx: Informativos -->
                         <div class="summary-box box-1xx">
                             <div class="box-range">1xx</div>
                             <div class="box-icon">ℹ️</div>
                             <div class="box-label">Informativos</div>
                         </div>
+                        <!-- Box 2xx: Éxito -->
                         <div class="summary-box box-2xx">
                             <div class="box-range">2xx</div>
                             <div class="box-icon">✅</div>
                             <div class="box-label">Éxito</div>
                         </div>
+                        <!-- Box 3xx: Redirección -->
                         <div class="summary-box box-3xx">
                             <div class="box-range">3xx</div>
                             <div class="box-icon">↪️</div>
                             <div class="box-label">Redirección</div>
                         </div>
+                        <!-- Box 4xx: Error Cliente -->
                         <div class="summary-box box-4xx">
                             <div class="box-range">4xx</div>
                             <div class="box-icon">⚠️</div>
                             <div class="box-label">Error Cliente</div>
                         </div>
+                        <!-- Box 5xx: Error Servidor -->
                         <div class="summary-box box-5xx">
                             <div class="box-range">5xx</div>
                             <div class="box-icon">🔥</div>
@@ -302,7 +337,7 @@
                 </div>
             </section>
 
-            <!-- Navigation -->
+            <!-- Navegación entre páginas (anterior y siguiente) -->
             <nav class="page-navigation">
                 <a href="metodos-http.html" class="nav-btn nav-prev">← Métodos HTTP</a>
                 <a href="asincronia.html" class="nav-btn nav-next">Asincronía JS →</a>
@@ -310,14 +345,16 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <!-- Sección: Información del proyecto académico -->
                 <div class="footer-section">
                     <h4>Proyecto Académico</h4>
                     <p>ISW-512 Diseño de Aplicaciones Web<br>Universidad Técnica Nacional<br>2025 - Ciclo III</p>
                 </div>
+                <!-- Sección: Enlaces de navegación rápida -->
                 <div class="footer-section">
                     <h4>Navegación</h4>
                     <ul class="footer-links">
@@ -326,6 +363,7 @@
                         <li><a href="demos.html">Demos</a></li>
                     </ul>
                 </div>
+                <!-- Sección: Enlaces a recursos externos -->
                 <div class="footer-section">
                     <h4>Recursos</h4>
                     <ul class="footer-links">
@@ -335,6 +373,7 @@
                     </ul>
                 </div>
             </div>
+            <!-- Copyright -->
             <div class="footer-bottom">
                 <p>&copy; 2025 Grupo de APIs - Todos los derechos reservados</p>
             </div>
@@ -342,14 +381,17 @@
     </footer>
 
     <script>
+        // Funcionalidad del menú móvil
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
+        // Alterna la visibilidad del menú al hacer clic en el botón hamburguesa
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
 
+        // Cierra el menú móvil cuando se hace clic fuera de él
         document.addEventListener('click', (e) => {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('active');
@@ -357,6 +399,7 @@
             }
         });
 
+        // Animación fade-in al hacer scroll: observa cuando las secciones entran en el viewport
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -365,6 +408,7 @@
             });
         });
 
+        // Aplica el observer a todas las secciones de contenido
         document.querySelectorAll('.content-section').forEach(section => {
             observer.observe(section);
         });

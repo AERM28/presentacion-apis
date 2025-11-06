@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="css/metodos-http.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Barra de navegación principal -->
     <nav class="navbar">
         <div class="container">
+            <!-- Contenedor para el logo o marca -->
             <div class="nav-brand"></div>
+            <!-- Botón hamburguesa para menú móvil -->
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <!-- Menú de navegación con enlaces a todas las páginas -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Inicio</a></li>
                 <li><a href="fundamentos.html" class="nav-link">Fundamentos</a></li>
@@ -30,46 +33,52 @@
         </div>
     </nav>
 
-    <!-- Page Hero -->
+    <!-- Hero de página con breadcrumbs y título -->
     <section class="page-hero">
         <div class="container">
+            <!-- Breadcrumbs para navegación jerárquica -->
             <div class="breadcrumb">
                 <a href="index.html">Inicio</a>
                 <span>/</span>
                 <span>Métodos HTTP</span>
             </div>
+            <!-- Título y descripción de la página -->
             <h1 class="page-title">Métodos HTTP</h1>
             <p class="page-subtitle">GET, POST, PUT, DELETE y cuándo usar cada uno</p>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Contenido principal -->
     <main class="main-content">
         <div class="container">
-            <!-- Introducción -->
+            <!-- Sección: Introducción a los Métodos HTTP -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">¿Qué son los Métodos HTTP?</h2>
                 <p class="intro-text">En general, los métodos HTTP sirven para comunicar al cliente y al servidor qué tipo de acción se quiere realizar sobre un recurso (como leer, crear, actualizar o eliminar información) dentro de una aplicación web o API.</p>
 
-                <!-- Diagrama CRUD -->
+                <!-- Diagrama visual de operaciones CRUD -->
                 <div class="crud-diagram">
                     <div class="crud-title">Operaciones CRUD</div>
                     <div class="crud-items">
+                        <!-- GET = READ (Leer) -->
                         <div class="crud-item get">
                             <div class="crud-icon">📥</div>
                             <div class="crud-method">GET</div>
                             <div class="crud-action">READ</div>
                         </div>
+                        <!-- POST = CREATE (Crear) -->
                         <div class="crud-item post">
                             <div class="crud-icon">📤</div>
                             <div class="crud-method">POST</div>
                             <div class="crud-action">CREATE</div>
                         </div>
+                        <!-- PUT = UPDATE (Actualizar) -->
                         <div class="crud-item put">
                             <div class="crud-icon">✏️</div>
                             <div class="crud-method">PUT</div>
                             <div class="crud-action">UPDATE</div>
                         </div>
+                        <!-- DELETE = DELETE (Eliminar) -->
                         <div class="crud-item delete">
                             <div class="crud-icon">🗑️</div>
                             <div class="crud-method">DELETE</div>
@@ -79,8 +88,9 @@
                 </div>
             </section>
 
-            <!-- GET -->
+            <!-- Sección: Método GET -->
             <section class="content-section fade-in">
+                <!-- Tarjeta principal del método GET -->
                 <div class="method-card get-card">
                     <div class="method-header">
                         <div class="method-badge get">GET</div>
@@ -93,19 +103,23 @@
                     </div>
                 </div>
 
+                <!-- Ejemplo práctico: Búsqueda en Google -->
                 <div class="example-box">
                     <h4>📖 Ejemplo práctico: Búsqueda en Google</h4>
                     <div class="example-steps">
+                        <!-- Paso 1: Usuario escribe búsqueda -->
                         <div class="example-step">
                             <span class="step-number">1</span>
                             <p>Escribimos "gatos" en el navegador de Google y presionamos enter</p>
                         </div>
                         <div class="example-arrow">↓</div>
+                        <!-- Paso 2: Se crea solicitud GET -->
                         <div class="example-step">
                             <span class="step-number">2</span>
                             <p>Se crea una solicitud HTTP GET al servidor de Google</p>
                         </div>
                         <div class="example-arrow">↓</div>
+                        <!-- Paso 3: Servidor responde con resultados -->
                         <div class="example-step">
                             <span class="step-number">3</span>
                             <p>El servidor responde con una página HTML que muestra los resultados para "gatos"</p>
@@ -113,13 +127,15 @@
                     </div>
                 </div>
 
+                <!-- Caja destacando característica principal de GET -->
                 <div class="characteristic-box get">
                     <strong>✓ Característica:</strong> GET solo solicita información, no la modifica. Es seguro y puede repetirse sin efectos secundarios.
                 </div>
             </section>
 
-            <!-- POST -->
+            <!-- Sección: Método POST -->
             <section class="content-section fade-in">
+                <!-- Tarjeta principal del método POST -->
                 <div class="method-card post-card">
                     <div class="method-header">
                         <div class="method-badge post">POST</div>
@@ -132,36 +148,43 @@
                     </div>
                 </div>
 
+                <!-- Ejemplo práctico: Inicio de sesión -->
                 <div class="example-box">
                     <h4>🔐 Ejemplo práctico: Inicio de sesión en redes sociales</h4>
                     <div class="example-steps">
+                        <!-- Paso 1: Usuario ingresa credenciales -->
                         <div class="example-step">
                             <span class="step-number">1</span>
                             <p>Escribimos nuestro usuario y contraseña en un formulario de Instagram o Facebook</p>
                         </div>
                         <div class="example-arrow">↓</div>
+                        <!-- Paso 2: Se envía POST con los datos -->
                         <div class="example-step">
                             <span class="step-number">2</span>
                             <p>Al hacer clic en "Iniciar sesión", esa información se envía al servidor mediante el método POST</p>
                         </div>
                         <div class="example-arrow">↓</div>
+                        <!-- Paso 3: Servidor procesa y autentica -->
                         <div class="example-step">
                             <span class="step-number">3</span>
                             <p>El servidor recibe esos datos de manera segura (no aparecen en la barra del navegador), los verifica y, si son correctos, nos permite entrar a nuestra cuenta</p>
                         </div>
                     </div>
+                    <!-- Nota explicativa adicional -->
                     <div class="example-note">
                         Este proceso usa el método POST porque estamos enviando información privada que el servidor necesita para realizar una acción (autenticar al usuario).
                     </div>
                 </div>
 
+                <!-- Caja destacando característica principal de POST -->
                 <div class="characteristic-box post">
                     <strong>✓ Característica:</strong> POST crea nuevos recursos. Los datos viajan en el cuerpo de la solicitud, por lo que son más seguros que en GET.
                 </div>
             </section>
 
-            <!-- PUT -->
+            <!-- Sección: Método PUT -->
             <section class="content-section fade-in">
+                <!-- Tarjeta principal del método PUT -->
                 <div class="method-card put-card">
                     <div class="method-header">
                         <div class="method-badge put">PUT</div>
@@ -174,14 +197,17 @@
                     </div>
                 </div>
 
+                <!-- Comparación visual entre POST y PUT -->
                 <div class="comparison-box">
                     <h4>🔍 Diferencia entre POST y PUT</h4>
                     <div class="comparison-grid">
+                        <!-- POST = Crear -->
                         <div class="comparison-item post">
                             <div class="comparison-label">POST</div>
                             <p>Sirve para <strong>crear algo nuevo</strong> (por ejemplo, registrar un usuario)</p>
                         </div>
                         <div class="comparison-divider">VS</div>
+                        <!-- PUT = Actualizar -->
                         <div class="comparison-item put">
                             <div class="comparison-label">PUT</div>
                             <p>Sirve para <strong>actualizar algo que ya existe</strong> (por ejemplo, cambiar tu contraseña o editar tu perfil)</p>
@@ -189,17 +215,21 @@
                     </div>
                 </div>
 
+                <!-- Ejemplo práctico: Actualizar biografía -->
                 <div class="example-box">
                     <h4>📝 Ejemplo práctico: Actualizar biografía de Instagram</h4>
                     <div class="example-steps">
+                        <!-- Paso 1: Usuario edita biografía -->
                         <div class="example-step">
                             <span class="step-number">1</span>
                             <p>Estás en Instagram y cambias tu biografía, escribes: "Estudiante de Ingeniería del Software, UTN"</p>
                         </div>
                         <div class="example-arrow">↓</div>
+                        <!-- Paso 2: Se envía solicitud PUT -->
                         <div class="example-step">
                             <span class="step-number">2</span>
                             <p>Al presionar "Guardar", tu navegador envía una solicitud PUT al servidor:</p>
+                            <!-- Bloque de código mostrando la estructura de la solicitud -->
                             <div class="code-block">
                                 <div class="code-header">Solicitud PUT</div>
                                 <pre>PUT /perfil/usuario123
@@ -209,6 +239,7 @@
                             </div>
                         </div>
                         <div class="example-arrow">↓</div>
+                        <!-- Paso 3: Servidor actualiza el perfil -->
                         <div class="example-step">
                             <span class="step-number">3</span>
                             <p>Finalmente el servidor actualiza el perfil con el nuevo texto</p>
@@ -216,13 +247,15 @@
                     </div>
                 </div>
 
+                <!-- Caja destacando característica principal de PUT -->
                 <div class="characteristic-box put">
                     <strong>✓ Característica:</strong> PUT es idempotente, lo que significa que si repites la acción varias veces, el resultado es el mismo.
                 </div>
             </section>
 
-            <!-- DELETE -->
+            <!-- Sección: Método DELETE -->
             <section class="content-section fade-in">
+                <!-- Tarjeta principal del método DELETE -->
                 <div class="method-card delete-card">
                     <div class="method-header">
                         <div class="method-badge delete">DELETE</div>
@@ -235,17 +268,21 @@
                     </div>
                 </div>
 
+                <!-- Ejemplo práctico: Eliminar una foto -->
                 <div class="example-box">
                     <h4>📷 Ejemplo práctico: Eliminar una foto</h4>
                     <div class="example-steps">
+                        <!-- Paso 1: Usuario decide eliminar -->
                         <div class="example-step">
                             <span class="step-number">1</span>
                             <p>Estás en Instagram o Facebook y decides borrar una foto o eliminar un comentario</p>
                         </div>
                         <div class="example-arrow">↓</div>
+                        <!-- Paso 2: Se envía solicitud DELETE -->
                         <div class="example-step">
                             <span class="step-number">2</span>
                             <p>Cuando haces clic en "Eliminar", el navegador envía una solicitud al servidor:</p>
+                            <!-- Bloque de código mostrando la solicitud DELETE -->
                             <div class="code-block">
                                 <div class="code-header">Solicitud DELETE</div>
                                 <pre>DELETE /fotos/12345</pre>
@@ -253,6 +290,7 @@
                             <p style="margin-top: 0.5rem;">Esto le dice al servidor: <strong>"Borra la foto con el número 12345"</strong></p>
                         </div>
                         <div class="example-arrow">↓</div>
+                        <!-- Paso 3: Servidor elimina el recurso -->
                         <div class="example-step">
                             <span class="step-number">3</span>
                             <p>El servidor recibe esa orden y elimina ese recurso</p>
@@ -260,15 +298,17 @@
                     </div>
                 </div>
 
+                <!-- Caja destacando característica principal de DELETE -->
                 <div class="characteristic-box delete">
                     <strong>✓ Característica:</strong> DELETE, al igual que PUT, es idempotente. Si borras una foto una vez, la foto desaparece. Si intentas borrarla otra vez, el resultado no cambia, porque ya está borrada.
                 </div>
             </section>
 
-            <!-- Resumen comparativo -->
+            <!-- Sección: Resumen comparativo de todos los métodos -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Resumen de Métodos HTTP</h2>
                 <div class="summary-grid">
+                    <!-- Tarjeta resumen GET -->
                     <div class="summary-card get">
                         <div class="summary-icon">📥</div>
                         <h3>GET</h3>
@@ -282,6 +322,7 @@
                         </div>
                     </div>
                     
+                    <!-- Tarjeta resumen POST -->
                     <div class="summary-card post">
                         <div class="summary-icon">📤</div>
                         <h3>POST</h3>
@@ -295,6 +336,7 @@
                         </div>
                     </div>
                     
+                    <!-- Tarjeta resumen PUT -->
                     <div class="summary-card put">
                         <div class="summary-icon">✏️</div>
                         <h3>PUT</h3>
@@ -308,6 +350,7 @@
                         </div>
                     </div>
                     
+                    <!-- Tarjeta resumen DELETE -->
                     <div class="summary-card delete">
                         <div class="summary-icon">🗑️</div>
                         <h3>DELETE</h3>
@@ -323,7 +366,7 @@
                 </div>
             </section>
 
-            <!-- Navigation -->
+            <!-- Navegación entre páginas (anterior y siguiente) -->
             <nav class="page-navigation">
                 <a href="urls-endpoints.html" class="nav-btn nav-prev">← URLs & Endpoints</a>
                 <a href="codigos-respuesta.html" class="nav-btn nav-next">Códigos HTTP →</a>
@@ -331,14 +374,16 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <!-- Sección: Información del proyecto académico -->
                 <div class="footer-section">
                     <h4>Proyecto Académico</h4>
                     <p>ISW-512 Diseño de Aplicaciones Web<br>Universidad Técnica Nacional<br>2025 - Ciclo III</p>
                 </div>
+                <!-- Sección: Enlaces de navegación rápida -->
                 <div class="footer-section">
                     <h4>Navegación</h4>
                     <ul class="footer-links">
@@ -347,6 +392,7 @@
                         <li><a href="demos.html">Demos</a></li>
                     </ul>
                 </div>
+                <!-- Sección: Enlaces a recursos externos -->
                 <div class="footer-section">
                     <h4>Recursos</h4>
                     <ul class="footer-links">
@@ -356,6 +402,7 @@
                     </ul>
                 </div>
             </div>
+            <!-- Copyright -->
             <div class="footer-bottom">
                 <p>&copy; 2025 Grupo de APIs - Todos los derechos reservados</p>
             </div>
@@ -363,14 +410,17 @@
     </footer>
 
     <script>
+        // Funcionalidad del menú móvil
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
+        // Alterna la visibilidad del menú al hacer clic en el botón hamburguesa
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
 
+        // Cierra el menú móvil cuando se hace clic fuera de él
         document.addEventListener('click', (e) => {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('active');
@@ -378,6 +428,7 @@
             }
         });
 
+        // Animación fade-in al hacer scroll: observa cuando las secciones entran en el viewport
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -386,6 +437,7 @@
             });
         });
 
+        // Aplica el observer a todas las secciones de contenido
         document.querySelectorAll('.content-section').forEach(section => {
             observer.observe(section);
         });

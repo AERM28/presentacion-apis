@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="css/urls-endpoints.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Barra de navegación principal -->
     <nav class="navbar">
         <div class="container">
+            <!-- Contenedor para el logo o marca -->
             <div class="nav-brand"></div>
+            <!-- Botón hamburguesa para menú móvil -->
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <!-- Menú de navegación con enlaces a todas las páginas -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Inicio</a></li>
                 <li><a href="fundamentos.html" class="nav-link">Fundamentos</a></li>
@@ -30,25 +33,28 @@
         </div>
     </nav>
 
-    <!-- Page Hero -->
+    <!-- Hero de página con breadcrumbs y título -->
     <section class="page-hero">
         <div class="container">
+            <!-- Breadcrumbs para navegación jerárquica -->
             <div class="breadcrumb">
                 <a href="index.html">Inicio</a>
                 <span>/</span>
                 <span>URLs & Endpoints</span>
             </div>
+            <!-- Título y descripción de la página -->
             <h1 class="page-title">Estructura básica: URL vs Endpoint</h1>
             <p class="page-subtitle">Entendiendo las diferencias y componentes de URLs y endpoints en las APIs</p>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Contenido principal -->
     <main class="main-content">
         <div class="container">
-            <!-- ¿Qué es una URL? -->
+            <!-- Sección: Definición de URL -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">¿Qué es una URL?</h2>
+                <!-- Caja destacada con la definición principal -->
                 <div class="definition-box">
                     <div class="definition-icon">🔗</div>
                     <div class="definition-content">
@@ -58,26 +64,30 @@
                     </div>
                 </div>
 
+                <!-- Texto explicativo sobre excepciones y manejo de URLs -->
                 <p class="intro-text">En la práctica, hay algunas excepciones, siendo la más común una URL apuntando a un recurso que ya no existe o que ha sido movido. Como el recurso representado por la URL y la URL en sí son manejadas por el servidor Web, depende del dueño del servidor web manejar ese recurso y su URL asociada adecuadamente.</p>
 
+                <!-- Caja destacada sobre la importancia de las URLs -->
                 <div class="highlight-box">
                     <h4>🌐 Importancia de las URLs</h4>
                     <p>Junto con el Hipertexto y HTTP, las URL son uno de los conceptos claves de la Web. Es el mecanismo usado por los navegadores para obtener cualquier recurso publicado en la web.</p>
                 </div>
             </section>
 
-            <!-- Componentes de una URL -->
+            <!-- Sección: Componentes de una URL -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Componentes de una URL</h2>
                 
-                <!-- Visualización de URL completa -->
+                <!-- Visualización interactiva de una URL completa con sus partes coloreadas -->
                 <div class="url-anatomy">
                     <div class="url-display">
                         <span class="url-part scheme" data-label="Esquema">https://</span><span class="url-part hostname" data-label="Hostname">www.ejemplo.com</span><span class="url-part path" data-label="Ruta">/docs/es/programacion-web</span><span class="url-part query" data-label="Query">?term=bluebird&source=browser</span>
                     </div>
                 </div>
 
+                <!-- Grid con tarjetas explicando cada componente de la URL -->
                 <div class="types-grid">
+                    <!-- Componente: Esquema (protocolo) -->
                     <div class="type-card component-scheme">
                         <div class="type-icon">🔐</div>
                         <h3>Esquema (scheme)</h3>
@@ -85,6 +95,7 @@
                         <div class="component-example">https://</div>
                     </div>
                     
+                    <!-- Componente: Hostname (nombre del servidor) -->
                     <div class="type-card component-hostname">
                         <div class="type-icon">🖥️</div>
                         <h3>Nombre de host (hostname)</h3>
@@ -92,6 +103,7 @@
                         <div class="component-example">www.ejemplo.com</div>
                     </div>
                     
+                    <!-- Componente: Path (ruta del recurso) -->
                     <div class="type-card component-path">
                         <div class="type-icon">📂</div>
                         <h3>Ruta (path)</h3>
@@ -99,6 +111,7 @@
                         <div class="component-example">/docs/es/programacion-web</div>
                     </div>
                     
+                    <!-- Componente: Query (parámetros de consulta) -->
                     <div class="type-card component-query">
                         <div class="type-icon">❓</div>
                         <h3>Cadena de consulta (query)</h3>
@@ -107,14 +120,16 @@
                     </div>
                 </div>
 
+                <!-- Nota explicativa sobre el formato de parámetros query -->
                 <div class="note-text" style="margin-top: 2rem;">
                     <strong>Nota sobre cadenas de consulta:</strong> Los parámetros se separan con <strong>&</strong> y siguen el formato <strong>clave=valor</strong>. Ejemplo: <code>term=bluebird&source=browser-search</code>
                 </div>
             </section>
 
-            <!-- ¿Qué es un endpoint? -->
+            <!-- Sección: Definición de Endpoint -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">¿Qué es un Endpoint?</h2>
+                <!-- Caja destacada con la definición principal de endpoint -->
                 <div class="definition-box">
                     <div class="definition-icon">📍</div>
                     <div class="definition-content">
@@ -124,24 +139,29 @@
                     </div>
                 </div>
 
+                <!-- Explicación sobre el uso de endpoints en APIs -->
                 <p class="intro-text">En el caso de las API, un punto final puede incluir la URL de un servidor o servicio. Cada punto final es la ubicación desde la cual las API pueden acceder a los recursos que necesitan para realizar su función.</p>
 
+                <!-- Caja destacada sobre el funcionamiento de endpoints -->
                 <div class="highlight-box">
                     <h4>🔄 Funcionamiento</h4>
                     <p>Las API funcionan mediante solicitudes y respuestas. Cuando una API solicita información de una aplicación o servidor web, recibe una respuesta. El endpoint es el lugar donde las API envían las solicitudes y donde reside el recurso.</p>
                 </div>
             </section>
 
-            <!-- Diferencias entre URL y Endpoint -->
+            <!-- Sección: Comparación entre URL y Endpoint -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Diferencias entre una URL y un Endpoint</h2>
                 
+                <!-- Contenedor de comparación lado a lado -->
                 <div class="comparison-container">
+                    <!-- Tarjeta: Características de URL -->
                     <div class="comparison-card url-card">
                         <div class="comparison-header">
                             <div class="comparison-icon">🔗</div>
                             <h3>URL</h3>
                         </div>
+                        <!-- Lista de características de URLs -->
                         <ul class="comparison-list">
                             <li>
                                 <span class="bullet">•</span>
@@ -156,19 +176,23 @@
                                 <span>Es más general y abarca toda la ubicación</span>
                             </li>
                         </ul>
+                        <!-- Ejemplo práctico de URL completa -->
                         <div class="comparison-example">
                             <strong>Ejemplo:</strong>
                             <code>https://api.ejemplo.com/usuarios?activos=true</code>
                         </div>
                     </div>
                     
+                    <!-- Separador visual "VS" -->
                     <div class="comparison-vs">VS</div>
                     
+                    <!-- Tarjeta: Características de Endpoint -->
                     <div class="comparison-card endpoint-card">
                         <div class="comparison-header">
                             <div class="comparison-icon">📍</div>
                             <h3>Endpoint</h3>
                         </div>
+                        <!-- Lista de características de endpoints -->
                         <ul class="comparison-list">
                             <li>
                                 <span class="bullet">•</span>
@@ -183,6 +207,7 @@
                                 <span>Es más específico y orientado a la funcionalidad</span>
                             </li>
                         </ul>
+                        <!-- Ejemplos prácticos de endpoints -->
                         <div class="comparison-example">
                             <strong>Ejemplo:</strong>
                             <code>/usuarios</code> o <code>/productos/123</code>
@@ -190,12 +215,13 @@
                     </div>
                 </div>
 
+                <!-- Nota resumen de la diferencia clave -->
                 <div class="note-text" style="margin-top: 2rem;">
                     <strong>En resumen:</strong> Una URL es la dirección completa, mientras que un endpoint es el punto de contacto específico dentro de esa dirección donde la API realiza una operación particular.
                 </div>
             </section>
 
-            <!-- Navigation -->
+            <!-- Navegación entre páginas (anterior y siguiente) -->
             <nav class="page-navigation">
                 <a href="fundamentos.html" class="nav-btn nav-prev">← Fundamentos</a>
                 <a href="metodos-http.html" class="nav-btn nav-next">Métodos HTTP →</a>
@@ -203,14 +229,16 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <!-- Sección: Información del proyecto académico -->
                 <div class="footer-section">
                     <h4>Proyecto Académico</h4>
                     <p>ISW-512 Diseño de Aplicaciones Web<br>Universidad Técnica Nacional<br>2025 - Ciclo III</p>
                 </div>
+                <!-- Sección: Enlaces de navegación rápida -->
                 <div class="footer-section">
                     <h4>Navegación</h4>
                     <ul class="footer-links">
@@ -219,6 +247,7 @@
                         <li><a href="demos.html">Demos</a></li>
                     </ul>
                 </div>
+                <!-- Sección: Enlaces a recursos externos -->
                 <div class="footer-section">
                     <h4>Recursos</h4>
                     <ul class="footer-links">
@@ -228,6 +257,7 @@
                     </ul>
                 </div>
             </div>
+            <!-- Copyright -->
             <div class="footer-bottom">
                 <p>&copy; 2025 Grupo de APIs - Todos los derechos reservados</p>
             </div>
@@ -235,14 +265,17 @@
     </footer>
 
     <script>
+        // Funcionalidad del menú móvil
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
+        // Alterna la visibilidad del menú al hacer clic en el botón hamburguesa
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
 
+        // Cierra el menú móvil cuando se hace clic fuera de él
         document.addEventListener('click', (e) => {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('active');
@@ -250,6 +283,7 @@
             }
         });
 
+        // Animación fade-in al hacer scroll: observa cuando las secciones entran en el viewport
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -258,29 +292,33 @@
             });
         });
 
+        // Aplica el observer a todas las secciones de contenido
         document.querySelectorAll('.content-section').forEach(section => {
             observer.observe(section);
         });
 
-        // URL anatomy hover effect
+        // Efecto hover interactivo en la anatomía de URL
         const urlParts = document.querySelectorAll('.url-part');
         const componentCards = document.querySelectorAll('.type-card');
 
+        // Agrega interactividad: al pasar el mouse sobre una parte de la URL, resalta la tarjeta correspondiente
         urlParts.forEach(part => {
+            // Al entrar el mouse: resalta la tarjeta relacionada
             part.addEventListener('mouseenter', () => {
-                const partClass = part.classList[1];
+                const partClass = part.classList[1]; // Obtiene la clase que identifica el componente (scheme, hostname, etc.)
                 componentCards.forEach(card => {
                     if (card.classList.contains(`component-${partClass}`)) {
-                        card.style.transform = 'scale(1.05)';
-                        card.style.borderColor = 'var(--primary-color)';
+                        card.style.transform = 'scale(1.05)'; // Aumenta el tamaño
+                        card.style.borderColor = 'var(--primary-color)'; // Cambia el color del borde
                     }
                 });
             });
 
+            // Al salir el mouse: restaura el estado original de las tarjetas
             part.addEventListener('mouseleave', () => {
                 componentCards.forEach(card => {
-                    card.style.transform = '';
-                    card.style.borderColor = '';
+                    card.style.transform = ''; // Restaura el tamaño
+                    card.style.borderColor = ''; // Restaura el color del borde
                 });
             });
         });

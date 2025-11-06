@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="css/asincronia.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Barra de navegación principal -->
     <nav class="navbar">
         <div class="container">
+            <!-- Contenedor para el logo o marca -->
             <div class="nav-brand"></div>
+            <!-- Botón hamburguesa para menú móvil -->
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <!-- Menú de navegación con enlaces a todas las páginas -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Inicio</a></li>
                 <li><a href="fundamentos.html" class="nav-link">Fundamentos</a></li>
@@ -30,31 +33,34 @@
         </div>
     </nav>
 
-    <!-- Page Hero -->
+    <!-- Hero de página con breadcrumbs y título -->
     <section class="page-hero">
         <div class="container">
+            <!-- Breadcrumbs para navegación jerárquica -->
             <div class="breadcrumb">
                 <a href="index.html">Inicio</a>
                 <span>/</span>
                 <span>Asincronía en JavaScript</span>
             </div>
+            <!-- Título y descripción de la página -->
             <h1 class="page-title">La Asincronía en JavaScript</h1>
             <p class="page-subtitle">XMLHttpRequest, Fetch, Promises y Async/Await</p>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Contenido principal -->
     <main class="main-content">
         <div class="container">
-            <!-- Introducción -->
+            <!-- Sección: Introducción a la Asincronía -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">¿Qué es la Asincronía?</h2>
                 <p class="intro-text">La asincronía es uno de los conceptos principales que existe en el mundo de JavaScript. Cuando comenzamos, es muy común trabajar con código síncrono (secuencial), sin embargo, llegado a un punto necesitaremos trabajar con código asíncrono, el cual puede ser muy frustrante si no lo entendemos bien.</p>
             </section>
 
-            <!-- Sincronía vs Asincronía -->
+            <!-- Sección: Explicación de Sincronía vs Asincronía -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">¿Qué es la Sincronía?</h2>
+                <!-- Caja destacada con la definición de sincronía -->
                 <div class="definition-box">
                     <div class="definition-icon">⏭️</div>
                     <div class="definition-content">
@@ -64,10 +70,12 @@
                     </div>
                 </div>
 
-                <!-- Comparación visual -->
+                <!-- Comparación visual entre ejecución síncrona y asíncrona -->
                 <div class="sync-async-comparison">
+                    <!-- Lado izquierdo: Código Síncrono -->
                     <div class="comparison-side sync-side">
                         <h3>⏭️ Código Síncrono</h3>
+                        <!-- Flujo secuencial de ejecución -->
                         <div class="execution-flow">
                             <div class="flow-block" data-order="1">
                                 <span class="block-number">1</span>
@@ -87,14 +95,18 @@
                         <p class="comparison-note">Secuencial y predecible</p>
                     </div>
 
+                    <!-- Lado derecho: Código Asíncrono -->
                     <div class="comparison-side async-side">
                         <h3>⚡ Código Asíncrono</h3>
+                        <!-- Flujo paralelo con bifurcaciones -->
                         <div class="execution-flow">
                             <div class="flow-block" data-order="1">
                                 <span class="block-number">1</span>
                                 <span class="block-text">Tarea 1</span>
                             </div>
+                            <!-- División del flujo en dos ramas -->
                             <div class="flow-split">
+                                <!-- Rama 1: Operación que espera -->
                                 <div class="split-branch">
                                     <div class="flow-arrow">↓</div>
                                     <div class="flow-block waiting" data-order="2">
@@ -102,6 +114,7 @@
                                         <span class="block-text">Espera...</span>
                                     </div>
                                 </div>
+                                <!-- Rama 2: Operación que continúa -->
                                 <div class="split-branch">
                                     <div class="flow-arrow">↓</div>
                                     <div class="flow-block" data-order="3">
@@ -115,19 +128,24 @@
                     </div>
                 </div>
 
+                <!-- Texto explicativo sobre la necesidad de asincronía -->
                 <p class="intro-text">Sin embargo, en el mundo de la programación, tarde o temprano necesitaremos realizar operaciones asíncronas, especialmente en ciertos lenguajes como JavaScript, donde tenemos que realizar tareas que tienen que esperar a que ocurra un determinado suceso.</p>
 
+                <!-- Caja con características de sucesos asíncronos -->
                 <div class="characteristics-box">
                     <h4>🎯 Características de un suceso asíncrono:</h4>
                     <div class="characteristics-grid">
+                        <!-- Característica 1: No depende de nosotros -->
                         <div class="characteristic-item">
                             <div class="char-icon">🎲</div>
                             <p>Generalmente, no depende de nosotros</p>
                         </div>
+                        <!-- Característica 2: Tiempo desconocido -->
                         <div class="characteristic-item">
                             <div class="char-icon">⏰</div>
                             <p>No solemos saber cuándo va a ocurrir</p>
                         </div>
+                        <!-- Característica 3: Ocurrencia incierta -->
                         <div class="characteristic-item">
                             <div class="char-icon">❓</div>
                             <p>A veces, ni siquiera sabemos si va a ocurrir</p>
@@ -135,14 +153,16 @@
                     </div>
                 </div>
 
+                <!-- Nota importante sobre gestión de asincronía -->
                 <div class="note-text">
                     <strong>Importante:</strong> Nuestro código tiene que saber gestionar esas características, y reaccionar solo cuando dicho suceso ocurra.
                 </div>
             </section>
 
-            <!-- XMLHttpRequest -->
+            <!-- Sección: XMLHttpRequest -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">El objeto XMLHttpRequest</h2>
+                <!-- Tarjeta principal de XMLHttpRequest -->
                 <div class="method-card xhr-card">
                     <div class="method-header">
                         <div class="method-badge xhr">XMLHttpRequest</div>
@@ -153,22 +173,27 @@
                     </div>
                 </div>
 
+                <!-- Grid con características de XMLHttpRequest -->
                 <div class="features-grid">
+                    <!-- Característica 1: Actualizar sin recargar -->
                     <div class="feature-card">
                         <div class="feature-icon">✨</div>
                         <h4>Actualizar sin recargar</h4>
                         <p>Actualizar una página web sin recargarla</p>
                     </div>
+                    <!-- Característica 2: Solicitar datos -->
                     <div class="feature-card">
                         <div class="feature-icon">📥</div>
                         <h4>Solicitar datos</h4>
                         <p>Solicitar datos de un servidor después de que se haya cargado la página</p>
                     </div>
+                    <!-- Característica 3: Recibir datos -->
                     <div class="feature-card">
                         <div class="feature-icon">📤</div>
                         <h4>Recibir datos</h4>
                         <p>Recibir datos de un servidor después de que se haya cargado la página</p>
                     </div>
+                    <!-- Característica 4: Enviar en segundo plano -->
                     <div class="feature-card">
                         <div class="feature-icon">🔄</div>
                         <h4>Enviar en segundo plano</h4>
@@ -176,6 +201,7 @@
                     </div>
                 </div>
 
+                <!-- Ejemplo práctico: App de clima -->
                 <div class="example-box">
                     <h4>🌤️ Ejemplo cotidiano: App de clima</h4>
                     <p>Piensa en una app de clima:</p>
@@ -187,9 +213,10 @@
                 </div>
             </section>
 
-            <!-- Fetch -->
+            <!-- Sección: Método Fetch -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Método Fetch</h2>
+                <!-- Tarjeta principal de Fetch API -->
                 <div class="method-card fetch-card">
                     <div class="method-header">
                         <div class="method-badge fetch">Fetch API</div>
@@ -201,17 +228,21 @@
                 </div>
 
                 <h3 class="subsection-title">Ventajas del método Fetch</h3>
+                <!-- Grid con las ventajas de usar Fetch -->
                 <div class="advantages-grid">
+                    <!-- Ventaja 1: Familiaridad entre plataformas -->
                     <div class="advantage-card">
                         <div class="advantage-icon">🌍</div>
                         <h4>Familiaridad entre plataformas</h4>
                         <p>La misma sintaxis de búsqueda funciona en todos los entornos de JavaScript (navegadores, Node.js, React), lo que facilita el aprendizaje y la reutilización del código.</p>
                     </div>
+                    <!-- Ventaja 2: Implementación más rápida -->
                     <div class="advantage-card">
                         <div class="advantage-icon">⚡</div>
                         <h4>Implementación más rápida</h4>
                         <p>En Node.js, el uso de Undici como base de fetch mejora la velocidad, la confiabilidad y la compatibilidad con los estándares de Node.</p>
                     </div>
+                    <!-- Ventaja 3: Sintaxis basada en promesas -->
                     <div class="advantage-card">
                         <div class="advantage-icon">🔗</div>
                         <h4>Sintaxis basada en promesas</h4>
@@ -220,12 +251,14 @@
                 </div>
             </section>
 
-            <!-- Fetch vs XMLHttpRequest -->
+            <!-- Sección: Comparación Fetch vs XMLHttpRequest -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Fetch vs XMLHttpRequest</h2>
                 <h3 class="subsection-title">¿Cuándo usar cada uno?</h3>
                 
+                <!-- Contenedor de comparación lado a lado -->
                 <div class="versus-container">
+                    <!-- Lado izquierdo: Cuándo usar Fetch -->
                     <div class="versus-card fetch-side">
                         <div class="versus-header">
                             <div class="versus-icon">🚀</div>
@@ -239,8 +272,10 @@
                         </ul>
                     </div>
                     
+                    <!-- Separador visual "VS" -->
                     <div class="versus-divider">VS</div>
                     
+                    <!-- Lado derecho: Cuándo usar XMLHttpRequest -->
                     <div class="versus-card xhr-side">
                         <div class="versus-header">
                             <div class="versus-icon">📡</div>
@@ -256,9 +291,10 @@
                 </div>
             </section>
 
-            <!-- Promises -->
+            <!-- Sección: Promises (Promesas) -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Promises (Promesas)</h2>
+                <!-- Tarjeta principal de Promises -->
                 <div class="method-card promise-card">
                     <div class="method-header">
                         <div class="method-badge promise">Promises</div>
@@ -269,6 +305,7 @@
                     </div>
                 </div>
 
+                <!-- Analogía del cantante y los fans para explicar Promises -->
                 <div class="analogy-box">
                     <h4>🎵 Analogía: El cantante y sus fans</h4>
                     <div class="analogy-content">
@@ -279,7 +316,9 @@
                 </div>
 
                 <h3 class="subsection-title">Componentes de una promesa</h3>
+                <!-- Lista de componentes de una promesa -->
                 <div class="components-list">
+                    <!-- Componente 1: Código Productor -->
                     <div class="component-item">
                         <div class="component-number">1</div>
                         <div class="component-content">
@@ -287,6 +326,7 @@
                             <p>Hace algo y toma tiempo. Por ejemplo, algún código que carga los datos a través de una red. Eso es un "cantante".</p>
                         </div>
                     </div>
+                    <!-- Componente 2: Código Consumidor -->
                     <div class="component-item">
                         <div class="component-number">2</div>
                         <div class="component-content">
@@ -294,6 +334,7 @@
                             <p>Quiere el resultado del "código productor" una vez que está listo. Muchas funciones pueden necesitar ese resultado. Estos son los "fans".</p>
                         </div>
                     </div>
+                    <!-- Componente 3: La Promesa -->
                     <div class="component-item">
                         <div class="component-number">3</div>
                         <div class="component-content">
@@ -303,14 +344,17 @@
                     </div>
                 </div>
 
+                <!-- Estados posibles de una promesa -->
                 <div class="promise-states">
                     <h4>Estados de una Promesa</h4>
                     <div class="states-grid">
+                        <!-- Estado 1: Fulfilled (Cumplida) -->
                         <div class="state-card fulfilled">
                             <div class="state-icon">✅</div>
                             <h5>Fulfilled</h5>
                             <p>La promesa se cumplió exitosamente</p>
                         </div>
+                        <!-- Estado 2: Rejected (Rechazada) -->
                         <div class="state-card rejected">
                             <div class="state-icon">❌</div>
                             <h5>Rejected</h5>
@@ -319,6 +363,7 @@
                     </div>
                 </div>
 
+                <!-- Casos de uso de Promises -->
                 <div class="use-cases-box">
                     <h4>Se usan Promises principalmente en:</h4>
                     <ul>
@@ -330,9 +375,10 @@
                 </div>
             </section>
 
-            <!-- Async/Await -->
+            <!-- Sección: Async/Await -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Async/Await</h2>
+                <!-- Tarjeta principal de Async/Await -->
                 <div class="method-card async-card">
                     <div class="method-header">
                         <div class="method-badge async">Async/Await</div>
@@ -343,13 +389,17 @@
                     </div>
                 </div>
 
+                <!-- Texto explicativo sobre async/await -->
                 <p class="intro-text">Las palabras clave async y await, implementadas a partir de ES2017, son una sintaxis que simplifica la programación asíncrona, facilitando el flujo de escritura y lectura de código; por lo que es posible escribir código que funcione de forma asíncrona, pero que se lea y estructure de forma síncrona.</p>
 
+                <!-- Caja explicando el funcionamiento de async/await -->
                 <div class="functionality-box">
+                    <!-- Cómo funciona async -->
                     <div class="func-item">
                         <h4>🔑 Cómo funciona</h4>
                         <p>Al definir una función como <strong>async</strong>, podemos usar la palabra clave <strong>await</strong> antes de cualquier expresión que retorne una promesa. De esta forma, la ejecución de la función externa (la función async) se pausará hasta que se resuelva la Promesa.</p>
                     </div>
+                    <!-- Funcionamiento de await -->
                     <div class="func-item">
                         <h4>⚙️ Funcionamiento de await</h4>
                         <p>La palabra clave <strong>await</strong> recibe una Promesa y la convierte en un valor de retorno (o genera una excepción en caso de error). Cuando usamos await, JavaScript esperará hasta que finalice la Promesa.</p>
@@ -360,10 +410,12 @@
                     </div>
                 </div>
 
+                <!-- Regla importante sobre el uso de await -->
                 <div class="note-text">
                     <strong>Regla importante:</strong> await solo funciona si está dentro de otra función async.
                 </div>
 
+                <!-- Casos de uso de Async/Await -->
                 <div class="use-cases-box">
                     <h4>Se usa Async/Await principalmente en:</h4>
                     <ul>
@@ -375,10 +427,12 @@
                 </div>
             </section>
 
-            <!-- Resumen comparativo -->
+            <!-- Sección: Resumen comparativo de todos los métodos -->
             <section class="content-section fade-in">
                 <h2 class="section-heading">Resumen: Métodos de Asincronía</h2>
+                <!-- Línea de tiempo mostrando la evolución de los métodos asíncronos -->
                 <div class="timeline">
+                    <!-- Elemento 1: XMLHttpRequest (Método tradicional) -->
                     <div class="timeline-item xhr-time">
                         <div class="timeline-marker">📡</div>
                         <div class="timeline-content">
@@ -388,6 +442,7 @@
                             <p><strong>Uso:</strong> Código legacy</p>
                         </div>
                     </div>
+                    <!-- Elemento 2: Fetch (Moderno ES6+) -->
                     <div class="timeline-item fetch-time">
                         <div class="timeline-marker">🚀</div>
                         <div class="timeline-content">
@@ -397,6 +452,7 @@
                             <p><strong>Uso:</strong> Apps modernas</p>
                         </div>
                     </div>
+                    <!-- Elemento 3: Promises (ES6 2015) -->
                     <div class="timeline-item promise-time">
                         <div class="timeline-marker">🤝</div>
                         <div class="timeline-content">
@@ -406,6 +462,7 @@
                             <p><strong>Uso:</strong> Base de async</p>
                         </div>
                     </div>
+                    <!-- Elemento 4: Async/Await (ES2017) -->
                     <div class="timeline-item async-time">
                         <div class="timeline-marker">⚡</div>
                         <div class="timeline-content">
@@ -418,7 +475,7 @@
                 </div>
             </section>
 
-            <!-- Navigation -->
+            <!-- Navegación entre páginas (anterior y siguiente) -->
             <nav class="page-navigation">
                 <a href="codigos-respuesta.html" class="nav-btn nav-prev">← Códigos HTTP</a>
                 <a href="manejo-errores.html" class="nav-btn nav-next">Manejo de Errores →</a>
@@ -426,14 +483,16 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <!-- Sección: Información del proyecto académico -->
                 <div class="footer-section">
                     <h4>Proyecto Académico</h4>
                     <p>ISW-512 Diseño de Aplicaciones Web<br>Universidad Técnica Nacional<br>2025 - Ciclo III</p>
                 </div>
+                <!-- Sección: Enlaces de navegación rápida -->
                 <div class="footer-section">
                     <h4>Navegación</h4>
                     <ul class="footer-links">
@@ -442,6 +501,7 @@
                         <li><a href="demos.html">Demos</a></li>
                     </ul>
                 </div>
+                <!-- Sección: Enlaces a recursos externos -->
                 <div class="footer-section">
                     <h4>Recursos</h4>
                     <ul class="footer-links">
@@ -451,6 +511,7 @@
                     </ul>
                 </div>
             </div>
+            <!-- Copyright -->
             <div class="footer-bottom">
                 <p>&copy; 2025 Grupo de APIs - Todos los derechos reservados</p>
             </div>
@@ -458,14 +519,17 @@
     </footer>
 
     <script>
+        // Funcionalidad del menú móvil
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
+        // Alterna la visibilidad del menú al hacer clic en el botón hamburguesa
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
 
+        // Cierra el menú móvil cuando se hace clic fuera de él
         document.addEventListener('click', (e) => {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('active');
@@ -473,6 +537,7 @@
             }
         });
 
+        // Animación fade-in al hacer scroll: observa cuando las secciones entran en el viewport
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -481,6 +546,7 @@
             });
         });
 
+        // Aplica el observer a todas las secciones de contenido
         document.querySelectorAll('.content-section').forEach(section => {
             observer.observe(section);
         });
