@@ -1082,16 +1082,20 @@ a:hover {
     
     .nav-menu {
         position: fixed;
-        top: 70px;
-        right: -100%;
+        top: 0;
+        right: 0;
         width: 80%;
         max-width: 300px;
-        height: calc(100vh - 70px);
+        height: 100vh;
         background: rgba(30, 41, 59, 0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
-        padding: var(--spacing-lg);
-        transition: right var(--transition-normal);
+        padding-top: 70px;
+        padding-left: var(--spacing-lg);
+        padding-right: var(--spacing-lg);
+        padding-bottom: var(--spacing-lg);
+        transform: translateX(100%);
+        transition: transform var(--transition-normal);
         box-shadow: var(--shadow-xl);
         border-left: 1px solid rgba(255, 255, 255, 0.1);
         align-items: stretch;
@@ -1100,7 +1104,7 @@ a:hover {
     }
     
     .nav-menu.active {
-        right: 0;
+        transform: translateX(0);
     }
     
     .nav-menu li {

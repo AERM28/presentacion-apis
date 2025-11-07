@@ -1,8 +1,10 @@
 /* ============================================
-   Manejo de Errores 
+   CSS Manejo de Errores - Mejorado y Responsive
    ============================================ */
 
-/* Intro Box */
+/* ============================================
+   INTRO BOX
+   ============================================ */
 .intro-box {
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
     padding: var(--spacing-lg);
@@ -18,7 +20,9 @@
     color: var(--text-primary);
 }
 
-/* Importance Grid */
+/* ============================================
+   IMPORTANCE GRID
+   ============================================ */
 .importance-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -33,6 +37,8 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
     transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
 }
 
 .importance-card:hover {
@@ -59,7 +65,9 @@
     margin: 0;
 }
 
-/* Warning Box */
+/* ============================================
+   WARNING BOX
+   ============================================ */
 .warning-box {
     display: flex;
     gap: var(--spacing-md);
@@ -101,7 +109,9 @@
     color: var(--warning-color);
 }
 
-/* Example Comparison */
+/* ============================================
+   EXAMPLE COMPARISON
+   ============================================ */
 .example-comparison {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -114,6 +124,8 @@
     padding: var(--spacing-lg);
     border-radius: var(--border-radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .incorrect-label {
@@ -134,6 +146,7 @@
     border-radius: var(--border-radius-md);
     overflow-x: auto;
     margin: var(--spacing-sm) 0;
+    flex: 1;
 }
 
 .comparison-column code {
@@ -150,7 +163,9 @@
     margin-top: var(--spacing-sm);
 }
 
-/* Method Box */
+/* ============================================
+   METHOD BOX
+   ============================================ */
 .method-box {
     background: var(--bg-card);
     padding: var(--spacing-xl);
@@ -200,7 +215,9 @@
     line-height: 1.6;
 }
 
-/* States Overview */
+/* ============================================
+   STATES OVERVIEW
+   ============================================ */
 .states-overview {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -214,6 +231,8 @@
     border-radius: var(--border-radius-lg);
     border: 2px solid transparent;
     transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
 }
 
 .loading-state {
@@ -273,7 +292,9 @@
     color: var(--primary-color);
 }
 
-/* Implementation Box */
+/* ============================================
+   IMPLEMENTATION BOX
+   ============================================ */
 .implementation-box {
     background: var(--bg-card);
     padding: var(--spacing-xl);
@@ -311,10 +332,13 @@
     line-height: 1.6;
 }
 
-/* Best Practices Grid */
+/* ============================================
+   BEST PRACTICES GRID - MEJORADO
+   ============================================ */
 .best-practices-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Forzar exactamente 2 columnas en desktop */
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
     margin: var(--spacing-xl) 0;
 }
@@ -326,6 +350,9 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     transition: all var(--transition-normal);
+    /* Permitir que el contenido defina la altura */
+    display: flex;
+    flex-direction: column;
 }
 
 .practice-card:hover {
@@ -349,6 +376,7 @@
     font-weight: 700;
     font-size: 1.125rem;
     box-shadow: var(--shadow-md);
+    flex-shrink: 0;
 }
 
 .practice-card h3 {
@@ -370,6 +398,7 @@
     color: var(--text-secondary);
     margin-bottom: var(--spacing-md);
     font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .practice-card pre {
@@ -378,6 +407,7 @@
     border-radius: var(--border-radius-md);
     overflow-x: auto;
     margin: var(--spacing-sm) 0;
+    flex-grow: 1;
 }
 
 .practice-card code {
@@ -408,12 +438,17 @@
     font-size: 0.9rem;
 }
 
-/* Error Types */
+/* ============================================
+   ERROR TYPES - MEJORADO
+   ============================================ */
 .error-types {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Forzar exactamente 2 columnas en desktop */
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
     margin: var(--spacing-xl) 0;
+    /* Usar grid-auto-rows para controlar la altura */
+    grid-auto-rows: 1fr;
 }
 
 .error-type-card {
@@ -422,6 +457,10 @@
     border-radius: var(--border-radius-lg);
     border: 2px solid transparent;
     transition: all var(--transition-normal);
+    /* Permitir que el contenido defina la altura */
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
 }
 
 .network-error {
@@ -459,6 +498,7 @@
     color: var(--text-secondary);
     margin-bottom: var(--spacing-sm);
     font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .error-type-card strong {
@@ -471,6 +511,7 @@
     border-radius: var(--border-radius-md);
     overflow-x: auto;
     margin-top: var(--spacing-sm);
+    flex-grow: 1;
 }
 
 .error-type-card code {
@@ -480,7 +521,9 @@
     line-height: 1.6;
 }
 
-/* Visual Demo */
+/* ============================================
+   VISUAL DEMO
+   ============================================ */
 .visual-demo {
     margin: var(--spacing-xl) 0;
 }
@@ -525,7 +568,9 @@
     gap: var(--spacing-md);
 }
 
-/* Loading Demo */
+/* ============================================
+   LOADING DEMO
+   ============================================ */
 .loading-demo {
     border: 2px solid var(--info-color);
 }
@@ -558,7 +603,9 @@
     opacity: 0.6;
 }
 
-/* Success Demo */
+/* ============================================
+   SUCCESS DEMO
+   ============================================ */
 .success-demo {
     border: 2px solid var(--success-color);
 }
@@ -602,7 +649,9 @@
     box-shadow: var(--shadow-glow);
 }
 
-/* Error Demo */
+/* ============================================
+   ERROR DEMO
+   ============================================ */
 .error-demo {
     border: 2px solid var(--error-color);
 }
@@ -640,8 +689,25 @@
     transform: translateY(-2px);
 }
 
-/* Responsive Design */
+/* ============================================
+   RESPONSIVE DESIGN - TABLETS
+   ============================================ */
+@media (max-width: 1024px) {
+    /* Mantener 2 columnas en tablets */
+    .best-practices-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .error-types {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MÓVILES
+   ============================================ */
 @media (max-width: 768px) {
+    /* Todos los grids a una columna */
     .example-comparison {
         grid-template-columns: 1fr;
     }
@@ -652,21 +718,27 @@
     
     .best-practices-grid {
         grid-template-columns: 1fr;
+        /* En móvil, permitir alturas automáticas */
+        grid-auto-rows: auto;
     }
     
     .error-types {
         grid-template-columns: 1fr;
+        /* En móvil, permitir alturas automáticas */
+        grid-auto-rows: auto;
     }
     
     .importance-grid {
         grid-template-columns: 1fr;
     }
     
+    /* Warning box en columna */
     .warning-box {
         flex-direction: column;
         text-align: center;
     }
     
+    /* Reducir padding en cajas */
     .method-box {
         padding: var(--spacing-md);
     }
@@ -678,15 +750,29 @@
     .demo-ui {
         padding: var(--spacing-md);
     }
+    
+    .practice-card {
+        padding: var(--spacing-md);
+    }
+    
+    .error-type-card {
+        padding: var(--spacing-md);
+    }
 }
 
+/* ============================================
+   RESPONSIVE DESIGN - MÓVILES PEQUEÑOS
+   ============================================ */
 @media (max-width: 480px) {
+    /* Reducir tamaño de números de práctica */
     .practice-number {
         width: 30px;
         height: 30px;
         font-size: 0.95rem;
+        top: -12px;
     }
     
+    /* Reducir iconos */
     .state-icon {
         font-size: 2rem;
     }
@@ -699,11 +785,78 @@
         font-size: 2rem;
     }
     
+    /* Reducir tamaño de títulos */
     .method-box h3 {
         font-size: 1.125rem;
     }
     
     .implementation-box h3 {
         font-size: 1.25rem;
+    }
+    
+    .practice-card h3 {
+        font-size: 1rem;
+    }
+    
+    .error-type-card h3 {
+        font-size: 1.125rem;
+    }
+    
+    /* Código más compacto */
+    .practice-card code,
+    .error-type-card code {
+        font-size: 0.75rem;
+    }
+    
+    .practice-card pre,
+    .error-type-card pre {
+        padding: 0.5rem;
+    }
+    
+    /* Demo UI más compacto */
+    .demo-ui {
+        min-height: 180px;
+        padding: var(--spacing-sm);
+    }
+    
+    .spinner {
+        width: 35px;
+        height: 35px;
+        border-width: 3px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MÓVILES MUY PEQUEÑOS
+   ============================================ */
+@media (max-width: 380px) {
+    /* Ajustes adicionales para pantallas muy pequeñas */
+    .practice-card h3,
+    .error-type-card h3 {
+        font-size: 0.95rem;
+    }
+    
+    .practice-card > p,
+    .error-type-card p {
+        font-size: 0.875rem;
+    }
+    
+    .practice-card code,
+    .error-type-card code {
+        font-size: 0.7rem;
+    }
+    
+    .warning-content h3 {
+        font-size: 1.125rem;
+    }
+    
+    .warning-content p {
+        font-size: 0.9rem;
+    }
+    
+    /* Botones más compactos */
+    .demo-ui button {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.9rem;
     }
 }
