@@ -65,9 +65,10 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+    position: relative;
 }
 
 body {
@@ -75,7 +76,7 @@ body {
     background: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; 
 }
 
 /* ============================================
