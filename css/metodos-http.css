@@ -1,14 +1,37 @@
 /* ============================================
-   CSS específico para Métodos HTTP
+   Métodos HTTP 
    ============================================ */
 
-/* Diagrama CRUD */
+/* Colores específicos para cada método HTTP */
+:root {
+    --get-color: #10b981;
+    --get-light: rgba(16, 185, 129, 0.1);
+    --get-border: rgba(16, 185, 129, 0.3);
+    
+    --post-color: #3b82f6;
+    --post-light: rgba(59, 130, 246, 0.1);
+    --post-border: rgba(59, 130, 246, 0.3);
+    
+    --put-color: #f59e0b;
+    --put-light: rgba(245, 158, 11, 0.1);
+    --put-border: rgba(245, 158, 11, 0.3);
+    
+    --delete-color: #ef4444;
+    --delete-light: rgba(239, 68, 68, 0.1);
+    --delete-border: rgba(239, 68, 68, 0.3);
+}
+
+/* ============================================
+   Diagrama CRUD
+   ============================================ */
+
 .crud-diagram {
     background: var(--bg-card);
-    border-radius: 1rem;
-    padding: 2rem;
-    margin: 2rem 0;
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-lg);
 }
 
 .crud-title {
@@ -16,184 +39,246 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 2rem;
-}
-
-.crud-items {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-}
-
-.crud-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1.5rem 1rem;
-    background: var(--bg-primary);
-    border-radius: 0.75rem;
-    border: 2px solid;
-    transition: all 0.3s ease;
-}
-
-.crud-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.crud-item.get {
-    border-color: var(--info-color);
-}
-
-.crud-item.post {
-    border-color: var(--success-color);
-}
-
-.crud-item.put {
-    border-color: var(--warning-color);
-}
-
-.crud-item.delete {
-    border-color: var(--error-color);
-}
-
-.crud-icon {
-    font-size: 2.5rem;
-}
-
-.crud-method {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text-primary);
-}
-
-.crud-action {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Tarjetas de métodos */
+.crud-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.crud-item {
+    background: var(--bg-secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    border: 2px solid;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.crud-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.crud-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.crud-item:hover::before {
+    opacity: 1;
+}
+
+.crud-item.get {
+    border-color: var(--get-border);
+}
+
+.crud-item.get::before {
+    background: var(--get-color);
+}
+
+.crud-item.post {
+    border-color: var(--post-border);
+}
+
+.crud-item.post::before {
+    background: var(--post-color);
+}
+
+.crud-item.put {
+    border-color: var(--put-border);
+}
+
+.crud-item.put::before {
+    background: var(--put-color);
+}
+
+.crud-item.delete {
+    border-color: var(--delete-border);
+}
+
+.crud-item.delete::before {
+    background: var(--delete-color);
+}
+
+.crud-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    animation: float 3s ease-in-out infinite;
+}
+
+.crud-method {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.crud-action {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* ============================================
+   Tarjetas de Métodos
+   ============================================ */
+
 .method-card {
     background: var(--bg-card);
-    border-radius: 1rem;
-    padding: 2rem;
-    margin: 2rem 0;
-    border-left: 5px solid;
-    transition: all 0.3s ease;
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    border: 2px solid;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
 }
 
 .method-card:hover {
-    transform: translateX(5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
 }
 
-.get-card {
-    border-color: var(--info-color);
+.method-card.get-card {
+    border-color: var(--get-border);
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--get-light) 100%);
 }
 
-.post-card {
-    border-color: var(--success-color);
+.method-card.post-card {
+    border-color: var(--post-border);
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--post-light) 100%);
 }
 
-.put-card {
-    border-color: var(--warning-color);
+.method-card.put-card {
+    border-color: var(--put-border);
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--put-light) 100%);
 }
 
-.delete-card {
-    border-color: var(--error-color);
+.method-card.delete-card {
+    border-color: var(--delete-border);
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--delete-light) 100%);
 }
 
 .method-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
 }
 
 .method-badge {
-    font-size: 1.5rem;
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--border-radius-md);
     font-weight: 700;
-    padding: 0.5rem 1.5rem;
-    border-radius: 2rem;
+    font-size: 1.25rem;
     color: white;
+    letter-spacing: 1px;
 }
 
 .method-badge.get {
-    background: var(--info-color);
+    background: linear-gradient(135deg, var(--get-color), #059669);
 }
 
 .method-badge.post {
-    background: var(--success-color);
+    background: linear-gradient(135deg, var(--post-color), #2563eb);
 }
 
 .method-badge.put {
-    background: var(--warning-color);
+    background: linear-gradient(135deg, var(--put-color), #d97706);
 }
 
 .method-badge.delete {
-    background: var(--error-color);
+    background: linear-gradient(135deg, var(--delete-color), #dc2626);
 }
 
 .method-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
+}
+
+.method-content {
+    margin-top: var(--spacing-md);
 }
 
 .method-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
     color: var(--text-secondary);
-    font-size: 1.05rem;
-    line-height: 1.7;
 }
 
 .method-description strong {
     color: var(--text-primary);
+    font-weight: 600;
 }
 
-/* Cajas de ejemplos */
+/* ============================================
+   Cajas de Ejemplos
+   ============================================ */
+
 .example-box {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
-    border-radius: 1rem;
-    padding: 2rem;
-    margin: 1.5rem 0;
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    background: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .example-box h4 {
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    font-size: 1.125rem;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.25rem;
 }
 
 .example-steps {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--spacing-md);
 }
 
 .example-step {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    padding: 1rem;
-    background: var(--bg-card);
-    border-radius: 0.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--bg-secondary);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    position: relative;
+    padding-left: 3.5rem;
+    border: 2px solid var(--primary-color);
+    transition: all var(--transition-fast);
+}
+
+.example-step:hover {
+    background: var(--bg-hover);
+    transform: translateX(5px);
 }
 
 .step-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 2rem;
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
     height: 2rem;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: 700;
-    font-size: 0.875rem;
-    flex-shrink: 0;
+    font-size: 1rem;
 }
 
 .example-step p {
@@ -205,268 +290,396 @@
 .example-arrow {
     text-align: center;
     font-size: 1.5rem;
-    color: var(--primary-color);
+    color: var(--primary-light);
     margin: 0.5rem 0;
 }
 
 .example-note {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: var(--bg-card);
-    border-radius: 0.5rem;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--post-light);
+    border: 2px solid var(--post-color);
+    border-radius: var(--border-radius-md);
     color: var(--text-secondary);
-    font-size: 0.95rem;
     font-style: italic;
-    border-left: 3px solid var(--primary-color);
 }
 
-/* Bloques de código */
+/* ============================================
+   Bloques de Código
+   ============================================ */
+
 .code-block {
-    margin-top: 0.75rem;
-    border-radius: 0.5rem;
+    background: #0f172a;
+    border-radius: var(--border-radius-md);
     overflow: hidden;
-    background: var(--bg-primary);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: var(--spacing-md) 0;
+    border: 2px solid rgba(99, 102, 241, 0.3);
 }
 
 .code-header {
-    padding: 0.5rem 1rem;
-    background: rgba(99, 102, 241, 0.2);
-    color: var(--primary-light);
-    font-size: 0.75rem;
+    background: var(--bg-secondary);
+    padding: 0.75rem var(--spacing-md);
+    font-size: 0.875rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .code-block pre {
+    padding: var(--spacing-md);
     margin: 0;
-    padding: 1rem;
     color: var(--text-primary);
-    font-family: 'Courier New', monospace;
-    font-size: 0.875rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
     overflow-x: auto;
+}
+
+/* ============================================
+   Cajas de Características
+   ============================================ */
+
+.characteristic-box {
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    margin: var(--spacing-lg) 0;
+    border: 2px solid;
+    font-size: 1rem;
     line-height: 1.6;
 }
 
-/* Caja de características */
-.characteristic-box {
-    padding: 1rem 1.5rem;
-    border-radius: 0.75rem;
-    margin: 1.5rem 0;
-    color: var(--text-primary);
-    border-left: 4px solid;
-    background: var(--bg-card);
-}
-
 .characteristic-box.get {
-    border-color: var(--info-color);
-    background: rgba(59, 130, 246, 0.1);
+    background: var(--get-light);
+    border-color: var(--get-color);
+    color: var(--text-secondary);
 }
 
 .characteristic-box.post {
-    border-color: var(--success-color);
-    background: rgba(16, 185, 129, 0.1);
+    background: var(--post-light);
+    border-color: var(--post-color);
+    color: var(--text-secondary);
 }
 
 .characteristic-box.put {
-    border-color: var(--warning-color);
-    background: rgba(245, 158, 11, 0.1);
+    background: var(--put-light);
+    border-color: var(--put-color);
+    color: var(--text-secondary);
 }
 
 .characteristic-box.delete {
-    border-color: var(--error-color);
-    background: rgba(239, 68, 68, 0.1);
+    background: var(--delete-light);
+    border-color: var(--delete-color);
+    color: var(--text-secondary);
 }
 
-/* Caja de comparación POST vs PUT */
+.characteristic-box strong {
+    color: var(--text-primary);
+}
+
+/* ============================================
+   Caja de Comparación
+   ============================================ */
+
 .comparison-box {
     background: var(--bg-card);
-    border-radius: 1rem;
-    padding: 2rem;
-    margin: 2rem 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .comparison-box h4 {
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    font-size: 1.125rem;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.25rem;
+    text-align: center;
 }
 
 .comparison-grid {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    gap: 2rem;
+    gap: var(--spacing-lg);
     align-items: center;
 }
 
 .comparison-item {
-    padding: 1.5rem;
-    background: var(--bg-primary);
-    border-radius: 0.75rem;
+    background: var(--bg-secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
     border: 2px solid;
     text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.comparison-item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
 }
 
 .comparison-item.post {
-    border-color: var(--success-color);
+    border-color: var(--post-border);
 }
 
 .comparison-item.put {
-    border-color: var(--warning-color);
+    border-color: var(--put-border);
 }
 
 .comparison-label {
-    font-size: 1.25rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-md);
     font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
+    color: white;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.125rem;
+}
+
+.comparison-item.post .comparison-label {
+    background: var(--post-color);
+}
+
+.comparison-item.put .comparison-label {
+    background: var(--put-color);
 }
 
 .comparison-item p {
     color: var(--text-secondary);
     margin: 0;
-    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.comparison-item strong {
+    color: var(--text-primary);
 }
 
 .comparison-divider {
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: 2rem;
+    font-weight: 700;
     color: var(--text-muted);
 }
 
-/* Resumen grid */
+/* ============================================
+   Tarjetas de Resumen
+   ============================================ */
+
 .summary-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
 }
 
 .summary-card {
-    padding: 2rem 1.5rem;
     background: var(--bg-card);
-    border-radius: 1rem;
-    border: 2px solid;
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
     text-align: center;
-    transition: all 0.3s ease;
+    border: 2px solid;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
 }
 
 .summary-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.summary-card:hover::before {
+    opacity: 1;
 }
 
 .summary-card.get {
-    border-color: var(--info-color);
+    border-color: var(--get-border);
+}
+
+.summary-card.get::before {
+    background: var(--get-color);
 }
 
 .summary-card.post {
-    border-color: var(--success-color);
+    border-color: var(--post-border);
+}
+
+.summary-card.post::before {
+    background: var(--post-color);
 }
 
 .summary-card.put {
-    border-color: var(--warning-color);
+    border-color: var(--put-border);
+}
+
+.summary-card.put::before {
+    background: var(--put-color);
 }
 
 .summary-card.delete {
-    border-color: var(--error-color);
+    border-color: var(--delete-border);
+}
+
+.summary-card.delete::before {
+    background: var(--delete-color);
 }
 
 .summary-icon {
     font-size: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-sm);
 }
 
 .summary-card h3 {
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
 }
 
 .summary-detail {
     display: flex;
-    justify-content: space-between;
-    padding: 0.75rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-md);
 }
 
-.summary-detail:first-of-type {
-    border-top: none;
+.summary-detail:last-child {
+    margin-bottom: 0;
 }
 
 .summary-detail strong {
-    color: var(--text-muted);
+    color: var(--text-primary);
     font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .summary-detail span {
-    color: var(--text-primary);
-    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-    .crud-items {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+/* ============================================
+   Responsive Design
+   ============================================ */
 
 @media (max-width: 768px) {
     .crud-items {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
     }
-
-    .method-header {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
+    
+    .crud-icon {
+        font-size: 2.5rem;
     }
-
-    .comparison-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .comparison-divider {
-        transform: rotate(90deg);
+    
+    .crud-method {
         font-size: 1.25rem;
     }
-
-    .summary-grid {
-        grid-template-columns: 1fr;
+    
+    .method-card {
+        padding: var(--spacing-lg);
     }
-
-    .example-step {
+    
+    .method-header {
         flex-direction: column;
         text-align: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .method-icon {
+        font-size: 2rem;
+    }
+    
+    .example-box {
+        padding: var(--spacing-md);
+    }
+    
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .comparison-divider {
+        font-size: 1.5rem;
+        transform: none;
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
     }
 }
 
 @media (max-width: 480px) {
+    .crud-items {
+        grid-template-columns: 1fr;
+    }
+    
     .crud-diagram {
-        padding: 1rem;
+        padding: var(--spacing-md);
     }
-
-    .method-card {
-        padding: 1.5rem;
-    }
-
-    .method-badge {
+    
+    .crud-title {
         font-size: 1.25rem;
-        padding: 0.4rem 1rem;
     }
-
-    .method-icon {
+    
+    .crud-icon {
         font-size: 2rem;
     }
-
-    .example-box {
-        padding: 1.5rem;
+    
+    .crud-method {
+        font-size: 1.125rem;
     }
-
+    
+    .method-card {
+        padding: var(--spacing-md);
+    }
+    
+    .method-badge {
+        font-size: 1rem;
+        padding: 0.375rem 1rem;
+    }
+    
+    .method-description {
+        font-size: 1rem;
+    }
+    
+    .example-step {
+        padding-left: 3rem;
+    }
+    
+    .step-number {
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: 0.875rem;
+        left: 0.5rem;
+    }
+    
     .code-block pre {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .summary-icon {
+        font-size: 2.5rem;
+    }
+    
+    .summary-card h3 {
+        font-size: 1.25rem;
     }
 }
