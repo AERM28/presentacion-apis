@@ -1031,10 +1031,6 @@ a:hover {
         gap: var(--spacing-lg);
     }
     
-    .types-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
     .images-comparison {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1201,7 +1197,6 @@ a:hover {
     
     .topics-grid,
     .demo-cards,
-    .types-grid,
     .examples-container,
     .images-comparison {
         grid-template-columns: 1fr;
@@ -1487,10 +1482,17 @@ a:hover {
     }
 }
 
+
+
 @media (max-width: 360px) {
     html {
         font-size: 12px;
     }
+    
+    /* Typography para pantallas muy pequeñas */
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.35rem; }
+    h3 { font-size: 1rem; }
     
     .hero-title {
         font-size: 1.5rem;
@@ -1501,23 +1503,203 @@ a:hover {
         font-size: 1.5rem;
     }
     
+    .section-heading {
+        font-size: 1.15rem;
+    }
+    
+    .subsection-title {
+        font-size: 1rem;
+    }
+    
+    /* Navbar ultra compacto */
     .nav-menu {
         width: 100%;
         top: 65px;
         height: calc(100vh - 65px);
+        padding-top: var(--spacing-md);
     }
     
+    .brand-text {
+        font-size: 0.95rem;
+    }
+    
+    .logo {
+        font-size: 1.25rem;
+    }
+    
+    /* Contenedor más estrecho */
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    /* Botones más compactos */
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Cards ultra compactas */
+    .card,
+    .demo-card,
+    .type-card {
+        padding: 0.75rem;
+    }
+    
+    .card-icon,
+    .type-icon {
+        font-size: 1.75rem;
+    }
+    
+    .demo-image {
+        font-size: 2.5rem;
+    }
+    
+    /* API Diagram ultra compacto */
     .diagram-box {
-        padding: var(--spacing-xs) var(--spacing-sm);
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
     }
     
+    .arrow {
+        font-size: 0.7rem;
+    }
+    
+    /* Espaciado reducido */
+    .hero,
+    .topics,
+    .demo-preview,
+    .main-content {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .content-section {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    /* Definition Box ultra compacto */
+    .definition-box {
+        padding: 0.75rem;
+    }
+    
+    .definition-icon {
+        font-size: 1.75rem;
+    }
+    
+    .definition-text {
+        font-size: 0.875rem;
+    }
+    
+    /* Process List ultra compacto */
     .process-list li {
         padding-left: 2rem;
+        font-size: 0.85rem;
     }
     
     .process-list li::before {
         width: 1.5rem;
         height: 1.5rem;
         font-size: 0.75rem;
+    }
+    
+    /* Examples ultra compactos */
+    .example-item {
+        padding: 0.5rem;
+    }
+    
+    .example-emoji {
+        font-size: 1rem;
+    }
+    
+    .example-item h3 {
+        font-size: 0.9rem;
+    }
+    
+    .example-item p {
+        font-size: 0.8rem;
+    }
+    
+    /* Navigation ultra compacta */
+    .page-navigation {
+        margin-top: var(--spacing-md);
+        padding-top: var(--spacing-md);
+    }
+    
+    .nav-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Footer ultra compacto */
+    .footer {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .footer-section h4 {
+        font-size: 0.95rem;
+    }
+    
+    .footer-section p,
+    .footer-links a {
+        font-size: 0.75rem;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 320px) {
+    html {
+        font-size: 11px;
+    }
+    
+    /* Ajustes extremos para pantallas de 320px o menos */
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    h1 { font-size: 1.35rem; }
+    h2 { font-size: 1.2rem; }
+    h3 { font-size: 0.95rem; }
+    
+    .hero-title,
+    .section-title,
+    .page-title {
+        font-size: 1.35rem;
+    }
+    
+    .section-heading {
+        font-size: 1.1rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.85rem;
+    }
+    
+    .nav-menu {
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+    }
+    
+    .card,
+    .demo-card,
+    .type-card {
+        padding: 0.625rem;
+    }
+    
+    .definition-box {
+        padding: 0.625rem;
+    }
+    
+    .process-list li {
+        padding-left: 1.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .process-list li::before {
+        width: 1.35rem;
+        height: 1.35rem;
+        font-size: 0.7rem;
     }
 }

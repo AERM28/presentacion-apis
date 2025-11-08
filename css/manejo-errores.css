@@ -1,5 +1,5 @@
 /* ============================================
-   CSS Manejo de Errores - Mejorado y Responsive
+   CSS Manejo de Errores 
    ============================================ */
 
 /* ============================================
@@ -333,12 +333,11 @@
 }
 
 /* ============================================
-   BEST PRACTICES GRID - MEJORADO
+   BEST PRACTICES GRID 
    ============================================ */
 .best-practices-grid {
     display: grid;
-    /* Forzar exactamente 2 columnas en desktop */
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
     margin: var(--spacing-xl) 0;
 }
@@ -443,12 +442,9 @@
    ============================================ */
 .error-types {
     display: grid;
-    /* Forzar exactamente 2 columnas en desktop */
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
     margin: var(--spacing-xl) 0;
-    /* Usar grid-auto-rows para controlar la altura */
-    grid-auto-rows: 1fr;
 }
 
 .error-type-card {
